@@ -1,8 +1,8 @@
 <?php
 namespace Omeka\Controller\Site;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class ItemSetController extends AbstractActionController
 {
@@ -13,8 +13,6 @@ class ItemSetController extends AbstractActionController
     public function browseAction()
     {
         $site = $this->currentSite();
-
-        $this->setBrowseDefaults('created');
 
         $query = $this->params()->fromQuery();
         $query['site_id'] = $site->id();

@@ -6,7 +6,7 @@ use Omeka\Api\Exception;
 use Omeka\Api\Representation\ValueRepresentation;
 use Omeka\DataType\AbstractDataType;
 use Omeka\Entity\Value;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\PhpRenderer;
 use Omeka\Stdlib\Message;
 
 abstract class AbstractResource extends AbstractDataType
@@ -79,5 +79,10 @@ abstract class AbstractResource extends AbstractDataType
     public function getJsonLd(ValueRepresentation $value)
     {
         return $value->valueResource()->valueRepresentation();
+    }
+
+    public function getFulltextText(PhpRenderer $view, ValueRepresentation $value)
+    {
+        return $value->valueResource()->title();
     }
 }

@@ -13,7 +13,13 @@ class ItemSetAdapter extends AbstractResourceEntityAdapter
         'id' => 'id',
         'created' => 'created',
         'modified' => 'modified',
+        'title' => 'title',
     ];
+    /**
+     * Alias of query builder for join clause between `site` and `item_sets`.
+     * @var string
+     */
+    protected $siteItemSetsAlias;
 
     public function getResourceName()
     {
@@ -39,7 +45,7 @@ class ItemSetAdapter extends AbstractResourceEntityAdapter
             $acl = $this->getServiceLocator()->get('Omeka\Acl');
             if (!$acl->userIsAllowed('Omeka\Entity\ItemSet', 'view-all')) {
                 $expr = $qb->expr()->eq(
-                    'Omeka\Entity\ItemSet.isOpen',
+                    'omeka_root.isOpen',
                     $qb->expr()->literal(true)
                 );
                 $identity = $this->getServiceLocator()
@@ -48,7 +54,7 @@ class ItemSetAdapter extends AbstractResourceEntityAdapter
                     $expr = $qb->expr()->orX(
                         $expr,
                         $qb->expr()->eq(
-                            'Omeka\Entity\ItemSet.owner',
+                            'omeka_root.owner',
                             $this->createNamedParameter($qb, $identity->getId())
                         )
                     );
@@ -67,16 +73,15 @@ class ItemSetAdapter extends AbstractResourceEntityAdapter
             } catch (Exception\NotFoundException $e) {
                 $site = null;
             }
-            $siteItemSetsAlias = $this->createAlias();
+            $this->siteItemSetsAlias = $this->createAlias();
             $qb->innerJoin(
-                'Omeka\Entity\ItemSet.siteItemSets',
-                $siteItemSetsAlias
+                'omeka_root.siteItemSets',
+                $this->siteItemSetsAlias
             );
             $qb->andWhere($qb->expr()->eq(
-                "$siteItemSetsAlias.site",
+                "$this->siteItemSetsAlias.site",
                 $this->createNamedParameter($qb, $query['site_id']))
             );
-            $qb->addOrderBy("$siteItemSetsAlias.position", 'ASC');
         }
     }
 
@@ -88,6 +93,10 @@ class ItemSetAdapter extends AbstractResourceEntityAdapter
             } else {
                 parent::sortQuery($qb, $query);
             }
+        }
+        //In site view, sorting by admin-defined position
+        if (isset($this->siteItemSetsAlias)) {
+            $qb->addOrderBy("$this->siteItemSetsAlias.position", 'ASC');
         }
     }
 

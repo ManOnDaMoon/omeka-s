@@ -6,8 +6,8 @@ use Omeka\Form\ResourceForm;
 use Omeka\Form\ResourceBatchUpdateForm;
 use Omeka\Media\Ingester\Manager;
 use Omeka\Stdlib\Message;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class ItemController extends AbstractActionController
 {
@@ -198,6 +198,7 @@ class ItemController extends AbstractActionController
         $form->setAttribute('id', 'add-item');
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
+            $data = $this->mergeValuesJson($data);
             $form->setData($data);
             if ($form->isValid()) {
                 $fileData = $this->getRequest()->getFiles()->toArray();
@@ -235,6 +236,7 @@ class ItemController extends AbstractActionController
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
+            $data = $this->mergeValuesJson($data);
             $form->setData($data);
             if ($form->isValid()) {
                 $fileData = $this->getRequest()->getFiles()->toArray();
@@ -271,11 +273,6 @@ class ItemController extends AbstractActionController
             return $this->redirect()->toRoute(null, ['action' => 'browse'], true);
         }
 
-        $resources = [];
-        foreach ($resourceIds as $resourceId) {
-            $resources[] = $this->api()->read('items', $resourceId)->getContent();
-        }
-
         $form = $this->getForm(ResourceBatchUpdateForm::class, ['resource_type' => 'item']);
         $form->setAttribute('id', 'batch-edit-item');
         if ($this->params()->fromPost('batch_update')) {
@@ -297,6 +294,11 @@ class ItemController extends AbstractActionController
             } else {
                 $this->messenger()->addFormErrors($form);
             }
+        }
+
+        $resources = [];
+        foreach ($resourceIds as $resourceId) {
+            $resources[] = $this->api()->read('items', $resourceId)->getContent();
         }
 
         $view = new ViewModel;

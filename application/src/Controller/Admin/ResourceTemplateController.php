@@ -8,8 +8,8 @@ use Omeka\Form\ResourceTemplateImportForm;
 use Omeka\Form\ResourceTemplateReviewImportForm;
 use Omeka\Mvc\Exception\NotFoundException;
 use Omeka\Stdlib\Message;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class ResourceTemplateController extends AbstractActionController
 {
@@ -386,6 +386,12 @@ class ResourceTemplateController extends AbstractActionController
             $data = $resourceTemplate->jsonSerialize();
             if ($data['o:resource_class']) {
                 $data['o:resource_class[o:id]'] = $data['o:resource_class']->id();
+            }
+            if ($data['o:title_property']) {
+                $data['o:title_property[o:id]'] = $data['o:title_property']->id();
+            }
+            if ($data['o:description_property']) {
+                $data['o:description_property[o:id]'] = $data['o:description_property']->id();
             }
             $form->setData($data);
         }

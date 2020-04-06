@@ -4,7 +4,7 @@ namespace Omeka\DataType;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
 use Omeka\Api\Representation\ValueRepresentation;
 use Omeka\Entity\Value;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\PhpRenderer;
 
 class Uri extends AbstractDataType
 {
@@ -63,5 +63,10 @@ class Uri extends AbstractDataType
             $jsonLd['o:label'] = $value->value();
         }
         return $jsonLd;
+    }
+
+    public function getFulltextText(PhpRenderer $view, ValueRepresentation $value)
+    {
+        return sprintf('%s %s', $value->uri(), $value->value());
     }
 }

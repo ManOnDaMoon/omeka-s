@@ -3243,6 +3243,51 @@ body.sidebar-open #content {
     }
 }
 
+.alternate-label-cell:not(:empty) {
+  background-color: $border-gray;
+  display: inline-block;
+  padding: 0 $spacing-small;
+  margin: 0 $spacing-small;
+  position: relative;
+  
+  &:after {
+      content: "";
+      border-top: $spacing-medium solid transparent;
+      border-bottom: $spacing-medium solid transparent;
+      border-left: $spacing-small solid $border-gray;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 100%;
+      top: 0;
+  }
+}
+
+.title-property-cell,
+.description-property-cell {
+    text-transform: uppercase;
+    font-size: (.75 * $base-font-size);
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: $spacing-medium;
+    
+    &:after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        display: inline-block;
+        margin-left: $spacing-small;
+    }
+    
+    ~ .actions {
+        margin-left: 0;
+    }
+}
+
+.title-property-cell ~ .description-property-cell,
+.description-property-cell ~ .title-property-cell {
+    margin-left: $spacing-medium;
+}
+
 /* @end */
 
 /* @group ----- Module: Browse ----- */
@@ -3390,6 +3435,34 @@ body.sidebar-open #content {
     cursor: default;
 }
 
+    /* @group ----- Resources ----- */
+      
+    #item-set-selector .added,
+    #user-selector .added {
+      display: none;
+    }
+    
+    #site-item-sets th:first-child,
+    #site-item-sets th:last-child {
+        width: 1.5 * $spacing-large;
+    }
+    
+    #site-item-sets .delete .sortable-handle:before,
+    #site-item-sets .delete .o-icon-delete {
+        display: none;
+    }
+    
+    #site-item-sets,
+    .has-item-sets #no-site-item-sets {
+        display: none;
+    }
+          
+    .has-item-sets #site-item-sets {
+        display: table;
+    }
+        
+    /* @end */
+
     /* @group ----- User Permissions ----- */
 
     // The :not is pointless but gets this the proper precedence
@@ -3398,7 +3471,6 @@ body.sidebar-open #content {
     }
     #site-user-permissions + .no-resources,
     #site-user-permissions.empty,
-    tr.value:not(.delete) .o-icon-undo,
     tr.value.delete .user-name,
     tr.value.delete select,
     tr.value.delete .o-icon-delete {
@@ -3421,6 +3493,14 @@ body.sidebar-open #content {
     #site-user-permissions .actions {
         justify-content: flex-end;
         padding: $spacing-small 0;
+    }
+
+    #user-selector.empty .users-available {
+        display: none;
+    }
+
+    #user-selector:not(.empty) .users-unavailable {
+        display: none;
     }
 
     /* @end */
@@ -3485,7 +3565,7 @@ body.sidebar-open #content {
         padding: 0;
     }
 
-    .delete .sortable-handle {
+    .block.delete .sortable-handle {
         display: none;
     }
 
@@ -3749,6 +3829,10 @@ body.sidebar-open #content {
             order: 2;
         }
     }
+    
+    .theme-thumbnail {
+      align-self: flex-start;
+    }
 
     .current-theme .error + ul {
         font-family: monospace;
@@ -3818,6 +3902,10 @@ body.sidebar-open #content {
         margin: 0 $spacing-large 0 0;
         border: 1px solid $border-gray;
     }
+    
+    .current-theme .current-theme-info {
+        width: calc(50% - #{$spacing-large});
+    }
 
     .current-theme-label {
         font-size: $base-font-size;
@@ -3829,6 +3917,7 @@ body.sidebar-open #content {
     .theme-meta {
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
     /* @end */

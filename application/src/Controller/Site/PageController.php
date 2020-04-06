@@ -1,11 +1,26 @@
 <?php
 namespace Omeka\Controller\Site;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class PageController extends AbstractActionController
 {
+    public function browseAction()
+    {
+        $this->setBrowseDefaults('created');
+        $query = $this->params()->fromQuery();
+        $query['site_id'] = $this->currentSite()->id();
+
+        $response = $this->api()->search('site_pages', $query);
+        $this->paginator($response->getTotalResults());
+        $pages = $response->getContent();
+
+        $view = new ViewModel;
+        $view->setVariable('pages', $pages);
+        return $view;
+    }
+
     public function showAction()
     {
         $site = $this->currentSite();

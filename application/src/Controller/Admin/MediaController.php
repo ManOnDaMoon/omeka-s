@@ -4,8 +4,8 @@ namespace Omeka\Controller\Admin;
 use Omeka\Form\ConfirmForm;
 use Omeka\Form\ResourceForm;
 use Omeka\Form\ResourceBatchUpdateForm;
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+use Laminas\Mvc\Controller\AbstractActionController;
+use Laminas\View\Model\ViewModel;
 
 class MediaController extends AbstractActionController
 {
@@ -45,11 +45,13 @@ class MediaController extends AbstractActionController
     public function editAction()
     {
         $form = $this->getForm(ResourceForm::class);
+        $form->setAttribute('id', 'edit-media');
         $response = $this->api()->read('media', $this->params('id'));
         $media = $response->getContent();
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
+            $data = $this->mergeValuesJson($data);
             $form->setData($data);
             if ($form->isValid()) {
                 $response = $this->api($form)->update('media', $this->params('id'), $data);
@@ -211,11 +213,6 @@ class MediaController extends AbstractActionController
             return $this->redirect()->toRoute(null, ['action' => 'browse'], true);
         }
 
-        $resources = [];
-        foreach ($resourceIds as $resourceId) {
-            $resources[] = $this->api()->read('media', $resourceId)->getContent();
-        }
-
         $form = $this->getForm(ResourceBatchUpdateForm::class, ['resource_type' => 'media']);
         $form->setAttribute('id', 'batch-edit-media');
         if ($this->params()->fromPost('batch_update')) {
@@ -237,6 +234,11 @@ class MediaController extends AbstractActionController
             } else {
                 $this->messenger()->addFormErrors($form);
             }
+        }
+
+        $resources = [];
+        foreach ($resourceIds as $resourceId) {
+            $resources[] = $this->api()->read('media', $resourceId)->getContent();
         }
 
         $view = new ViewModel;

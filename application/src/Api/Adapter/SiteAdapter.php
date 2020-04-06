@@ -263,7 +263,7 @@ class SiteAdapter extends AbstractEntityAdapter
         if (isset($query['owner_id']) && is_numeric($query['owner_id'])) {
             $userAlias = $this->createAlias();
             $qb->innerJoin(
-                'Omeka\Entity\Site.owner',
+                'omeka_root.owner',
                 $userAlias
             );
             $qb->andWhere($qb->expr()->eq(
@@ -274,8 +274,15 @@ class SiteAdapter extends AbstractEntityAdapter
 
         if (isset($query['slug'])) {
             $qb->andWhere($qb->expr()->eq(
-                'Omeka\Entity\Site.slug',
+                'omeka_root.slug',
                 $this->createNamedParameter($qb, $query['slug'])
+            ));
+        }
+
+        if (isset($query['exclude_id'])) {
+            $qb->andWhere($qb->expr()->neq(
+                'omeka_root.id',
+                $this->createNamedParameter($qb, $query['exclude_id'])
             ));
         }
     }

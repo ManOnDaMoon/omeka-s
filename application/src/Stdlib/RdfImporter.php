@@ -2,9 +2,8 @@
 namespace Omeka\Stdlib;
 
 use Doctrine\ORM\EntityManager;
-use EasyRdf_Graph;
-use EasyRdf_Literal;
-use EasyRdf_Resource;
+use EasyRdf\Graph as RdfGraph;
+use EasyRdf\Resource as RdfResource;
 use Omeka\Api\Exception\ValidationException;
 use Omeka\Api\Manager as ApiManager;
 use Omeka\Entity\Property;
@@ -67,6 +66,8 @@ class RdfImporter
      *     parser will attempt to guess the format.
      *   - file: (required for "file" strategy) The RDF file path
      *   - url: (required for "url" strategy) The URL of the RDF file.
+     *   - label_property: (optional) The RDF property containing the preferred
+     *     property label (defaults to "skos:prefLabel|rdfs:label|foaf:name|rss:title|dc:title|dc11:title")
      *   - comment_property: (optional) The RDF property containing the preferred
      *     property comment (defaults to "rdfs:comment")
      *   - lang: (optional) The preferred language of labels and comments
@@ -78,6 +79,9 @@ class RdfImporter
             // EasyRDF should guess the format if none given.
             $options['format'] = 'guess';
         }
+        if (!isset($options['label_property'])) {
+            $options['label_property'] = 'skos:prefLabel|rdfs:label|foaf:name|rss:title|dc:title|dc11:title';
+        }
         if (!isset($options['comment_property'])) {
             $options['comment_property'] = 'rdfs:comment';
         }
@@ -86,7 +90,7 @@ class RdfImporter
         }
 
         // Get the full RDF graph from EasyRdf.
-        $graph = new EasyRdf_Graph;
+        $graph = new RdfGraph;
         switch ($strategy) {
             case 'file':
                 // Import from a file
@@ -99,7 +103,7 @@ class RdfImporter
                 }
                 try {
                     $graph->parseFile($file, $options['format'], $namespaceUri);
-                } catch (\EasyRdf_Exception $e) {
+                } catch (\EasyRdf\Exception $e) {
                     throw new ValidationException($e->getMessage(), $e->getCode(), $e);
                 }
                 break;
@@ -110,7 +114,7 @@ class RdfImporter
                 }
                 try {
                     $graph->load($options['url'], $options['format']);
-                } catch (\EasyRdf_Exception $e) {
+                } catch (\EasyRdf\Exception $e) {
                     throw new ValidationException($e->getMessage(), $e->getCode(), $e);
                 }
                 break;
@@ -118,36 +122,24 @@ class RdfImporter
                 throw new ValidationException('Unsupported import strategy.');
         }
 
-        $members = ['classes' => [], 'properties' => []];
-
-        // Iterate through all resources of the graph instead of selectively by
-        // rdf:type because a resource may have more than one type, causing
-        // illegal attempts to duplicate classes and properties.
-        foreach ($graph->resources() as $resource) {
-            // The resource must not be a blank node.
-            if ($resource->isBnode()) {
-                continue;
-            }
-            // The resource must be a local member of the vocabulary.
-            if (!$this->isMember($resource, $namespaceUri)) {
-                continue;
-            }
-            // Get the vocabulary's classes.
-            if (in_array($resource->type(), $this->classTypes)) {
-                $members['classes'][$resource->localName()] = [
-                    'label' => $this->getLabel($resource, $resource->localName(), $options['lang']),
-                    'comment' => $this->getComment($resource, $options['comment_property'], $options['lang']),
-                ];
-            }
-            // Get the vocabulary's properties.
-            if (in_array($resource->type(), $this->propertyTypes)) {
-                $members['properties'][$resource->localName()] = [
-                    'label' => $this->getLabel($resource, $resource->localName(), $options['lang']),
-                    'comment' => $this->getComment($resource, $options['comment_property'], $options['lang']),
-                ];
-            }
-        }
-        return $members;
+        return [
+            'classes' => $this->getMembersOfTypes(
+                $graph,
+                $this->classTypes,
+                $namespaceUri,
+                $options['label_property'],
+                $options['comment_property'],
+                $options['lang']
+            ),
+            'properties' => $this->getMembersOfTypes(
+                $graph,
+                $this->propertyTypes,
+                $namespaceUri,
+                $options['label_property'],
+                $options['comment_property'],
+                $options['lang']
+            ),
+        ];
     }
 
     /**
@@ -327,15 +319,32 @@ class RdfImporter
     }
 
     /**
-     * Determine whether a resource is a local member of the vocabulary.
+     * Get all members of the specified types.
      *
-     * @param EasyRdf_Resource $resource
+     * @param RdfGraph $graph
+     * @param array $types
      * @param string $namespaceUri
+     * @param string $labelProperty
+     * @param string $commentProperty
+     * @param string $lang
      */
-    protected function isMember(EasyRdf_Resource $resource, $namespaceUri)
-    {
-        $output = strncmp($resource->getUri(), $namespaceUri, strlen($namespaceUri));
-        return $output === 0;
+    protected function getMembersOfTypes(RdfGraph $graph, array $types,
+        $namespaceUri, $labelProperty, $commentProperty, $lang
+    ) {
+        $members = [];
+        foreach ($types as $type) {
+            foreach ($graph->allOfType($type) as $resource) {
+                // The resource must be a local member of the vocabulary.
+                $output = strncmp($resource->getUri(), $namespaceUri, strlen($namespaceUri));
+                if (0 === $output) {
+                    $members[$resource->localName()] = [
+                        'label' => $this->getLabel($resource, $labelProperty, $lang, $resource->localName()),
+                        'comment' => $this->getComment($resource, $commentProperty, $lang),
+                    ];
+                }
+            }
+        }
+        return $members;
     }
 
     /**
@@ -344,15 +353,16 @@ class RdfImporter
      * Attempts to get the label of the passed language. If one does not exist
      * it defaults to the first available label, if any.
      *
-     * @param EasyRdf_Resource $resource
-     * @param string $default
+     * @param RdfResource $resource
+     * @param string $labelProperty
      * @param string $lang
+     * @param string $default
      * @return string
      */
-    protected function getLabel(EasyRdf_Resource $resource, $default, $lang = null)
+    protected function getLabel(RdfResource $resource, $labelProperty, $lang, $default)
     {
-        $label = $resource->label($lang) ?: $resource->label();
-        if ($label instanceof EasyRdf_Literal) {
+        $label = $resource->get($labelProperty, 'literal', $lang) ?: $resource->get($labelProperty, 'literal');
+        if ($label) {
             $value = $label->getValue();
             if ('' !== $value) {
                 return $value;
@@ -367,15 +377,15 @@ class RdfImporter
      * Attempts to get the comment of the passed language. If one does not exist
      * it defaults to the first available comment, if any.
      *
-     * @param EasyRdf_Resource $resource
+     * @param RdfResource $resource
      * @param string $commentProperty
      * @param string $lang
      * @return string
      */
-    protected function getComment(EasyRdf_Resource $resource, $commentProperty, $lang = null)
+    protected function getComment(RdfResource $resource, $commentProperty, $lang)
     {
-        $comment = $resource->get($commentProperty, null, $lang) ?: $resource->get($commentProperty);
-        if ($comment instanceof EasyRdf_Literal) {
+        $comment = $resource->get($commentProperty, 'literal', $lang) ?: $resource->get($commentProperty, 'literal');
+        if ($comment) {
             return $comment->getValue();
         }
     }

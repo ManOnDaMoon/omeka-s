@@ -1,0 +1,51 @@
+<?php
+$translate = $this->plugin('translate');
+$hyperlink = $this->plugin('hyperlink');
+$url = $this->plugin('url');
+?>
+
+<?php echo $this->pageTitle(sprintf($translate('Search results for “%s”'), $query)); ?>
+
+<?php if (empty($results)): ?>
+    <p><?php echo $translate('No results.'); ?></p>
+<?php else: ?>
+<?php
+$resourceLabels = [
+    'site_pages' => 'Site pages', // @translate
+    'items' => 'Items', // @translate
+    'item_sets' => 'Item sets', // @translate
+    'media' => 'Media', // @translate
+];
+$resourceControllers = [
+    'site_pages' => 'page',
+    'items' => 'item',
+    'item_sets' => 'item-set',
+    'media' => 'media',
+];
+?>
+    <?php foreach ($results as $resourceName => $result): ?>
+<div>
+    <h2><?php echo $translate($resourceLabels[$resourceName]); ?></h2>
+
+    <?php if ($result['total']): ?>
+        <?php $titleMethod = $resourceName === 'site_pages' ? 'title' : 'displayTitle'; ?>
+    <ul>
+        <?php foreach ($result['resources'] as $resource): ?>
+        <li><?php echo $resource->link($resource->$titleMethod()); ?></li>
+        <?php endforeach; ?>
+    </ul>
+        <?php echo $hyperlink(
+            sprintf($translate('View all results (%s total)'), $result['total']),
+            $url(
+                'site/resource',
+                ['controller' => $resourceControllers[$resourceName], 'action' => 'browse'],
+                ['query' => ['fulltext_search' => $query]],
+                true
+            )
+        ); ?>
+        <?php else: ?>
+    <p><?php echo $translate('No result found'); ?></p>
+        <?php endif; ?>
+</div>
+    <?php endforeach; ?>
+<?php endif; ?>

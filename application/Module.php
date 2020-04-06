@@ -1,9 +1,10 @@
 <?php
 namespace Omeka;
 
+use Omeka\Api\Adapter\FulltextSearchableInterface;
 use Omeka\Module\AbstractModule;
-use Zend\EventManager\Event as ZendEvent;
-use Zend\EventManager\SharedEventManagerInterface;
+use Laminas\EventManager\Event as ZendEvent;
+use Laminas\EventManager\SharedEventManagerInterface;
 
 /**
  * The Omeka module.
@@ -13,7 +14,7 @@ class Module extends AbstractModule
     /**
      * This Omeka version.
      */
-    const VERSION = '1.4.0';
+    const VERSION = '2.1.1';
 
     /**
      * The vocabulary IRI used to define Omeka application data.
@@ -37,7 +38,7 @@ class Module extends AbstractModule
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
         $sharedEventManager->attach(
-            'Zend\View\Helper\Navigation\AbstractHelper',
+            'Laminas\View\Helper\Navigation\AbstractHelper',
             'isAllowed',
             [$this, 'navigationPageIsAllowed']
         );
@@ -46,6 +47,12 @@ class Module extends AbstractModule
             'Omeka\Entity\Media',
             'entity.remove.post',
             [$this, 'deleteMediaFiles']
+        );
+
+        $sharedEventManager->attach(
+            'Omeka\Entity\ResourceTemplate',
+            'entity.update.pre',
+            [$this, 'refreshResourceTemplateResourceTitles']
         );
 
         $sharedEventManager->attach(
@@ -88,6 +95,30 @@ class Module extends AbstractModule
             '*',
             'api.context',
             [$this, 'addTermDefinitionsToContext']
+        );
+
+        $sharedEventManager->attach(
+            '*',
+            'api.create.post',
+            [$this, 'saveFulltext']
+        );
+
+        $sharedEventManager->attach(
+            '*',
+            'api.update.post',
+            [$this, 'saveFulltext']
+        );
+
+        $sharedEventManager->attach(
+            '*',
+            'api.delete.post',
+            [$this, 'deleteFulltext']
+        );
+
+        $sharedEventManager->attach(
+            '*',
+            'api.search.query',
+            [$this, 'searchFulltext']
         );
 
         $sharedEventManager->attach(
@@ -215,6 +246,44 @@ class Module extends AbstractModule
     }
 
     /**
+     * Refresh resource titles when updating a resource template.
+     *
+     * @param ZendEvent $event
+     */
+    public function refreshResourceTemplateResourceTitles(ZendEvent $event)
+    {
+        $args = $event->getParam('LifecycleEventArgs');
+        if (!$args->hasChangedField('titleProperty')) {
+            return;
+        }
+        $services = $this->getServiceLocator();
+        $resourceTemplate = $event->getTarget();
+        $titleProperty = $resourceTemplate->getTitleProperty();
+        if (!$titleProperty) {
+            // Fall back on dcterms:title as the title property.
+            $adapter = $services->get('Omeka\ApiAdapterManager')->get('items');
+            $titleProperty = $adapter->getPropertyByTerm('dcterms:title');
+        }
+        $sql = '
+        UPDATE resource
+        SET resource.title = (
+          SELECT value.value
+          FROM value AS value
+          WHERE value.resource_id = resource.id
+          AND value.property_id = :property_id
+          AND value.value IS NOT NULL
+          AND value.value != ""
+          ORDER BY value.id ASC
+          LIMIT 1
+        )
+        WHERE resource.resource_template_id = :resource_template_id';
+        $stmt = $services->get('Omeka\Connection')->prepare($sql);
+        $stmt->bindValue('property_id', $titleProperty->getId());
+        $stmt->bindValue('resource_template_id', $resourceTemplate->getId());
+        $stmt->execute();
+    }
+
+    /**
      * Filter the JSON-LD for HTML media.
      *
      * @param ZendEvent $event
@@ -276,7 +345,7 @@ class Module extends AbstractModule
         $adapter = $event->getTarget();
         $itemAlias = $adapter->createAlias();
         $qb = $event->getParam('queryBuilder');
-        $qb->innerJoin('Omeka\Entity\Media.item', $itemAlias);
+        $qb->innerJoin('omeka_root.item', $itemAlias);
 
         // Users can view media they do not own that belong to public items.
         $expression = $qb->expr()->eq("$itemAlias.isPublic", true);
@@ -312,19 +381,19 @@ class Module extends AbstractModule
         $qb = $event->getParam('queryBuilder');
 
         // Users can view sites they do not own that are public.
-        $expression = $qb->expr()->eq("Omeka\Entity\Site.isPublic", true);
+        $expression = $qb->expr()->eq("omeka_root.isPublic", true);
 
         $identity = $this->getServiceLocator()
             ->get('Omeka\AuthenticationService')->getIdentity();
         if ($identity) {
             $sitePermissionAlias = $adapter->createAlias();
-            $qb->leftJoin('Omeka\Entity\Site.sitePermissions', $sitePermissionAlias);
+            $qb->leftJoin('omeka_root.sitePermissions', $sitePermissionAlias);
 
             $expression = $qb->expr()->orX(
                 $expression,
                 // Users can view all sites they own.
                 $qb->expr()->eq(
-                    "Omeka\Entity\Site.owner",
+                    'omeka_root.owner',
                     $adapter->createNamedParameter($qb, $identity)
                 ),
                 // Users can view sites where they have a role (any role).
@@ -427,5 +496,97 @@ class Module extends AbstractModule
 
         $entityManager = $this->getServiceLocator()->get('Omeka\EntityManager');
         $entityManager->flush();
+    }
+
+    /**
+     * Save the fulltext of an API resource.
+     *
+     * @param ZendEvent $event
+     */
+    public function saveFulltext(ZendEvent $event)
+    {
+        $fulltext = $this->getServiceLocator()->get('Omeka\FulltextSearch');
+        $fulltext->save(
+            $event->getParam('response')->getContent(),
+            $event->getTarget()
+        );
+    }
+
+    /**
+     * Delete the fulltext of an API resource.
+     *
+     * @param ZendEvent $event
+     */
+    public function deleteFulltext(ZendEvent $event)
+    {
+        $fulltext = $this->getServiceLocator()->get('Omeka\FulltextSearch');
+        $fulltext->delete(
+            // Note that the resource may not have an ID after being deleted.
+            $event->getParam('request')->getId(),
+            $event->getTarget()
+        );
+    }
+
+    /**
+     * Search the fulltext of an API resource.
+     *
+     * Note that this only works for entity resources.
+     *
+     * @param ZendEvent $event
+     */
+    public function searchFulltext(ZendEvent $event)
+    {
+        $adapter = $event->getTarget();
+        if (!($adapter instanceof FulltextSearchableInterface)) {
+            return;
+        }
+        $query = $event->getParam('request')->getContent();
+        if (!isset($query['fulltext_search']) || ('' === trim($query['fulltext_search']))) {
+            return;
+        }
+        $qb = $event->getParam('queryBuilder');
+
+        $searchAlias = $adapter->createAlias();
+        $matchAlias = $adapter->createAlias();
+
+        $match = sprintf(
+            'MATCH(%s.title, %s.text) AGAINST (%s)',
+            $searchAlias,
+            $searchAlias,
+            $adapter->createNamedParameter($qb, $query['fulltext_search'])
+        );
+        $joinConditions = sprintf(
+            '%s.id = omeka_root.id AND %s.resource = %s',
+            $searchAlias,
+            $searchAlias,
+            $adapter->createNamedParameter($qb, $adapter->getResourceName())
+        );
+
+        $qb->addSelect(sprintf('%s AS %s', $match, $matchAlias))
+            ->innerJoin('Omeka\Entity\FulltextSearch', $searchAlias, 'WITH', $joinConditions)
+            // Filter out resources with no similarity.
+            ->andWhere(sprintf('%s > 0', $match))
+            // Order by the relevance. Note the use of orderBy() and not
+            // addOrderBy(). This should ensure that ordering by relevance
+            // is the first thing being ordered.
+            ->orderBy($matchAlias, 'DESC');
+
+        // Set visibility constraints.
+        $acl = $this->getServiceLocator()->get('Omeka\Acl');
+        if ($acl->userIsAllowed('Omeka\Entity\Resource', 'view-all')) {
+            // Users with the "view-all" privilege can view all resources.
+            return;
+        }
+        // Users can view public resources they do not own.
+        $constraints = $qb->expr()->eq(sprintf('%s.isPublic', $searchAlias), true);
+        $identity = $this->getServiceLocator()->get('Omeka\AuthenticationService')->getIdentity();
+        if ($identity) {
+            // Users can view all resources they own.
+            $constraints = $qb->expr()->orX(
+                $constraints,
+                $qb->expr()->eq(sprintf('%s.owner', $searchAlias), $identity->getId())
+            );
+        }
+        $qb->andWhere($constraints);
     }
 }

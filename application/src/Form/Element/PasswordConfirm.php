@@ -1,8 +1,8 @@
 <?php
 namespace Omeka\Form\Element;
 
-use Zend\Form\Fieldset;
-use Zend\InputFilter\InputFilterProviderInterface;
+use Laminas\Form\Fieldset;
+use Laminas\InputFilter\InputFilterProviderInterface;
 
 class PasswordConfirm extends Fieldset implements InputFilterProviderInterface
 {
@@ -36,7 +36,7 @@ class PasswordConfirm extends Fieldset implements InputFilterProviderInterface
             && isset($config['symbol_list']) && is_string($config['symbol_list'])
             && strlen($config['symbol_list'])
         ) {
-            $requirements[] = sprintf('contain at least %s symbols: %s', // @translate
+            $requirements[] = sprintf('contain at least %1$s symbols: %2$s', // @translate
                 $config['min_symbol'], $config['symbol_list']);
         }
 

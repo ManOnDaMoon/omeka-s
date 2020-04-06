@@ -2,7 +2,7 @@
 namespace Omeka\Form;
 
 use Omeka\Form\Element\ResourceClassSelect;
-use Zend\Form\Form;
+use Laminas\Form\Form;
 
 class ResourceTemplateForm extends Form
 {
@@ -31,6 +31,21 @@ class ResourceTemplateForm extends Form
                 'class' => 'chosen-select',
                 'data-placeholder' => 'Select a class',
                 'id' => 'o:resource_class[o:id]',
+            ],
+        ]);
+
+        $this->add([
+            'name' => 'o:title_property[o:id]',
+            'type' => 'hidden',
+            'attributes' => [
+                'id' => 'title-property-id',
+            ],
+        ]);
+        $this->add([
+            'name' => 'o:description_property[o:id]',
+            'type' => 'hidden',
+            'attributes' => [
+                'id' => 'description-property-id',
             ],
         ]);
 

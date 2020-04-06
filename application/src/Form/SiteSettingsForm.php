@@ -3,9 +3,9 @@ namespace Omeka\Form;
 
 use Omeka\Form\Element\PropertySelect;
 use Omeka\Settings\SiteSettings;
-use Zend\Form\Form;
-use Zend\EventManager\EventManagerAwareTrait;
-use Zend\EventManager\Event;
+use Laminas\Form\Form;
+use Laminas\EventManager\EventManagerAwareTrait;
+use Laminas\EventManager\Event;
 
 class SiteSettingsForm extends Form
 {
@@ -150,12 +150,13 @@ class SiteSettingsForm extends Form
             'type' => PropertySelect::class,
             'options' => [
                 'label' => 'Browse heading property', // @translate
-                'info' => 'Use this property for the heading of each resource on a browse page. Default is "Dublin Core: Title".', // @translate
+                'info' => 'Use this property for the heading of each resource on a browse page. Keep unselected to use the default title property of each resource.', // @translate
                 'term_as_value' => true,
+                'empty_option' => '',
             ],
             'attributes' => [
                 'id' => 'browse_heading_property_term',
-                'value' => $headingTerm ? $headingTerm : 'dcterms:title',
+                'value' => $headingTerm,
                 'class' => 'chosen-select',
                 'data-placeholder' => 'Select a property', // @translate
             ],
@@ -166,12 +167,13 @@ class SiteSettingsForm extends Form
             'type' => PropertySelect::class,
             'options' => [
                 'label' => 'Browse body property', // @translate
-                'info' => 'Use this property for the body of each resource on a browse page. Default is "Dublin Core: Description".', // @translate
+                'info' => 'Use this property for the body of each resource on a browse page. Keep unselected to use the default description property of each resource.', // @translate
                 'term_as_value' => true,
+                'empty_option' => '',
             ],
             'attributes' => [
                 'id' => 'browse_body_property_term',
-                'value' => $bodyTerm ? $bodyTerm : 'dcterms:description',
+                'value' => $bodyTerm,
                 'class' => 'chosen-select',
                 'data-placeholder' => 'Select a property', // @translate
             ],
@@ -186,6 +188,25 @@ class SiteSettingsForm extends Form
             ],
         ]);
         $searchFieldset = $this->get('search');
+        $resourceNames = [
+            'site_pages' => 'Site pages', // @translate
+            'items' => 'Items', // @translate
+            'item_sets' => 'Item sets', // @translate
+        ];
+        $searchFieldset->add([
+            'name' => 'search_resource_names',
+            'type' => \Zend\Form\Element\MultiCheckbox::class,
+            'options' => [
+                'label' => 'Search resources', // @translate
+                'info' => 'Customize which types of resources will be searchable in the main search field.', // @translate
+                'value_options' => $resourceNames,
+            ],
+            'attributes' => [
+                'id' => 'search_resource_names',
+                'value' => $settings->get('search_resource_names', ['site_pages', 'items']),
+                'required' => false,
+            ],
+        ]);
         $searchFieldset->add([
             'type' => 'Omeka\Form\Element\ResourceTemplateSelect',
             'name' => 'search_apply_templates',
@@ -233,6 +254,21 @@ class SiteSettingsForm extends Form
             'validators' => [
                 ['name' => 'Digits'],
             ],
+        ]);
+        $inputFilter->get('browse')->add([
+            'name' => 'browse_heading_property_term',
+            'required' => false,
+            'allow_empty' => true,
+        ]);
+        $inputFilter->get('browse')->add([
+            'name' => 'browse_body_property_term',
+            'required' => false,
+            'allow_empty' => true,
+        ]);
+        $inputFilter->get('search')->add([
+            'name' => 'search_resource_names',
+            'required' => false,
+            'allow_empty' => true,
         ]);
         $inputFilter->get('search')->add([
             'name' => 'search_apply_templates',

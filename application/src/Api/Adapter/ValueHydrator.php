@@ -5,7 +5,7 @@ use Doctrine\Common\Collections\Criteria;
 use Omeka\Api\Request;
 use Omeka\Entity\Resource;
 use Omeka\Entity\Value;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 
 class ValueHydrator
 {
@@ -42,6 +42,20 @@ class ValueHydrator
             ));
             foreach ($valueCollection->matching($criteria) as $value) {
                 $valueCollection->removeElement($value);
+            }
+        }
+
+        // During UPDATE requests set the value visibility for all properties
+        // passed via the "set_value_visibility" key.
+        if ($isUpdate && isset($representation['set_value_visibility']['property_id'])
+            && is_array($representation['set_value_visibility']['property_id'])
+            && isset($representation['set_value_visibility']['is_public'])
+        ) {
+            $criteria = Criteria::create()->where(
+                Criteria::expr()->in('property', $representation['set_value_visibility']['property_id']
+            ));
+            foreach ($valueCollection->matching($criteria) as $value) {
+                $value->setIsPublic($representation['set_value_visibility']['is_public']);
             }
         }
 

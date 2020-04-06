@@ -1,7 +1,9 @@
 <?php
 namespace Omeka\Api\Adapter;
 
+use Doctrine\ORM\QueryBuilder;
 use Omeka\Api\Exception\NotFoundException;
+use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Api\Request;
 use Omeka\Entity\EntityInterface;
 use Omeka\Entity\SiteBlockAttachment;
@@ -10,7 +12,7 @@ use Omeka\Entity\SitePageBlock;
 use Omeka\Stdlib\ErrorStore;
 use Omeka\Stdlib\Message;
 
-class SitePageAdapter extends AbstractEntityAdapter
+class SitePageAdapter extends AbstractEntityAdapter implements FulltextSearchableInterface
 {
     use SiteSlugTrait;
 
@@ -33,6 +35,21 @@ class SitePageAdapter extends AbstractEntityAdapter
     public function getEntityClass()
     {
         return \Omeka\Entity\SitePage::class;
+    }
+
+    public function buildQuery(QueryBuilder $qb, array $query)
+    {
+        if (isset($query['site_id']) && is_numeric($query['site_id'])) {
+            $siteAlias = $this->createAlias();
+            $qb->innerJoin(
+                'omeka_root.site',
+                $siteAlias
+            );
+            $qb->andWhere($qb->expr()->eq(
+                "$siteAlias.id",
+                $this->createNamedParameter($qb, $query['site_id']))
+            );
+        }
     }
 
     public function hydrate(Request $request, EntityInterface $entity,
@@ -258,5 +275,41 @@ class SitePageAdapter extends AbstractEntityAdapter
         }
 
         return true;
+    }
+
+    public function getFulltextOwner($resource)
+    {
+        return $resource->getSite()->getOwner();
+    }
+
+    public function getFulltextIsPublic($resource)
+    {
+        return $resource->getSite()->isPublic();
+    }
+
+    public function getFulltextTitle($resource)
+    {
+        return $resource->getTitle();
+    }
+
+    public function getFulltextText($resource)
+    {
+        $services = $this->getServiceLocator();
+        $layouts = $services->get('Omeka\BlockLayoutManager');
+        $view = $services->get('ViewRenderer');
+        $text = [];
+        foreach ($resource->getBlocks() as $block) {
+            $layout = $layouts->get($block->getLayout());
+            $blockRepresentation = new SitePageBlockRepresentation($block, $services);
+            $text[] = $layout->getFulltextText($view, $blockRepresentation);
+            foreach ($block->getAttachments() as $attachment) {
+                $item = $attachment->getItem();
+                if ($item) {
+                    $text[] = $item->getTitle();
+                }
+                $text[] = strip_tags($attachment->getCaption());
+            }
+        }
+        return implode("\n", array_filter($text));
     }
 }

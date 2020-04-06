@@ -1,9 +1,10 @@
 <?php
 namespace Omeka\Site\BlockLayout;
 
+use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Entity\SitePageBlock;
 use Omeka\Stdlib\ErrorStore;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\PhpRenderer;
 
 abstract class AbstractBlockLayout implements BlockLayoutInterface
 {
@@ -16,6 +17,10 @@ abstract class AbstractBlockLayout implements BlockLayoutInterface
     }
 
     public function onHydrate(SitePageBlock $block, ErrorStore $errorStore)
+    {
+    }
+
+    public function getFulltextText(PhpRenderer $view, SitePageBlockRepresentation $block)
     {
     }
 }

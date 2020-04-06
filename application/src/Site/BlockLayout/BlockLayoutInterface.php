@@ -6,7 +6,7 @@ use Omeka\Api\Representation\SitePageRepresentation;
 use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Entity\SitePageBlock;
 use Omeka\Stdlib\ErrorStore;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\PhpRenderer;
 
 interface BlockLayoutInterface
 {
@@ -63,4 +63,13 @@ interface BlockLayoutInterface
      * @return string
      */
     public function render(PhpRenderer $view, SitePageBlockRepresentation $block);
+
+    /**
+     * Get the the text of this block layout.
+     *
+     * @param PhpRenderer $view
+     * @param SitePageBlockRepresentation $block
+     * @return string
+     */
+    public function getFulltextText(PhpRenderer $view, SitePageBlockRepresentation $block);
 }

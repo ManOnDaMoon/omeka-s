@@ -3,7 +3,7 @@ return [
     'router' => [
         'routes' => [
             'top' => [
-                'type' => \Zend\Router\Http\Literal::class,
+                'type' => \Laminas\Router\Http\Literal::class,
                 'options' => [
                     'route' => '/',
                     'defaults' => [
@@ -14,7 +14,7 @@ return [
                 ],
             ],
             'site' => [
-                'type' => \Zend\Router\Http\Segment::class,
+                'type' => \Laminas\Router\Http\Segment::class,
                 'options' => [
                     'route' => '/s/:site-slug',
                     'constraints' => [
@@ -30,7 +30,7 @@ return [
                 'may_terminate' => true,
                 'child_routes' => [
                     'resource' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/:controller[/:action]',
                             'defaults' => [
@@ -43,7 +43,7 @@ return [
                         ],
                     ],
                     'resource-id' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/:controller/:id[/:action]',
                             'defaults' => [
@@ -57,7 +57,7 @@ return [
                         ],
                     ],
                     'item-set' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/item-set/:item-set-id',
                             'defaults' => [
@@ -69,8 +69,18 @@ return [
                             ],
                         ],
                     ],
+                    'page-browse' => [
+                        'type' => \Laminas\Router\Http\Literal::class,
+                        'options' => [
+                            'route' => '/page',
+                            'defaults' => [
+                                'controller' => 'Page',
+                                'action' => 'browse',
+                            ],
+                        ],
+                    ],
                     'page' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/page/:page-slug',
                             'defaults' => [
@@ -82,7 +92,7 @@ return [
                 ],
             ],
             'admin' => [
-                'type' => \Zend\Router\Http\Literal::class,
+                'type' => \Laminas\Router\Http\Literal::class,
                 'options' => [
                     'route' => '/admin',
                     'defaults' => [
@@ -95,7 +105,7 @@ return [
                 'may_terminate' => true,
                 'child_routes' => [
                     'default' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/:controller[/:action]',
                             'constraints' => [
@@ -108,7 +118,7 @@ return [
                         ],
                     ],
                     'id' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '/:controller/:id[/:action]',
                             'constraints' => [
@@ -122,7 +132,7 @@ return [
                         ],
                     ],
                     'site' => [
-                        'type' => \Zend\Router\Http\Literal::class,
+                        'type' => \Laminas\Router\Http\Literal::class,
                         'options' => [
                             'route' => '/site',
                             'defaults' => [
@@ -135,7 +145,7 @@ return [
                         'may_terminate' => true,
                         'child_routes' => [
                             'slug' => [
-                                'type' => \Zend\Router\Http\Segment::class,
+                                'type' => \Laminas\Router\Http\Segment::class,
                                 'options' => [
                                     'route' => '/s/:site-slug',
                                     'constraints' => [
@@ -148,7 +158,7 @@ return [
                                 'may_terminate' => true,
                                 'child_routes' => [
                                     'action' => [
-                                        'type' => \Zend\Router\Http\Segment::class,
+                                        'type' => \Laminas\Router\Http\Segment::class,
                                         'options' => [
                                             'route' => '[/:action]',
                                             'constraints' => [
@@ -157,7 +167,7 @@ return [
                                         ],
                                     ],
                                     'page' => [
-                                        'type' => \Zend\Router\Http\Segment::class,
+                                        'type' => \Laminas\Router\Http\Segment::class,
                                         'options' => [
                                             'route' => '/page',
                                             'defaults' => [
@@ -168,7 +178,7 @@ return [
                                         'may_terminate' => true,
                                         'child_routes' => [
                                             'default' => [
-                                                'type' => \Zend\Router\Http\Segment::class,
+                                                'type' => \Laminas\Router\Http\Segment::class,
                                                 'options' => [
                                                     'route' => '/:page-slug[/:action]',
                                                     'constraints' => [
@@ -185,7 +195,7 @@ return [
                                 ],
                             ],
                             'add' => [
-                                'type' => \Zend\Router\Http\Literal::class,
+                                'type' => \Laminas\Router\Http\Literal::class,
                                 'options' => [
                                     'route' => '/add',
                                     'defaults' => [
@@ -198,7 +208,7 @@ return [
                 ],
             ],
             'api' => [
-                'type' => \Zend\Router\Http\Literal::class,
+                'type' => \Laminas\Router\Http\Literal::class,
                 'options' => [
                     'route' => '/api',
                     'defaults' => [
@@ -209,7 +219,7 @@ return [
                 'may_terminate' => true,
                 'child_routes' => [
                     'default' => [
-                        'type' => \Zend\Router\Http\Segment::class,
+                        'type' => \Laminas\Router\Http\Segment::class,
                         'options' => [
                             'route' => '[/:resource[/:id]]',
                             'constraints' => [
@@ -220,7 +230,7 @@ return [
                 ],
             ],
             'api-context' => [
-                'type' => \Zend\Router\Http\Literal::class,
+                'type' => \Laminas\Router\Http\Literal::class,
                 'options' => [
                     'route' => '/api-context',
                     'defaults' => [
@@ -230,7 +240,7 @@ return [
                 ],
             ],
             'install' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/install(/.*)?',
                     'spec' => '/install',
@@ -241,7 +251,7 @@ return [
                 ],
             ],
             'migrate' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/migrate(/.*)?',
                     'spec' => '/migrate',
@@ -252,7 +262,7 @@ return [
                 ],
             ],
             'maintenance' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/maintenance(/.*)?',
                     'spec' => '/maintenance',
@@ -263,7 +273,7 @@ return [
                 ],
             ],
             'login' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/login(/.*)?',
                     'spec' => '/login',
@@ -274,7 +284,7 @@ return [
                 ],
             ],
             'logout' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/logout(/.*)?',
                     'spec' => '/logout',
@@ -285,7 +295,7 @@ return [
                 ],
             ],
             'create-password' => [
-                'type' => \Zend\Router\Http\Segment::class,
+                'type' => \Laminas\Router\Http\Segment::class,
                 'options' => [
                     'route' => '/create-password/:key',
                     'constraints' => [
@@ -298,7 +308,7 @@ return [
                 ],
             ],
             'forgot-password' => [
-                'type' => \Zend\Router\Http\Regex::class,
+                'type' => \Laminas\Router\Http\Regex::class,
                 'options' => [
                     'regex' => '/forgot-password(/.*)?',
                     'spec' => '/forgot-password',

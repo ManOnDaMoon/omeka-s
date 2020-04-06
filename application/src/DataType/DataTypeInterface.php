@@ -4,7 +4,7 @@ namespace Omeka\DataType;
 use Omeka\Entity\Value;
 use Omeka\Api\Adapter\AbstractEntityAdapter;
 use Omeka\Api\Representation\ValueRepresentation;
-use Zend\View\Renderer\PhpRenderer;
+use Laminas\View\Renderer\PhpRenderer;
 
 /**
  * Interface for data types.
@@ -90,4 +90,13 @@ interface DataTypeInterface
      * @return array
      */
     public function getJsonLd(ValueRepresentation $value);
+
+    /**
+     * Get the the fulltext of this value.
+     *
+     * @param PhpRenderer $view
+     * @param ValueRepresentation $value
+     * @return string
+     */
+    public function getFulltextText(PhpRenderer $view, ValueRepresentation $value);
 }

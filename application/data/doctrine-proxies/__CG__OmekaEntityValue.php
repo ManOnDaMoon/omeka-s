@@ -356,6 +356,17 @@ class Value extends \Omeka\Entity\Value implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
+    public function getIsPublic()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIsPublic', []);
+
+        return parent::getIsPublic();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function isPublic()
     {
 

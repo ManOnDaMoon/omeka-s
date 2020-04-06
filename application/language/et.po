@@ -5,15 +5,17 @@
 # 
 # Translators:
 # Rivo Zängov <eraser@eraser.ee>, 2019
+# John Flatness <john@zerocrates.org>, 2020
+# Moon Ika, 2020
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-08 14:28-0400\n"
+"POT-Creation-Date: 2020-01-27 13:06-0500\n"
 "PO-Revision-Date: 2017-06-13 18:56+0000\n"
-"Last-Translator: Rivo Zängov <eraser@eraser.ee>, 2019\n"
+"Last-Translator: Moon Ika, 2020\n"
 "Language-Team: Estonian (https://www.transifex.com/omeka/teams/14184/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,31 +63,31 @@ msgstr "Adapteris %1$s pole kustutamise funktsiooni."
 msgid "The %1$s adapter does not implement the batch delete operation."
 msgstr "Adapteris %1$s pole hulgi kustutamise funktsiooni."
 
-#: application/src/Api/Adapter/AbstractEntityAdapter.php:239
+#: application/src/Api/Adapter/AbstractEntityAdapter.php:241
 #, php-format
-msgid "The \"%s\" field is not available in the %s entity class."
+msgid "The \"%1$s\" field is not available in the %2$s entity class."
 msgstr ""
 
-#: application/src/Api/Adapter/AbstractEntityAdapter.php:582
+#: application/src/Api/Adapter/AbstractEntityAdapter.php:586
 #: application/src/Api/Manager.php:209
 #, php-format
-msgid "Permission denied for the current user to %s the %s resource."
+msgid "Permission denied for the current user to %1$s the %2$s resource."
 msgstr ""
 
-#: application/src/Api/Adapter/AbstractEntityAdapter.php:624
+#: application/src/Api/Adapter/AbstractEntityAdapter.php:628
 #, php-format
-msgid "%s entity with criteria %s not found"
-msgstr "%s sissekannet kriteeriumiga %s ei leitud"
+msgid "%1$s entity with criteria %2$s not found"
+msgstr "%1$s sissekannet kriteeriumiga %2$s ei leitud"
 
 #: application/src/Api/Adapter/SiteAdapter.php:136
 msgid "Welcome"
-msgstr "Teretulemast"
+msgstr "Tere tulemast"
 
 #: application/src/Api/Adapter/SiteAdapter.php:141
 msgid "Welcome to your new site. This is an example page."
-msgstr "Teretulemast sinu uuele saidile. See on näidis lehekülg."
+msgstr "Tere tulemast sinu uuele saidile. See on näidislehekülg."
 
-#: application/src/Api/Adapter/SiteAdapter.php:351
+#: application/src/Api/Adapter/SiteAdapter.php:358
 msgid "Browse"
 msgstr "Sirvi"
 
@@ -94,7 +96,7 @@ msgstr "Sirvi"
 msgid "The API does not support the \"%s\" resource."
 msgstr "API ei toeta ressurssi \"%s\"."
 
-#: application/src/Api/Representation/AbstractResourceEntityRepresentation.php:484
+#: application/src/Api/Representation/AbstractResourceEntityRepresentation.php:504
 #: application/view/common/block-layout/browse-preview.phtml:15
 #: application/view/omeka/site/item-set/browse.phtml:23
 #: application/view/omeka/site/item/browse.phtml:58
@@ -109,11 +111,11 @@ msgstr "Vaikeväärtus"
 msgid "Asset uploads must be POSTed."
 msgstr ""
 
-#: application/src/Controller/Admin/ItemController.php:211
+#: application/src/Controller/Admin/ItemController.php:212
 msgid "Add another item?"
 msgstr "Lisada veel üks ühik?"
 
-#: application/src/Controller/Admin/ItemSetController.php:35
+#: application/src/Controller/Admin/ItemSetController.php:36
 msgid "Add another item set?"
 msgstr "Lisada veel üks ühikute kogum?"
 
@@ -121,7 +123,7 @@ msgstr "Lisada veel üks ühikute kogum?"
 #: application/src/Controller/Admin/ModuleController.php:76
 #: application/view/common/advanced-search/users.phtml:47
 msgid "Active"
-msgstr "ktiivne"
+msgstr "Aktiivne"
 
 #: application/src/Controller/Admin/ModuleController.php:70
 #: application/src/Controller/Admin/ModuleController.php:77
@@ -160,7 +162,7 @@ msgstr "Vigane INI"
 msgid "Invalid Omeka S version"
 msgstr "Vigane Omeka S versioon"
 
-#: application/src/Controller/Admin/ResourceTemplateController.php:409
+#: application/src/Controller/Admin/ResourceTemplateController.php:415
 msgid "Add another resource template?"
 msgstr "Lisada veel üks ressursi mall?"
 
@@ -192,12 +194,12 @@ msgstr "Tundmatu"
 
 #: application/src/Media/Renderer/IIIF.php:14
 msgid "OpenSeadragon is not available unless JavaScript is enabled."
-msgstr ""
+msgstr "OpenSeadragon pole saadaval, kui JavaScript pole lubatud."
 
 #: application/src/Module/Manager.php:170
 #, php-format
-msgid "Module \"%s\" is marked as \"%s\" and cannot be activated"
-msgstr "Mooduli \"%s\" staatus on \"%s\" ja seda ei saa arhiveerida"
+msgid "Module \"%1$s\" is marked as \"%2$s\" and cannot be activated"
+msgstr "Mooduli \"%1$s\" staatus on \"%2$s\" ja seda ei saa arhiveerida"
 
 #: application/src/Module/Manager.php:181
 #, php-format
@@ -206,8 +208,8 @@ msgstr "Moodul \"%s\" polnud aktiveerimise ajal andmebaasis"
 
 #: application/src/Module/Manager.php:202
 #, php-format
-msgid "Module \"%s\" is marked as \"%s\" and cannot be deactivated"
-msgstr "Mooduli \"%s\" staatus on \"%s\" ja seda ei saa deaktiveerida"
+msgid "Module \"%1$s\" is marked as \"%2$s\" and cannot be deactivated"
+msgstr "Mooduli \"%1$s\" staatus on \"%2$s\" ja seda ei saa deaktiveerida"
 
 #: application/src/Module/Manager.php:213
 #, php-format
@@ -216,13 +218,13 @@ msgstr "Moodul \"%s\" polnud deaktiveerimise ajal andmebaasis"
 
 #: application/src/Module/Manager.php:233
 #, php-format
-msgid "Module \"%s\" is marked as \"%s\" and cannot be installed"
-msgstr "Mooduli \"%s\" staatus on \"%s\" ja seda ei saa paigaldada"
+msgid "Module \"%1$s\" is marked as \"%2$s\" and cannot be installed"
+msgstr "Mooduli \"%1$s\" staatus on \"%2$s\" ja seda ei saa paigaldada"
 
 #: application/src/Module/Manager.php:271
 #, php-format
-msgid "Module \"%s\" is marked as \"%s\" and cannot be uninstalled"
-msgstr "Mooduli \"%s\" staatus on \"%s\" ja seda ei saa eemaldada"
+msgid "Module \"%1$s\" is marked as \"%2$s\" and cannot be uninstalled"
+msgstr "Mooduli \"%1$s\" staatus on \"%2$s\" ja seda ei saa eemaldada"
 
 #: application/src/Module/Manager.php:288
 #, php-format
@@ -231,8 +233,8 @@ msgstr "Moodulit \"%s\" ei leitud eemaldamisel andmebaasist"
 
 #: application/src/Module/Manager.php:309
 #, php-format
-msgid "Module \"%s\" is marked as \"%s\" and cannot be upgraded"
-msgstr "Mooduli \"%s\" staatus on \"%s\" ja seda ei saa uuendada"
+msgid "Module \"%1$s\" is marked as \"%2$s\" and cannot be upgraded"
+msgstr "Mooduli \"%1$s\" staatus on \"%2$s\" ja seda ei saa uuendada"
 
 #: application/src/Module/Manager.php:331
 #, php-format
@@ -241,10 +243,10 @@ msgstr "Moodulit \"%s\" ei leitud uuendamisel andmebaasist"
 
 #: application/src/Module/Manager.php:410
 #, php-format
-msgid "Permission denied for the current user to %s the %s module."
+msgid "Permission denied for the current user to %1$s the %2$s module."
 msgstr ""
 
-#: application/src/Mvc/MvcListeners.php:431
+#: application/src/Mvc/MvcListeners.php:436
 #, php-format
 msgid ""
 "Permission denied for the current user to access the %1$s action of the %2$s"
@@ -288,6 +290,14 @@ msgid ""
 "\n"
 "Your reset link will expire on %4$s."
 msgstr ""
+"Tere, %1$s!\n"
+"\n"
+"Paistab, et oled unustanud oma parooli %5$s aadressil %2$s\n"
+"\n"
+"Parooli lähtestamiseks vajuta lingile:\n"
+"%3$s\n"
+"\n"
+"Lähtestamise link aegub %4$s."
 
 #: application/src/Stdlib/Mailer.php:193
 #, php-format
@@ -349,8 +359,8 @@ msgstr "Paroolis peab olema vähemalt %s arv(u)."
 
 #: application/src/View/Helper/PasswordRequirements.php:67
 #, php-format
-msgid "Password must contain at least %s symbols: <code>%s</code>"
-msgstr "Paroolis peab olema vähemalt %s sümbol(it): <code>%s</code>"
+msgid "Password must contain at least %1$s symbols: <code>%2$s</code>"
+msgstr "Paroolis peab olema vähemalt %1$s sümbol(it): <code>%2$s</code>"
 
 #: application/src/View/Helper/SearchFilters.php:32
 #: application/view/common/advanced-search/properties.phtml:65
@@ -392,7 +402,12 @@ msgstr "on väärtusega"
 msgid "has no values"
 msgstr "ilma väärtuseta"
 
-#: application/src/View/Helper/SearchFilters.php:54
+#: application/src/View/Helper/SearchFilters.php:47
+#: application/view/common/advanced-search/fulltext.phtml:6
+msgid "Search full-text"
+msgstr ""
+
+#: application/src/View/Helper/SearchFilters.php:60
 #: application/view/common/linked-resources.phtml:33
 #: application/view/omeka/admin/item-set/browse.phtml:15
 #: application/view/omeka/admin/item-set/browse.phtml:75
@@ -410,36 +425,37 @@ msgstr "ilma väärtuseta"
 #: application/view/omeka/admin/resource-template/browse.phtml:44
 #: application/view/omeka/admin/resource-template/review-import.phtml:25
 #: application/view/omeka/admin/resource-template/show.phtml:18
-#: application/view/omeka/site/item/browse.phtml:24
+#: application/view/omeka/site/item/browse.phtml:22
 msgid "Class"
 msgstr "Klass"
 
-#: application/src/View/Helper/SearchFilters.php:58
+#: application/src/View/Helper/SearchFilters.php:64
 msgid "Unknown class"
 msgstr "Tundmatu klass"
 
-#: application/src/View/Helper/SearchFilters.php:96
+#: application/src/View/Helper/SearchFilters.php:102
 msgid "Unknown property"
 msgstr "Tundmatu omadus"
 
-#: application/src/View/Helper/SearchFilters.php:99
+#: application/src/View/Helper/SearchFilters.php:105
 msgid "[Any property]"
 msgstr "[Ükskõik milline omadus]"
 
-#: application/src/View/Helper/SearchFilters.php:107
+#: application/src/View/Helper/SearchFilters.php:113
 #: application/view/common/advanced-search/properties.phtml:50
 msgid "OR"
 msgstr "VÕI"
 
-#: application/src/View/Helper/SearchFilters.php:109
+#: application/src/View/Helper/SearchFilters.php:115
 #: application/view/common/advanced-search/properties.phtml:49
 msgid "AND"
 msgstr "JA"
 
-#: application/src/View/Helper/SearchFilters.php:118
-#: application/view/common/search-form.phtml:7
+#: application/src/View/Helper/SearchFilters.php:124
 #: application/view/common/search-form.phtml:8
-#: application/view/layout/layout-admin.phtml:61
+#: application/view/common/search-form.phtml:9
+#: application/view/common/search-form.phtml:10
+#: application/view/layout/layout-admin.phtml:62
 #: application/view/omeka/admin/item-set/search.phtml:13
 #: application/view/omeka/admin/item-set/sidebar-select.phtml:12
 #: application/view/omeka/admin/item/search.phtml:13
@@ -452,37 +468,37 @@ msgstr "JA"
 msgid "Search"
 msgstr "Otsi"
 
-#: application/src/View/Helper/SearchFilters.php:131
+#: application/src/View/Helper/SearchFilters.php:137
 msgid "Template"
 msgstr "Mall"
 
-#: application/src/View/Helper/SearchFilters.php:135
+#: application/src/View/Helper/SearchFilters.php:141
 msgid "Unknown template"
 msgstr "Tundmatu mall"
 
-#: application/src/View/Helper/SearchFilters.php:150
-#: application/view/omeka/site/item/browse.phtml:36
+#: application/src/View/Helper/SearchFilters.php:156
+#: application/view/omeka/site/item/browse.phtml:34
 msgid "Item set"
 msgstr "Ühikute kogum"
 
-#: application/src/View/Helper/SearchFilters.php:154
+#: application/src/View/Helper/SearchFilters.php:160
 msgid "Unknown item set"
 msgstr "Tundmatu ühikute kogum"
 
-#: application/src/View/Helper/SearchFilters.php:162
+#: application/src/View/Helper/SearchFilters.php:168
 #: application/view/omeka/site-admin/index/users.phtml:30
 msgid "User"
 msgstr "Kasutaja"
 
-#: application/src/View/Helper/SearchFilters.php:166
+#: application/src/View/Helper/SearchFilters.php:172
 msgid "Unknown user"
 msgstr "Tundmatu kasutaja"
 
-#: application/src/View/Helper/SearchFilters.php:172
+#: application/src/View/Helper/SearchFilters.php:178
 msgid "Site"
 msgstr "Sait"
 
-#: application/src/View/Helper/SearchFilters.php:176
+#: application/src/View/Helper/SearchFilters.php:182
 #: application/src/View/Helper/SearchUserFilters.php:75
 msgid "Unknown site"
 msgstr "Tundmatu sait"
@@ -503,7 +519,7 @@ msgstr "Nimi"
 #: application/view/omeka/admin/user/browse.phtml:80
 #: application/view/omeka/admin/user/show.phtml:29
 #: application/view/omeka/site-admin/index/users.phtml:31
-#: application/view/omeka/site-admin/index/users.phtml:47
+#: application/view/omeka/site-admin/index/users.phtml:46
 msgid "Role"
 msgstr "Roll"
 
@@ -536,8 +552,8 @@ msgstr "On õigused saidil"
 msgid "The maximum upload size is %s MB."
 msgstr "Maksimaalne üleslaadimise suurus on %s MB."
 
-#: application/src/View/Helper/UserBar.php:117
-#: application/src/View/Helper/UserBar.php:148
+#: application/src/View/Helper/UserBar.php:120
+#: application/src/View/Helper/UserBar.php:161
 #: application/view/omeka/admin/index/browse.phtml:48
 #: application/view/omeka/admin/item-set/browse.phtml:109
 #: application/view/omeka/admin/item-set/edit.phtml:14
@@ -545,7 +561,7 @@ msgstr "Maksimaalne üleslaadimise suurus on %s MB."
 #: application/view/omeka/admin/item/edit.phtml:14
 #: application/view/omeka/admin/item/manage-media.phtml:44
 #: application/view/omeka/admin/media/browse.phtml:117
-#: application/view/omeka/admin/resource-template/browse.phtml:72
+#: application/view/omeka/admin/resource-template/browse.phtml:71
 #: application/view/omeka/admin/user/browse.phtml:101
 #: application/view/omeka/admin/user/edit.phtml:14
 #: application/view/omeka/admin/vocabulary/browse.phtml:59
@@ -557,7 +573,7 @@ msgstr "Maksimaalne üleslaadimise suurus on %s MB."
 msgid "Edit"
 msgstr "Muuda"
 
-#: application/src/View/Helper/UserBar.php:155
+#: application/src/View/Helper/UserBar.php:154
 #: application/view/omeka/site-admin/index/show.phtml:17
 #: application/view/omeka/site-admin/page/edit.phtml:15
 msgid "View"
@@ -577,14 +593,14 @@ msgstr "Laienda"
 
 #: application/view/common/advanced-search/item-sets.phtml:18
 msgid "Searches for items that are assigned to any of these item sets."
-msgstr "Otsib ühikuid, mis on seotud mõnega nendest ühikute kogudest."
+msgstr "Otsib ühikuid, mis on seotud mõnega nendest ühikute kogumitest."
 
 #: application/view/common/advanced-search/item-sets.phtml:34
 #: application/view/common/advanced-search/properties.phtml:75
 #: application/view/common/advanced-search/resource-class.phtml:31
 #: application/view/common/advanced-search/resource-template.phtml:32
 #: application/view/common/block-layout.phtml:12
-#: application/view/common/data-type-wrapper.phtml:12
+#: application/view/common/data-type-wrapper.phtml:10
 #: application/view/common/media-field-wrapper.phtml:13
 #: application/view/omeka/admin/item/manage-media.phtml:49
 msgid "Remove value"
@@ -595,6 +611,10 @@ msgstr "Eemalda väärtus"
 #: application/view/omeka/admin/item-set/browse.phtml:42
 msgid "Add new item set"
 msgstr "Lisa uus ühikute kogum"
+
+#: application/view/common/advanced-search/media-type.phtml:6
+msgid "Search by MIME type"
+msgstr ""
 
 #: application/view/common/advanced-search/properties.phtml:33
 msgid "Query text"
@@ -634,7 +654,7 @@ msgstr "Otsi malli järgi"
 
 #: application/view/common/advanced-search/resource-template.phtml:19
 msgid "Searches for items that use any of these templates."
-msgstr ""
+msgstr "Otsib ühikuid, mille juures on kasutatud üht neist mallidest."
 
 #: application/view/common/advanced-search/resource-template.phtml:35
 msgid "Add new template"
@@ -650,7 +670,7 @@ msgstr "Otsi e-posti järgi"
 
 #: application/view/common/advanced-search/users.phtml:25
 msgid "Search by name"
-msgstr "tsi nime järgi"
+msgstr "Otsi nime järgi"
 
 #: application/view/common/advanced-search/users.phtml:33
 msgid "Search by role"
@@ -705,15 +725,16 @@ msgid "Block to be removed"
 msgstr "Eemaldatav plokk"
 
 #: application/view/common/block-layout.phtml:13
-#: application/view/common/data-type-wrapper.phtml:13
+#: application/view/common/data-type-wrapper.phtml:11
 #: application/view/omeka/admin/item/manage-media.phtml:53
-#: application/view/omeka/admin/resource-template/show-property-row.phtml:39
+#: application/view/omeka/admin/resource-template/show-property-row.phtml:40
 msgid "Restore value"
 msgstr "Taasta väärtus"
 
 #: application/view/common/block-layout/item-with-metadata.phtml:12
 #: application/view/common/data-type/resource.phtml:29
-#: application/view/layout/layout-admin.phtml:71
+#: application/view/common/item-set-selector.phtml:10
+#: application/view/layout/layout-admin.phtml:72
 #: application/view/omeka/admin/item-set/add.phtml:6
 #: application/view/omeka/admin/item-set/browse.phtml:29
 #: application/view/omeka/admin/item-set/edit.phtml:14
@@ -723,22 +744,23 @@ msgstr "Taasta väärtus"
 #: application/view/omeka/admin/item/show-details.phtml:19
 #: application/view/omeka/admin/item/show.phtml:63
 #: application/view/omeka/admin/user/show-details.phtml:17
-#: application/view/omeka/site-admin/index/resources.phtml:24
-#: application/view/omeka/site/item-set/browse.phtml:10
+#: application/view/omeka/site-admin/index/resources.phtml:23
+#: application/view/omeka/site/item-set/browse.phtml:8
 #: application/view/omeka/site/item/show.phtml:24
 msgid "Item sets"
 msgstr "Ühikute kogumid"
 
-#: application/view/common/data-type-wrapper.phtml:10
+#: application/view/common/data-type-wrapper.phtml:8
 msgid "Value to be removed"
 msgstr "Eemaldatav väärtus"
 
-#: application/view/common/data-type-wrapper.phtml:15
+#: application/view/common/data-type-wrapper.phtml:13
 #: application/view/common/media-field-wrapper.phtml:9
 #: application/view/omeka/admin/item-set/form.phtml:41
 #: application/view/omeka/admin/item/form.phtml:43
 #: application/view/omeka/admin/item/manage-media.phtml:31
 #: application/view/omeka/admin/media/edit.phtml:52
+#: application/view/omeka/site-admin/index/add.phtml:27
 #: application/view/omeka/site-admin/index/edit.phtml:15
 msgid "Make private"
 msgstr "Tee privaatseks"
@@ -756,7 +778,7 @@ msgid "No resource selected"
 msgstr "Ühtegi ressurssi pole valitud"
 
 #: application/view/common/data-type/resource.phtml:22
-#: application/view/layout/layout-admin.phtml:67
+#: application/view/layout/layout-admin.phtml:68
 #: application/view/omeka/admin/item-set/show-details.phtml:18
 #: application/view/omeka/admin/item-set/show.phtml:79
 #: application/view/omeka/admin/item/add.phtml:6
@@ -764,19 +786,20 @@ msgstr "Ühtegi ressurssi pole valitud"
 #: application/view/omeka/admin/item/edit.phtml:14
 #: application/view/omeka/admin/item/search.phtml:5
 #: application/view/omeka/admin/item/show.phtml:18
+#: application/view/omeka/admin/property/show-details.phtml:18
+#: application/view/omeka/admin/resource-class/show-details.phtml:18
 #: application/view/omeka/admin/resource-template/browse.phtml:19
-#: application/view/omeka/admin/resource-template/browse.phtml:46
+#: application/view/omeka/admin/resource-template/show-details.phtml:18
 #: application/view/omeka/admin/user/show-details.phtml:12
 #: application/view/omeka/admin/vocabulary/classes.phtml:15
-#: application/view/omeka/admin/vocabulary/classes.phtml:39
-#: application/view/omeka/admin/vocabulary/properties.phtml:22
+#: application/view/omeka/site/index/search.phtml:24
+#: application/view/omeka/site/item/browse.phtml:39
 #: application/view/omeka/site/item/browse.phtml:41
-#: application/view/omeka/site/item/browse.phtml:43
 msgid "Items"
 msgstr "Ühikud"
 
 #: application/view/common/data-type/resource.phtml:36
-#: application/view/layout/layout-admin.phtml:75
+#: application/view/layout/layout-admin.phtml:76
 #: application/view/omeka/admin/item/form.phtml:14
 #: application/view/omeka/admin/item/show-details.phtml:27
 #: application/view/omeka/admin/item/show.phtml:79
@@ -791,16 +814,16 @@ msgid "Media"
 msgstr "Meedia"
 
 #: application/view/common/data-type/uri.phtml:6
-#: application/view/common/property-form-batch-edit.phtml:40
+#: application/view/common/property-form-batch-edit.phtml:44
 #: application/view/common/resource-form-templates.phtml:24
 msgid "URI"
-msgstr "URL"
+msgstr "URI"
 
 #: application/view/common/data-type/uri.phtml:12
 #: application/view/common/navigation-link-form/browse.phtml:8
 #: application/view/common/navigation-link-form/page.phtml:15
 #: application/view/common/navigation-link-form/url.phtml:8
-#: application/view/common/property-form-batch-edit.phtml:41
+#: application/view/common/property-form-batch-edit.phtml:45
 #: application/view/omeka/admin/resource-template/browse.phtml:7
 #: application/view/omeka/admin/resource-template/browse.phtml:43
 #: application/view/omeka/admin/resource-template/form.phtml:55
@@ -831,7 +854,7 @@ msgstr "Silt"
 #: application/view/omeka/admin/media/browse.phtml:163
 #: application/view/omeka/admin/media/browse.phtml:181
 #: application/view/omeka/admin/module/browse.phtml:159
-#: application/view/omeka/admin/resource-template/browse.phtml:100
+#: application/view/omeka/admin/resource-template/browse.phtml:98
 #: application/view/omeka/admin/resource-template/form.phtml:43
 #: application/view/omeka/admin/resource-template/form.phtml:52
 #: application/view/omeka/admin/resource-template/show.phtml:61
@@ -839,8 +862,8 @@ msgstr "Silt"
 #: application/view/omeka/admin/user/browse.phtml:144
 #: application/view/omeka/admin/user/browse.phtml:162
 #: application/view/omeka/admin/vocabulary/browse.phtml:92
-#: application/view/omeka/admin/vocabulary/classes.phtml:69
-#: application/view/omeka/admin/vocabulary/properties.phtml:52
+#: application/view/omeka/admin/vocabulary/classes.phtml:67
+#: application/view/omeka/admin/vocabulary/properties.phtml:50
 #: application/view/omeka/site-admin/index/index.phtml:101
 #: application/view/omeka/site-admin/index/navigation.phtml:26
 #: application/view/omeka/site-admin/page/edit.phtml:38
@@ -873,15 +896,11 @@ msgstr "Lisainfo"
 
 #: application/view/common/item-set-selector.phtml:7
 msgid "Click on an item set to add it to the edit panel."
-msgstr "Kliki ühikute kogul, et seda muutmise lehele lisada."
+msgstr "Kliki ühikute kogumil, et seda muutmise lehele lisada."
 
 #: application/view/common/item-set-selector.phtml:8
 msgid "Filter item sets"
 msgstr "Filtreeri ühikute kogumeid"
-
-#: application/view/common/item-set-selector.phtml:10
-msgid "All item sets"
-msgstr "Kõik ühikute kogumid"
 
 #: application/view/common/item-set-selector.phtml:17
 #: application/view/omeka/admin/item-set/browse.phtml:93
@@ -892,7 +911,7 @@ msgstr "Kõik ühikute kogumid"
 #: application/view/omeka/admin/job/browse.phtml:56
 #: application/view/omeka/admin/job/show.phtml:18
 #: application/view/omeka/admin/media/browse.phtml:101
-#: application/view/omeka/admin/resource-template/browse.phtml:62
+#: application/view/omeka/admin/resource-template/browse.phtml:61
 #: application/view/omeka/site-admin/index/index.phtml:57
 msgid "[no owner]"
 msgstr "[ilma omanikuta]"
@@ -920,10 +939,10 @@ msgstr "Kõik"
 #: application/view/omeka/admin/media/browse.phtml:79
 #: application/view/omeka/site-admin/index/index.phtml:7
 #: application/view/omeka/site-admin/index/index.phtml:39
-#: application/view/omeka/site-admin/index/resources.phtml:62
+#: application/view/omeka/site-admin/index/resources.phtml:61
 #: application/view/omeka/site-admin/index/show.phtml:28
 #: application/view/omeka/site-admin/page/index.phtml:18
-#: application/view/omeka/site/item/browse.phtml:16
+#: application/view/omeka/site/item/browse.phtml:14
 msgid "Title"
 msgstr "Pealkiri"
 
@@ -972,8 +991,8 @@ msgstr "Järgmine"
 
 #: application/view/common/pagination.phtml:28
 #, php-format
-msgid "%s–%s of %s"
-msgstr "%s–%s Lehekülgi kokku %s"
+msgid "%1$s–%2$s of %3$s"
+msgstr "%1$s–%2$s. Ühikuid kokku %3$s"
 
 #: application/view/common/pagination.phtml:30
 msgid "0 results"
@@ -984,27 +1003,47 @@ msgid "Select property"
 msgstr "Vali omadus"
 
 #: application/view/common/property-form-batch-edit.phtml:12
-#: application/view/common/property-form-batch-edit.phtml:53
+#: application/view/common/property-form-batch-edit.phtml:76
 msgid "Add text value"
 msgstr "Lisa tekstiväärtus"
 
+#: application/view/common/property-form-batch-edit.phtml:17
+#: application/view/common/property-form-batch-edit.phtml:31
+#: application/view/common/property-form-batch-edit.phtml:46
+#: application/view/common/property-form-batch-edit.phtml:66
+#: application/view/omeka/admin/item-set/show-details.phtml:14
+#: application/view/omeka/admin/item-set/show.phtml:75
+#: application/view/omeka/admin/item/show-details.phtml:14
+#: application/view/omeka/admin/item/show.phtml:58
+#: application/view/omeka/admin/media/show-details.phtml:38
+#: application/view/omeka/admin/media/show.phtml:33
+msgid "Public"
+msgstr "Avalik"
+
 #: application/view/common/property-form-batch-edit.phtml:18
-#: application/view/common/property-form-batch-edit.phtml:30
-#: application/view/common/property-form-batch-edit.phtml:43
+#: application/view/common/property-form-batch-edit.phtml:32
+#: application/view/common/property-form-batch-edit.phtml:47
+#: application/view/common/property-form-batch-edit.phtml:67
+msgid "Not public"
+msgstr "Pole avalik"
+
+#: application/view/common/property-form-batch-edit.phtml:20
+#: application/view/common/property-form-batch-edit.phtml:34
+#: application/view/common/property-form-batch-edit.phtml:49
 msgid "Remove"
 msgstr "Eemalda"
 
-#: application/view/common/property-form-batch-edit.phtml:24
-#: application/view/common/property-form-batch-edit.phtml:54
+#: application/view/common/property-form-batch-edit.phtml:26
+#: application/view/common/property-form-batch-edit.phtml:77
 msgid "Add resource value"
 msgstr "Lisa ressursi väärtus"
 
-#: application/view/common/property-form-batch-edit.phtml:28
+#: application/view/common/property-form-batch-edit.phtml:30
 msgid "Resource ID"
 msgstr "Ressursi ID"
 
-#: application/view/common/property-form-batch-edit.phtml:36
-#: application/view/common/property-form-batch-edit.phtml:55
+#: application/view/common/property-form-batch-edit.phtml:40
+#: application/view/common/property-form-batch-edit.phtml:78
 msgid "Add URI value"
 msgstr "Lisa URI väärtus"
 
@@ -1016,12 +1055,12 @@ msgstr "Kliki omadusel, et seda muutmise lehele lisada."
 msgid "Filter properties"
 msgstr "Filtri omadused"
 
-#: application/view/common/resource-fields.phtml:33
+#: application/view/common/resource-fields.phtml:34
 #: application/view/omeka/admin/resource-template/form.phtml:32
 msgid "Add property"
 msgstr "Lisa omadus"
 
-#: application/view/common/resource-fields.phtml:40
+#: application/view/common/resource-fields.phtml:41
 msgid ""
 "Omeka S automatically selects a thumbnail from among attached media for a "
 "resource. You may use an image of your choice instead by choosing an asset "
@@ -1063,7 +1102,7 @@ msgstr "Vali ressurss"
 
 #: application/view/common/site-page-pagination.phtml:3
 msgid "Prev"
-msgstr "Eelm"
+msgstr "Eelmine"
 
 #: application/view/common/sort-link.phtml:4
 msgid "Switch to descending order"
@@ -1092,39 +1131,40 @@ msgstr "Kasvavalt"
 
 #: application/view/common/sort-selector.phtml:15
 msgid "Descending"
-msgstr "ahanevalt"
+msgstr "Kahanevalt"
 
 #: application/view/common/sort-selector.phtml:17
 msgid "Sort"
 msgstr "Sorteeri"
 
 #: application/view/common/user-bar.phtml:22
-#: application/view/layout/layout-admin.phtml:47
+#: application/view/layout/layout-admin.phtml:48
 #, php-format
 msgid "Signed in as %s"
 msgstr "Loginud sisse kui %s"
 
 #: application/view/common/user-bar.phtml:25
-#: application/view/layout/layout-admin.phtml:51
+#: application/view/layout/layout-admin.phtml:52
 msgid "Logout"
 msgstr "Logi välja"
 
 #: application/view/common/user-bar.phtml:28
+#: application/view/omeka/login/login.phtml:5
 msgid "Log in"
-msgstr "ogi sisse"
+msgstr "Logi sisse"
 
-#: application/view/common/user-selector.phtml:10
+#: application/view/common/user-selector.phtml:11
 msgid "Click on a user to add it to the edit panel."
 msgstr ""
 
-#: application/view/common/user-selector.phtml:13
+#: application/view/common/user-selector.phtml:14
 msgid "Filter users"
 msgstr "Filtreeri kasutajaid"
 
-#: application/view/common/user-selector.phtml:15
+#: application/view/common/user-selector.phtml:16
 #, php-format
-msgid "All users (%s)"
-msgstr "Kõik kasutajad (%s)"
+msgid "Users (%s)"
+msgstr ""
 
 #: application/view/common/version-notification.phtml:8
 #, php-format
@@ -1133,7 +1173,7 @@ msgstr "Saadaval on uus Omeka S versioon. %s"
 
 #: application/view/common/version-notification.phtml:12
 #: application/view/omeka/admin/module/browse.phtml:62
-#: application/view/omeka/site-admin/index/theme.phtml:53
+#: application/view/omeka/site-admin/index/theme.phtml:55
 msgid "Get the new version."
 msgstr "Hangi uus versioon."
 
@@ -1148,14 +1188,14 @@ msgstr "Põhjus: %s"
 
 #: application/view/error/index.phtml:4
 msgid "Omeka S encountered an error"
-msgstr "Tekkis Omeka 5 tõrge"
+msgstr "Tekkis Omeka S tõrge"
 
 #: application/view/error/index.phtml:11
 msgid "Details:"
 msgstr "Üksikasjad:"
 
 #: application/view/layout/layout-admin.phtml:23
-#: application/view/omeka/site-admin/index/resources.phtml:21
+#: application/view/omeka/site-admin/index/resources.phtml:20
 msgid "Resources"
 msgstr "Ressursid"
 
@@ -1165,58 +1205,62 @@ msgstr "Ressursid"
 msgid "Admin"
 msgstr "Admin"
 
-#: application/view/layout/layout-admin.phtml:41
+#: application/view/layout/layout-admin.phtml:37
+msgid "Skip to main content"
+msgstr ""
+
+#: application/view/layout/layout-admin.phtml:42
 msgid "Navigation menu"
 msgstr "Menüü"
 
-#: application/view/layout/layout-admin.phtml:42
+#: application/view/layout/layout-admin.phtml:43
 msgid "Search site"
 msgstr "Saidi otsing"
 
-#: application/view/layout/layout-admin.phtml:43
+#: application/view/layout/layout-admin.phtml:44
 msgid "User menu"
 msgstr "Kasutajamenüü"
 
-#: application/view/layout/layout-admin.phtml:53
+#: application/view/layout/layout-admin.phtml:54
 msgid "not logged in"
 msgstr "pole sisse loginud"
 
-#: application/view/layout/layout-admin.phtml:60
+#: application/view/layout/layout-admin.phtml:61
 msgid "Advanced options"
 msgstr "Lisavalikud"
 
-#: application/view/layout/layout-admin.phtml:63
+#: application/view/layout/layout-admin.phtml:64
 msgid "Resource type"
 msgstr "Ressursi liik"
 
-#: application/view/layout/layout-admin.phtml:65
+#: application/view/layout/layout-admin.phtml:66
 msgid "Search items"
 msgstr "Otsi ühikuid"
 
-#: application/view/layout/layout-admin.phtml:69
+#: application/view/layout/layout-admin.phtml:70
 msgid "Search item sets"
 msgstr "Otsi ühikute kogumeid"
 
-#: application/view/layout/layout-admin.phtml:73
+#: application/view/layout/layout-admin.phtml:74
 msgid "Search media"
 msgstr "Otsi meediat"
 
-#: application/view/layout/layout-admin.phtml:86
+#: application/view/layout/layout-admin.phtml:87
 #: application/view/omeka/site-admin/index/index.phtml:70
 msgid "View public site"
 msgstr "Vaata avalikku saiti"
 
-#: application/view/layout/layout-admin.phtml:92
+#: application/view/layout/layout-admin.phtml:93
 #: application/view/omeka/admin/module/browse.phtml:11
 #: application/view/omeka/admin/module/configure.phtml:6
 msgid "Modules"
 msgstr "Moodulid"
 
-#: application/view/layout/layout-admin.phtml:110
+#: application/view/layout/layout-admin.phtml:111
 msgid "Omeka S"
 msgstr "Omeka S"
 
-#: application/view/layout/layout-admin.phtml:110
+#: application/view/layout/layout-admin.phtml:111
 #: application/view/omeka/admin/module/browse.phtml:39
 #: application/view/omeka/site-admin/index/theme-selector.phtml:37
 #: application/view/omeka/site-admin/index/theme.phtml:35
@@ -1224,16 +1268,16 @@ msgstr "Omeka S"
 msgid "version %s"
 msgstr "versioon %s"
 
-#: application/view/layout/layout-admin.phtml:111
+#: application/view/layout/layout-admin.phtml:112
 #: application/view/omeka/admin/system-info/browse.phtml:4
 msgid "System information"
 msgstr "Süsteemiinfo"
 
-#: application/view/layout/layout-admin.phtml:112
+#: application/view/layout/layout-admin.phtml:113
 msgid "User manual"
 msgstr "Kasutusjuhend"
 
-#: application/view/layout/layout-admin.phtml:113
+#: application/view/layout/layout-admin.phtml:114
 msgid "Support forums"
 msgstr "Kasutajatoe foorumid"
 
@@ -1291,7 +1335,7 @@ msgstr "Admini töölaud"
 #: application/view/omeka/admin/index/browse.phtml:9
 #, php-format
 msgid "Welcome to the %s admin dashboard!"
-msgstr ""
+msgstr "Tere tulemast %s admini töölauale!"
 
 #: application/view/omeka/admin/index/browse.phtml:12
 msgid "Manage resources"
@@ -1362,7 +1406,7 @@ msgstr "Muuda ühikute kogumeid hulgi"
 #: application/view/omeka/admin/vocabulary/edit.phtml:13
 #: application/view/omeka/site-admin/index/edit.phtml:29
 #: application/view/omeka/site-admin/index/navigation.phtml:17
-#: application/view/omeka/site-admin/index/resources.phtml:32
+#: application/view/omeka/site-admin/index/resources.phtml:31
 #: application/view/omeka/site-admin/index/settings.phtml:10
 #: application/view/omeka/site-admin/index/theme-settings.phtml:12
 #: application/view/omeka/site-admin/index/theme.phtml:18
@@ -1373,22 +1417,22 @@ msgstr "Salvesta"
 
 #: application/view/omeka/admin/item-set/batch-edit.phtml:27
 msgid "Affected item sets"
-msgstr "Mõjutatud ühikute kogud"
+msgstr "Mõjutatud ühikute kogumid"
 
 #: application/view/omeka/admin/item-set/batch-edit.phtml:29
 #, php-format
 msgid "You are editing the following %s item sets:"
-msgstr "Sa muudad %s ühikute kogu:"
+msgstr "Sa muudad %s ühikute kogumeid:"
 
 #: application/view/omeka/admin/item-set/batch-edit.phtml:36
 #, php-format
 msgid "You are editing %s item sets."
-msgstr "Sa muudad %s ühikute kogu."
+msgstr "Sa muudad %s ühikute kogumit."
 
 #: application/view/omeka/admin/item-set/browse.phtml:11
 #: application/view/omeka/admin/item/browse.phtml:11
 #: application/view/omeka/admin/media/browse.phtml:13
-#: application/view/omeka/site/item/browse.phtml:20
+#: application/view/omeka/site/item/browse.phtml:18
 msgid "Identifier"
 msgstr "Identifikaator"
 
@@ -1408,7 +1452,7 @@ msgstr "Identifikaator"
 #: application/view/omeka/admin/resource-template/browse.phtml:45
 #: application/view/omeka/site-admin/index/index.phtml:15
 #: application/view/omeka/site-admin/index/index.phtml:41
-#: application/view/omeka/site-admin/index/resources.phtml:63
+#: application/view/omeka/site-admin/index/resources.phtml:62
 msgid "Owner"
 msgstr "Omanik"
 
@@ -1423,7 +1467,7 @@ msgstr "Omanik"
 #: application/view/omeka/admin/media/show.phtml:41
 #: application/view/omeka/admin/user/browse.phtml:18
 #: application/view/omeka/admin/user/browse.phtml:81
-#: application/view/omeka/site/item/browse.phtml:28
+#: application/view/omeka/site/item/browse.phtml:26
 msgid "Created"
 msgstr "Loodud"
 
@@ -1435,8 +1479,8 @@ msgstr "Loodud"
 #: application/view/omeka/admin/media/search.phtml:5
 #: application/view/omeka/admin/user/browse.phtml:30
 #: application/view/omeka/admin/user/search.phtml:5
-#: application/view/omeka/site/item-set/browse.phtml:16
-#: application/view/omeka/site/item/browse.phtml:50
+#: application/view/omeka/site/item-set/browse.phtml:14
+#: application/view/omeka/site/item/browse.phtml:48
 msgid "Advanced search"
 msgstr "Laiendatud otsing"
 
@@ -1522,7 +1566,7 @@ msgstr "Vali ühikute kogum"
 #: application/view/omeka/admin/media/browse.phtml:111
 #: application/view/omeka/admin/media/show-details.phtml:38
 #: application/view/omeka/admin/media/show.phtml:33
-#: application/view/omeka/admin/resource-template/form.phtml:78
+#: application/view/omeka/admin/resource-template/form.phtml:90
 #: application/view/omeka/site-admin/index/index.phtml:64
 msgid "Private"
 msgstr "Privaatne"
@@ -1533,7 +1577,7 @@ msgstr "Privaatne"
 #: application/view/omeka/admin/item/edit.phtml:6
 #: application/view/omeka/admin/media/browse.phtml:125
 #: application/view/omeka/admin/media/edit.phtml:63
-#: application/view/omeka/admin/resource-template/browse.phtml:79
+#: application/view/omeka/admin/resource-template/browse.phtml:78
 #: application/view/omeka/admin/resource-template/form.phtml:13
 #: application/view/omeka/admin/user/browse.phtml:108
 #: application/view/omeka/admin/user/edit.phtml:40
@@ -1549,33 +1593,34 @@ msgstr "Kustuta"
 #: application/view/omeka/admin/item-set/browse.phtml:124
 #: application/view/omeka/admin/item/browse.phtml:122
 #: application/view/omeka/admin/media/browse.phtml:132
-#: application/view/omeka/admin/resource-template/browse.phtml:85
-#: application/view/omeka/admin/resource-template/show-property-row.phtml:25
+#: application/view/omeka/admin/resource-template/browse.phtml:84
+#: application/view/omeka/admin/resource-template/show-property-row.phtml:26
 #: application/view/omeka/admin/resource-template/show.phtml:44
 #: application/view/omeka/admin/user/browse.phtml:114
 #: application/view/omeka/admin/vocabulary/browse.phtml:73
-#: application/view/omeka/admin/vocabulary/classes.phtml:53
-#: application/view/omeka/admin/vocabulary/properties.phtml:36
+#: application/view/omeka/admin/vocabulary/classes.phtml:52
+#: application/view/omeka/admin/vocabulary/properties.phtml:35
 msgid "Details"
 msgstr "Üksikasjad"
 
 #: application/view/omeka/admin/item-set/browse.phtml:157
 #: application/view/omeka/admin/item-set/browse.phtml:175
 msgid "Delete item sets"
-msgstr "Kustuta ühikute kogusid"
+msgstr "Kustuta ühikute kogumid"
 
 #: application/view/omeka/admin/item-set/browse.phtml:158
 msgid "Are you sure you would like to delete the selected item sets?"
-msgstr "Oled sa kindel, et soovid valitud ühikute kogusid eemaldada?"
+msgstr "Oled sa kindel, et soovid valitud ühikute kogumid kustutada?"
 
 #: application/view/omeka/admin/item-set/browse.phtml:160
 #: application/view/omeka/admin/item-set/browse.phtml:178
 #, php-format
 msgid ""
-"%s: this action will permanently delete %s item sets and cannot be undone."
+"%1$s: this action will permanently delete %2$s item sets and cannot be "
+"undone."
 msgstr ""
-"%s: see toiming kustutab jäädavalt %s ühikute kogu ja seda sammu ei saa "
-"tagasi võtta."
+"%1$s: see toiming kustutab jäädavalt %2$s ühikute kogumid ja seda sammu ei "
+"saa tagasi võtta."
 
 #: application/view/omeka/admin/item-set/browse.phtml:161
 #: application/view/omeka/admin/item-set/browse.phtml:179
@@ -1594,7 +1639,7 @@ msgid ""
 "result?"
 msgstr ""
 "Oled sa kindel, et soovid kustutada kõik sellel tulemuste lehel olevad "
-"ühikute kogud eemaldada?"
+"ühikute kogumid?"
 
 #: application/view/omeka/admin/item-set/browse.phtml:182
 #: application/view/omeka/admin/item/browse.phtml:180
@@ -1631,7 +1676,7 @@ msgstr "Ava ühikute kogum"
 #: application/view/omeka/admin/item/form.phtml:49
 #: application/view/omeka/admin/item/manage-media.phtml:37
 #: application/view/omeka/admin/media/edit.phtml:58
-#: application/view/omeka/site-admin/index/add.phtml:20
+#: application/view/omeka/site-admin/index/add.phtml:21
 #: application/view/omeka/site-admin/index/edit.phtml:21
 msgid "Make public"
 msgstr "Tee avalikuks"
@@ -1650,15 +1695,6 @@ msgstr "Nulli"
 #: application/view/omeka/admin/media/show.phtml:32
 msgid "Visibility"
 msgstr "Nähtavus"
-
-#: application/view/omeka/admin/item-set/show-details.phtml:14
-#: application/view/omeka/admin/item-set/show.phtml:75
-#: application/view/omeka/admin/item/show-details.phtml:14
-#: application/view/omeka/admin/item/show.phtml:58
-#: application/view/omeka/admin/media/show-details.phtml:38
-#: application/view/omeka/admin/media/show.phtml:33
-msgid "Public"
-msgstr "Avalik"
 
 #: application/view/omeka/admin/item-set/show-details.phtml:15
 #: application/view/omeka/admin/item-set/show.phtml:76
@@ -1680,7 +1716,7 @@ msgstr "Metainfo"
 #: application/view/omeka/admin/item/show.phtml:13
 #: application/view/omeka/site/item/show.phtml:45
 msgid "Linked resources"
-msgstr "tud ressursid"
+msgstr "Lingitud ressursid"
 
 #: application/view/omeka/admin/item-set/show.phtml:30
 msgid "Edit item set"
@@ -1692,7 +1728,7 @@ msgstr "Vaata ühikuid"
 
 #: application/view/omeka/admin/item-set/show.phtml:54
 msgid "The following resources link to this item set:"
-msgstr "Need ressursid lingivad sellele ühikute kogule:"
+msgstr "Need ressursid lingivad sellele ühikute kogumile:"
 
 #: application/view/omeka/admin/item-set/show.phtml:58
 msgid "No resources link to this item set."
@@ -1710,7 +1746,7 @@ msgstr "Uus ühik"
 #: application/view/omeka/admin/resource-template/add.phtml:14
 #: application/view/omeka/admin/user/add.phtml:13
 #: application/view/omeka/site-admin/index/add-page.phtml:10
-#: application/view/omeka/site-admin/index/add.phtml:24
+#: application/view/omeka/site-admin/index/add.phtml:32
 msgid "Add"
 msgstr "Lisa"
 
@@ -1744,12 +1780,13 @@ msgstr "Kustuta ühikud"
 
 #: application/view/omeka/admin/item/browse.phtml:156
 msgid "Are you sure you would like to delete the selected items?"
-msgstr "Oled sa kindel, et soovid valitud ühikuid eemaldada?"
+msgstr "Oled sa kindel, et soovid valitud ühikuid kustutada?"
 
 #: application/view/omeka/admin/item/browse.phtml:158
 #: application/view/omeka/admin/item/browse.phtml:176
 #, php-format
-msgid "%s: this action will permanently delete %s items and cannot be undone."
+msgid ""
+"%1$s: this action will permanently delete %2$s items and cannot be undone."
 msgstr ""
 
 #: application/view/omeka/admin/item/browse.phtml:174
@@ -1772,8 +1809,8 @@ msgid ""
 "This item is part of no item sets. Add it to an item set using the interface"
 " to the right."
 msgstr ""
-"See ühik pole osa ühestki ühikute kogumist. Lisa see ühik kasutades paremal "
-"olevat kasutajaliidest."
+"See ühik pole osa ühestki ühikute kogumist. Lisa see ühikute kogumile, "
+"kasutades paremal olevat kasutajaliidest."
 
 #: application/view/omeka/admin/item/manage-item-sets.phtml:43
 msgid "Add to item set"
@@ -1800,11 +1837,11 @@ msgstr "Muuda ühikut"
 
 #: application/view/omeka/admin/item/show.phtml:44
 msgid "The following resources link to this item:"
-msgstr ""
+msgstr "Järgmised ressursid on lingitud selle ühikuga:"
 
 #: application/view/omeka/admin/item/show.phtml:48
 msgid "No resources link to this item."
-msgstr ""
+msgstr "Ükski ressurss pole lingitud selle ühikuga."
 
 #: application/view/omeka/admin/item/sidebar-select.phtml:28
 msgid "Filter search"
@@ -1812,7 +1849,7 @@ msgstr "Filtreeri otsing"
 
 #: application/view/omeka/admin/item/sidebar-select.phtml:57
 msgid "Filter by item ID"
-msgstr ""
+msgstr "Filtreeri ühiku ID järgi"
 
 #: application/view/omeka/admin/item/sidebar-select.phtml:67
 msgid "Quick add"
@@ -1915,7 +1952,7 @@ msgstr ""
 #: application/view/omeka/admin/media/browse.phtml:188
 #, php-format
 msgid ""
-"%s: this action will permanently delete %s medias and cannot be undone."
+"%1$s: this action will permanently delete %2$s medias and cannot be undone."
 msgstr ""
 
 #: application/view/omeka/admin/media/browse.phtml:186
@@ -2005,7 +2042,7 @@ msgstr ""
 #: application/view/omeka/admin/module/browse.phtml:58
 #, php-format
 msgid "A new version of this module is available. %s"
-msgstr ""
+msgstr "Saadaval on selle mooduli uus versioon. %s"
 
 #: application/view/omeka/admin/module/browse.phtml:75
 #: application/view/omeka/admin/module/browse.phtml:83
@@ -2089,7 +2126,7 @@ msgstr "Ressursi mallid"
 msgid "Import"
 msgstr "Impordi"
 
-#: application/view/omeka/admin/resource-template/browse.phtml:108
+#: application/view/omeka/admin/resource-template/browse.phtml:106
 msgid "Omeka could not find any resource templates."
 msgstr "Omeka ei leidnud ühtegi ressursi malli."
 
@@ -2108,16 +2145,24 @@ msgid "Other options"
 msgstr "Muud valikud"
 
 #: application/view/omeka/admin/resource-template/form.phtml:72
+msgid "Use for resource title"
+msgstr ""
+
+#: application/view/omeka/admin/resource-template/form.phtml:78
+msgid "Use for resource description"
+msgstr ""
+
+#: application/view/omeka/admin/resource-template/form.phtml:84
 msgid "Required"
 msgstr "Nõuud"
 
-#: application/view/omeka/admin/resource-template/form.phtml:83
+#: application/view/omeka/admin/resource-template/form.phtml:95
 #: application/view/omeka/admin/resource-template/review-import.phtml:37
 #: application/view/omeka/admin/resource-template/show.phtml:27
 msgid "Data type"
 msgstr "Andmete liik"
 
-#: application/view/omeka/admin/resource-template/form.phtml:89
+#: application/view/omeka/admin/resource-template/form.phtml:101
 msgid "Set changes"
 msgstr "Määra muudatused"
 
@@ -2169,11 +2214,11 @@ msgstr "Jah"
 msgid "No"
 msgstr "Ei"
 
-#: application/view/omeka/admin/resource-template/show-property-row.phtml:31
+#: application/view/omeka/admin/resource-template/show-property-row.phtml:32
 msgid "Edit property"
 msgstr "Muuda omadust"
 
-#: application/view/omeka/admin/resource-template/show-property-row.phtml:35
+#: application/view/omeka/admin/resource-template/show-property-row.phtml:36
 msgid "Remove property"
 msgstr "Eemalda omadus"
 
@@ -2220,7 +2265,7 @@ msgid "You are editing %s users (except yourself)."
 msgstr "Sa muudad %s kasutajat (välja arvatud iseennast)."
 
 #: application/view/omeka/admin/user/browse.phtml:36
-#: application/view/omeka/site-admin/index/users.phtml:75
+#: application/view/omeka/site-admin/index/users.phtml:70
 msgid "Add new user"
 msgstr "Lisa uus kasutaja"
 
@@ -2239,10 +2284,11 @@ msgstr "Oled sa kindel, et soovid valitud kasutajaid kustutada?"
 
 #: application/view/omeka/admin/user/browse.phtml:151
 #, php-format
-msgid "%s: this action will permanently delete %s users and cannot be undone."
+msgid ""
+"%1$s: this action will permanently delete %2$s users and cannot be undone."
 msgstr ""
-"%s: see toiming kustutab jäädavalt %s kasutajat ja seda sammu ei saa tagasi "
-"võtta."
+"%1$s: see toiming kustutab jäädavalt %2$s kasutajat ja seda sammu ei saa "
+"tagasi võtta."
 
 #: application/view/omeka/admin/user/browse.phtml:167
 msgid ""
@@ -2255,11 +2301,11 @@ msgstr ""
 #: application/view/omeka/admin/user/browse.phtml:169
 #, php-format
 msgid ""
-"%s: this action will permanently delete %s users (except yourself) and "
+"%1$s: this action will permanently delete %2$s users (except yourself) and "
 "cannot be undone."
 msgstr ""
-"%s: see toiming kustutab jäädavalt %s kasutajat (väljaarvatud sina ise) ja "
-"seda sammu ei saa tagasi võtta."
+"%1$s: see toiming kustutab jäädavalt %2$s kasutajat (väljaarvatud sina ise) "
+"ja seda sammu ei saa tagasi võtta."
 
 #: application/view/omeka/admin/user/browse.phtml:208
 msgid "Omeka could not find any users."
@@ -2310,7 +2356,7 @@ msgstr "Eesliide"
 #: application/view/omeka/admin/vocabulary/browse.phtml:45
 #: application/view/omeka/admin/vocabulary/classes.phtml:21
 msgid "Classes"
-msgstr "lassid"
+msgstr "Klassid"
 
 #: application/view/omeka/admin/vocabulary/browse.phtml:19
 #: application/view/omeka/admin/vocabulary/browse.phtml:46
@@ -2342,11 +2388,11 @@ msgstr "Eesliide:"
 msgid "Namespace URI:"
 msgstr "Nimeruumi URI:"
 
-#: application/view/omeka/admin/vocabulary/classes.phtml:77
+#: application/view/omeka/admin/vocabulary/classes.phtml:75
 msgid "This vocabulary has no classes."
 msgstr "Sõnastikul pole ühtegi klassi."
 
-#: application/view/omeka/admin/vocabulary/edit.phtml:19
+#: application/view/omeka/admin/vocabulary/edit.phtml:18
 msgid ""
 "You may update this vocabulary to a newer version. You will be able to "
 "review the changes before you accept."
@@ -2356,7 +2402,7 @@ msgstr ""
 msgid "New vocabulary"
 msgstr "Uus sõnastik"
 
-#: application/view/omeka/admin/vocabulary/properties.phtml:60
+#: application/view/omeka/admin/vocabulary/properties.phtml:58
 msgid "This vocabulary has no properties."
 msgstr "Sõnastikul pole omadusi."
 
@@ -2373,7 +2419,7 @@ msgstr "Nõustu muudatustega"
 #: application/view/omeka/site-admin/index/edit.phtml:7
 #: application/view/omeka/site-admin/index/index.phtml:21
 #: application/view/omeka/site-admin/index/navigation.phtml:10
-#: application/view/omeka/site-admin/index/resources.phtml:21
+#: application/view/omeka/site-admin/index/resources.phtml:20
 #: application/view/omeka/site-admin/index/settings.phtml:6
 #: application/view/omeka/site-admin/index/show.phtml:11
 #: application/view/omeka/site-admin/index/theme.phtml:11
@@ -2384,7 +2430,7 @@ msgstr "Saidid"
 
 #: application/view/omeka/index/index.phtml:25
 #, php-format
-msgid "Go to the %s to start working with %s."
+msgid "Go to the %1$s to start working with %2$s."
 msgstr ""
 
 #: application/view/omeka/install/index.phtml:11
@@ -2411,10 +2457,6 @@ msgstr "Unustasin parooli"
 msgid "Send password reset email"
 msgstr "Saada parooli taastamise kiri"
 
-#: application/view/omeka/login/login.phtml:5
-msgid "Login"
-msgstr "Logi sisse"
-
 #: application/view/omeka/login/login.phtml:7
 msgid "Forgot password?"
 msgstr "Unustasid parooli?"
@@ -2431,14 +2473,21 @@ msgstr ""
 "Sait on hooldamisel. Lisainfo saamiseks võta ühendust administraatoriga."
 
 #: application/view/omeka/migrate/index.phtml:4
-#: application/view/omeka/migrate/index.phtml:8
+#: application/view/omeka/migrate/index.phtml:7
 msgid "Update database"
 msgstr "Värskenda andmebaasi"
 
 #: application/view/omeka/migrate/index.phtml:5
 msgid ""
-"There was a recent software upgrade and the database needs to be updated. The\n"
-"entire site will be down for maintenance until you click the button below."
+"There was a recent software upgrade and the database needs to be updated. "
+"The entire site will be down for maintenance until you click the button "
+"below."
+msgstr ""
+
+#: application/view/omeka/migrate/index.phtml:10
+msgid ""
+"There are environment errors that must be resolved before you can update the"
+" database."
 msgstr ""
 
 #: application/view/omeka/site-admin/index/add-page.phtml:6
@@ -2448,6 +2497,8 @@ msgstr "Uus lehekülg"
 #: application/view/omeka/site-admin/index/add-page.phtml:6
 #: application/view/omeka/site-admin/page/edit.phtml:11
 #: application/view/omeka/site-admin/page/index.phtml:7
+#: application/view/omeka/site/index/search.phtml:3
+#: application/view/omeka/site/page/browse.phtml:5
 msgid "Pages"
 msgstr "Leheküljed"
 
@@ -2459,7 +2510,7 @@ msgid "Theme"
 msgstr "Teema"
 
 #: application/view/omeka/site-admin/index/add.phtml:9
-#: application/view/omeka/site-admin/index/resources.phtml:23
+#: application/view/omeka/site-admin/index/resources.phtml:22
 msgid "Item pool"
 msgstr ""
 
@@ -2506,16 +2557,12 @@ msgstr "Filtreeri lehekülgi"
 msgid "There are no available pages."
 msgstr "Ühtegi lehekülge pole saadaval."
 
-#: application/view/omeka/site-admin/index/resources.phtml:15
-msgid "Restore item set"
-msgstr "Taasta ühikute kogum"
-
-#: application/view/omeka/site-admin/index/resources.phtml:37
+#: application/view/omeka/site-admin/index/resources.phtml:36
 #, php-format
 msgid "There are currently %s items in this site’s pool."
 msgstr ""
 
-#: application/view/omeka/site-admin/index/resources.phtml:69
+#: application/view/omeka/site-admin/index/resources.phtml:68
 msgid "No item sets are assigned to this site."
 msgstr "Selle saidiga pole seotud ühtegi ühikute kogumit."
 
@@ -2554,34 +2601,36 @@ msgstr "Praegusel teemal pole seadistamise valikuid."
 msgid "Current theme"
 msgstr "Praegune teema"
 
-#: application/view/omeka/site-admin/index/theme.phtml:43
+#: application/view/omeka/site-admin/index/theme.phtml:44
 msgid "Edit theme settings"
 msgstr "Muuda teema seadeid"
 
-#: application/view/omeka/site-admin/index/theme.phtml:49
+#: application/view/omeka/site-admin/index/theme.phtml:51
 #, php-format
 msgid "A new version of this theme is available. %s"
 msgstr "Sellest teemast on saadaval uus versioon. %s"
 
-#: application/view/omeka/site-admin/index/theme.phtml:59
+#: application/view/omeka/site-admin/index/theme.phtml:61
 msgid "Error: this theme is invalid."
 msgstr "Tõrge: see teema on vigane."
 
-#: application/view/omeka/site-admin/index/theme.phtml:61
+#: application/view/omeka/site-admin/index/theme.phtml:63
 #, php-format
 msgid "ID: %s"
 msgstr "ID: %s"
 
-#: application/view/omeka/site-admin/index/theme.phtml:62
+#: application/view/omeka/site-admin/index/theme.phtml:64
 #, php-format
 msgid "Status: %s"
 msgstr "Staatus: %s"
 
-#: application/view/omeka/site-admin/index/theme.phtml:64
+#: application/view/omeka/site-admin/index/theme.phtml:66
 msgid ""
 "Please contact the Omeka S administrator. This site will not be publicly "
 "available until the problem is resolved or you select another theme below."
 msgstr ""
+"Palun kontakteeru Omeka S-i administraatoriga. Seda saiti ei tehta avalikuks"
+" enne, kui probleem on lahendatud või kui valid teise allpool oleva teema."
 
 #: application/view/omeka/site-admin/index/users.phtml:8
 msgid "Restore"
@@ -2591,16 +2640,11 @@ msgstr "Taasta"
 msgid "User permissions"
 msgstr "Kasutaja õigused"
 
-#: application/view/omeka/site-admin/index/users.phtml:43
-#: application/view/omeka/site-admin/index/users.phtml:83
-msgid "User to be removed"
-msgstr "Eemaldatav kasutaja"
-
-#: application/view/omeka/site-admin/index/users.phtml:73
+#: application/view/omeka/site-admin/index/users.phtml:68
 msgid "This site has no users. Add users using the interface to the right."
 msgstr ""
 
-#: application/view/omeka/site-admin/index/users.phtml:76
+#: application/view/omeka/site-admin/index/users.phtml:71
 msgid "Click on a user to add them to the site."
 msgstr "Kasutaja saidile lisamiseks kliki kasutajal."
 
@@ -2644,6 +2688,26 @@ msgstr "Kustuta lehekülg"
 msgid "This site has no pages."
 msgstr "Sellel saidil pole lehekülgi"
 
+#: application/view/omeka/site/index/search.phtml:1
+#, php-format
+msgid "Search results for “%s”"
+msgstr ""
+
+#: application/view/omeka/site/index/search.phtml:11
+#: application/view/omeka/site/index/search.phtml:32
+#, php-format
+msgid "View all results (%s total)"
+msgstr ""
+
+#: application/view/omeka/site/index/search.phtml:20
+#: application/view/omeka/site/page/browse.phtml:18
+msgid "No pages found"
+msgstr ""
+
+#: application/view/omeka/site/index/search.phtml:41
+msgid "No items found"
+msgstr ""
+
 #: application/view/omeka/site/item-set/search.phtml:6
 msgid "Advanced item set Search"
 msgstr "Laiendatud ühikute kogumite otsing"
@@ -2656,33 +2720,41 @@ msgstr "Laiendatud ühikute otsing"
 msgid "Item"
 msgstr "Ühik"
 
-#: application/config/module.config.php:615
+#: application/config/module.config.php:617
 msgid "Something went wrong"
 msgstr "Midagi läks valesti"
 
-#: application/config/module.config.php:620
+#: application/config/module.config.php:622
 msgid "You have unsaved changes."
 msgstr "Sul on salvestamata muudatusi."
 
-#: application/config/module.config.php:622
+#: application/config/module.config.php:623
+msgid "Restore item set"
+msgstr "Taasta ühikute kogum"
+
+#: application/config/module.config.php:624
 msgid "Close icon set"
 msgstr "Sulge ikoonikomplekt"
 
-#: application/config/module.config.php:623
+#: application/config/module.config.php:625
 msgid "Open icon set"
 msgstr "Ava ikoonikomplekt"
 
-#: application/config/module.config.php:625
+#: application/config/module.config.php:627
 msgid "Failed loading resource template from API"
 msgstr "Ressursi malli laadimine API-st ebaõnnestus"
 
-#: application/config/module.config.php:626
+#: application/config/module.config.php:628
 msgid "Restore property"
 msgstr "Taasta omadus"
 
-#: application/config/module.config.php:628
+#: application/config/module.config.php:630
 msgid "Please enter a valid language tag"
 msgstr "Palun sisesta korrektne keele silt"
+
+#: application/config/module.config.php:632
+msgid "Description"
+msgstr "Kirjeldus"
 
 #: application/config/navigation.config.php:181
 #: application/config/navigation.config.php:250
@@ -2739,25 +2811,25 @@ msgstr "pealkirja pole"
 
 #: application/src/File/Validator.php:65
 #, php-format
-msgid "Error validating \"%s\". Cannot store files with the media type \"%s\"."
+msgid "Error validating \"%1$s\". Cannot store files with the media type \"%2$s\"."
 msgstr ""
 
 #: application/src/File/Validator.php:78
 #, php-format
 msgid ""
-"Error validating \"%s\". Cannot store files with the resolved extension "
-"\"%s\"."
+"Error validating \"%1$s\". Cannot store files with the resolved extension "
+"\"%2$s\"."
 msgstr ""
 
 #: application/src/File/Downloader.php:71
 #, php-format
-msgid "Error downloading %s: %s"
-msgstr "Viga allalaadimisel %s: %s"
+msgid "Error downloading %1$s: %2$s"
+msgstr "Viga allalaadimisel %1$s: %2$s"
 
 #: application/src/File/Downloader.php:83
 #, php-format
-msgid "Error downloading %s: %s %s"
-msgstr "Viga allalaadimisel %s: %s %s"
+msgid "Error downloading %1$s: %2$s %3$s"
+msgstr "Viga allalaadimisel %1$s: %2$s %3$s"
 
 #: application/src/File/ThumbnailManager.php:102
 msgid "Missing thumbnail configuration."
@@ -2793,33 +2865,126 @@ msgstr ""
 
 #: application/src/Form/ResourceTemplateImportForm.php:14
 msgid "Resource template file"
-msgstr "Ressusi malli fail"
+msgstr "Ressursi malli fail"
 
-#: application/src/Form/VocabularyImportForm.php:20
-msgid ""
-"A concise vocabulary identifier, used as a shorthand proxy for the namespace"
-" URI."
+#: application/src/Form/VocabularyForm.php:23
+msgid "Basic info"
 msgstr ""
 
-#: application/src/Form/VocabularyImportForm.php:32
+#: application/src/Form/VocabularyForm.php:30
+msgid "File"
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:37
+msgid "Advanced"
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:46
+msgid "Enter a human-readable title of the vocabulary."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:58
+msgid "Enter a human-readable description of the vocabulary."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:69
 msgid "Namespace URI"
 msgstr "Nimeruumi URI"
 
-#: application/src/Form/VocabularyImportForm.php:33
+#: application/src/Form/VocabularyForm.php:70
 msgid ""
-"The unique namespace URI used by the vocabulary to identify local member "
-"classes and properties."
+"Enter the unique namespace URI used to identify the classes and properties "
+"of the vocabulary."
 msgstr ""
 
-#: application/src/Form/VocabularyImportForm.php:46
-#: application/src/Form/VocabularyForm.php:15
-msgid "A human-readable title of the vocabulary."
-msgstr "Sõnastiku inimsõbralik nimetus."
+#: application/src/Form/VocabularyForm.php:81
+msgid "Namespace prefix"
+msgstr ""
 
-#: application/src/Form/VocabularyImportForm.php:59
-#: application/src/Form/VocabularyForm.php:28
-msgid "A human-readable description of the vocabulary."
-msgstr "Sõnastiku inimsõbralik kirjeldus."
+#: application/src/Form/VocabularyForm.php:82
+msgid ""
+"Enter a concise vocabulary identifier used as a shorthand for the namespace "
+"URI."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:94
+msgid "Vocabulary file"
+msgstr "Sõnastiku fail"
+
+#: application/src/Form/VocabularyForm.php:95
+msgid ""
+"Choose a RDF vocabulary file. You must choose a file or enter a URL below."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:105
+msgid "Vocabulary URL"
+msgstr "Sõnastiku URL"
+
+#: application/src/Form/VocabularyForm.php:106
+msgid ""
+"Enter a RDF vocabulary URL. You must enter a URL or choose a file above."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:116
+msgid "File format"
+msgstr "Failivorming"
+
+#: application/src/Form/VocabularyForm.php:118
+msgid "[Autodetect]"
+msgstr "[Automaatne tuvastamine]"
+
+#: application/src/Form/VocabularyForm.php:119
+msgid "JSON-LD (.jsonld)"
+msgstr "JSON-LD (.jsonld)"
+
+#: application/src/Form/VocabularyForm.php:120
+msgid "N-Triples (.nt)"
+msgstr "N-Triples (.nt)"
+
+#: application/src/Form/VocabularyForm.php:121
+msgid "Notation3 (.n3)"
+msgstr "Notation3 (.n3)"
+
+#: application/src/Form/VocabularyForm.php:122
+msgid "RDF/XML (.rdf)"
+msgstr "RDF/XML (.rdf)"
+
+#: application/src/Form/VocabularyForm.php:123
+msgid "Turtle (.ttl)"
+msgstr "Turtle (.ttl)"
+
+#: application/src/Form/VocabularyForm.php:135
+msgid "Preferred language"
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:136
+msgid ""
+"Enter the preferred language of the labels and comments using an <a "
+"target=\"_blank\" href=\"https://www.w3.org/International/articles/language-"
+"tags/\">IETF language tag</a>. Defaults to the first available."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:147
+msgid "Label property"
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:148
+msgid ""
+"Enter the label property. This is typically only needed if the vocabulary "
+"uses an unconventional property for labels. Please use the full property URI"
+" enclosed in angle brackets."
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:158
+msgid "Comment property"
+msgstr ""
+
+#: application/src/Form/VocabularyForm.php:159
+msgid ""
+"Enter the comment property. This is typically only needed if the vocabulary "
+"uses an unconventional property for comments. Please use the full property "
+"URI enclosed in angle brackets."
+msgstr ""
 
 #: application/src/Form/ResourceForm.php:30
 #: application/src/Form/ResourceBatchUpdateForm.php:69
@@ -2859,7 +3024,7 @@ msgid "Suggested class"
 msgstr "Soovitatud klass"
 
 #: application/src/Form/SiteSettingsForm.php:28
-#: application/src/Form/SettingForm.php:105
+#: application/src/Form/SettingForm.php:109
 msgid "General"
 msgstr "Üldine"
 
@@ -2909,12 +3074,12 @@ msgid "Always"
 msgstr "Alati"
 
 #: application/src/Form/SiteSettingsForm.php:90
-#: application/src/Form/SettingForm.php:232
+#: application/src/Form/SettingForm.php:236
 msgid "Disable JSON-LD embed"
 msgstr ""
 
 #: application/src/Form/SiteSettingsForm.php:91
-#: application/src/Form/SettingForm.php:233
+#: application/src/Form/SettingForm.php:237
 msgid ""
 "By default, Omeka embeds JSON-LD in resource browse and show pages for the "
 "purpose of machine-readable metadata discovery. Check this to disable "
@@ -2924,7 +3089,7 @@ msgstr ""
 #: application/src/Form/SiteSettingsForm.php:103
 #: application/src/Form/InstallationForm.php:112
 #: application/src/Form/UserForm.php:129
-#: application/src/Form/SettingForm.php:205
+#: application/src/Form/SettingForm.php:209
 msgid "Locale"
 msgstr "Keel"
 
@@ -2939,7 +3104,7 @@ msgid "Restrict browse to attached items"
 msgstr ""
 
 #: application/src/Form/SiteSettingsForm.php:137
-#: application/src/Form/SettingForm.php:156
+#: application/src/Form/SettingForm.php:160
 msgid "Results per page"
 msgstr "Tulemusi lehe kohta"
 
@@ -2959,38 +3124,42 @@ msgstr "Sirvi päise omadusi"
 
 #: application/src/Form/SiteSettingsForm.php:153
 msgid ""
-"Use this property for the heading of each resource on a browse page. Default"
-" is \"Dublin Core: Title\"."
+"Use this property for the heading of each resource on a browse page. Keep "
+"unselected to use the default title property of each resource."
 msgstr ""
 
-#: application/src/Form/SiteSettingsForm.php:160
-#: application/src/Form/SiteSettingsForm.php:176
+#: application/src/Form/SiteSettingsForm.php:161
+#: application/src/Form/SiteSettingsForm.php:178
 msgid "Select a property"
 msgstr "Vali omadus"
 
-#: application/src/Form/SiteSettingsForm.php:168
+#: application/src/Form/SiteSettingsForm.php:169
 msgid "Browse body property"
 msgstr "Sirvi sisu omadusi"
 
-#: application/src/Form/SiteSettingsForm.php:169
+#: application/src/Form/SiteSettingsForm.php:170
 msgid ""
-"Use this property for the body of each resource on a browse page. Default is"
-" \"Dublin Core: Description\"."
+"Use this property for the body of each resource on a browse page. Keep "
+"unselected to use the default description property of each resource."
 msgstr ""
 
-#: application/src/Form/SiteSettingsForm.php:193
+#: application/src/Form/SiteSettingsForm.php:195
 msgid "Templates"
 msgstr "Mallid"
 
-#: application/src/Form/SiteSettingsForm.php:194
+#: application/src/Form/SiteSettingsForm.php:196
 msgid "Select which templates to apply to the advanced search form."
 msgstr ""
 
-#: application/src/Form/SiteSettingsForm.php:199
+#: application/src/Form/SiteSettingsForm.php:201
 msgid "Select templates"
 msgstr "Vali mallid"
 
-#: application/src/Form/SiteSettingsForm.php:208
+#: application/src/Form/SiteSettingsForm.php:209
+msgid "Restrict to templates"
+msgstr ""
+
+#: application/src/Form/SiteSettingsForm.php:210
 msgid "Restrict search results to resources of the selected templates."
 msgstr ""
 
@@ -3061,12 +3230,12 @@ msgid "Confirm email"
 msgstr "Kinnita e-posti aadress"
 
 #: application/src/Form/InstallationForm.php:80
-#: application/src/Form/SettingForm.php:127
+#: application/src/Form/SettingForm.php:131
 msgid "Installation title"
 msgstr "Saidi nimi"
 
 #: application/src/Form/InstallationForm.php:98
-#: application/src/Form/SettingForm.php:142
+#: application/src/Form/SettingForm.php:146
 msgid "Time zone"
 msgstr "Ajavöönd"
 
@@ -3077,10 +3246,6 @@ msgstr "E-posti aadressid ei kattu"
 #: application/src/Form/ResourceBatchUpdateForm.php:33
 msgid "Set visibility"
 msgstr "Määra nähtavus"
-
-#: application/src/Form/ResourceBatchUpdateForm.php:36
-msgid "Not public"
-msgstr "Pole avalik"
 
 #: application/src/Form/ResourceBatchUpdateForm.php:50
 msgid "Set openness"
@@ -3113,21 +3278,22 @@ msgstr "[Määramata klass]"
 #: application/src/Form/ResourceBatchUpdateForm.php:110
 #: application/src/Form/ResourceBatchUpdateForm.php:124
 msgid "Select item sets"
-msgstr "Vali ühikute kogu"
+msgstr "Vali ühikute kogumid"
 
 #: application/src/Form/ResourceBatchUpdateForm.php:113
 msgid "Add to item sets"
-msgstr "Lisa ühikute kogusse"
+msgstr "Lisa ühikute kogumitesse"
 
 #: application/src/Form/ResourceBatchUpdateForm.php:127
 msgid "Remove from item sets"
-msgstr "Eemalda ühikute kogust"
+msgstr "Eemalda ühikute kogumitest"
 
 #: application/src/Form/ResourceBatchUpdateForm.php:137
 msgid "Clear language"
 msgstr "Eemalda keel"
 
 #: application/src/Form/ResourceBatchUpdateForm.php:161
+#: application/view/common/property-form-batch-edit.phtml:63
 msgid "Select properties"
 msgstr "Vali omadused"
 
@@ -3140,7 +3306,7 @@ msgid "Confirm"
 msgstr "Kinnita"
 
 #: application/src/Form/UserForm.php:130
-#: application/src/Form/SettingForm.php:206
+#: application/src/Form/SettingForm.php:210
 msgid "Global locale/language code for all interfaces."
 msgstr ""
 
@@ -3164,130 +3330,146 @@ msgstr "Kinnita uut parooli"
 msgid "New key label"
 msgstr "Uue võtme silt"
 
-#: application/src/Form/SettingForm.php:114
+#: application/src/Form/SettingForm.php:118
 msgid "Administrator email"
 msgstr "Administraatori e-post"
 
-#: application/src/Form/SettingForm.php:157
+#: application/src/Form/SettingForm.php:161
 msgid "The maximum number of results per page on browse pages."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:170
+#: application/src/Form/SettingForm.php:174
 msgid "Property label information"
 msgstr "Omaduse sildi info"
 
-#: application/src/Form/SettingForm.php:171
+#: application/src/Form/SettingForm.php:175
 msgid "The additional information that accompanies labels on resource pages."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:173
+#: application/src/Form/SettingForm.php:177
 msgid "None"
 msgstr "Pole"
 
-#: application/src/Form/SettingForm.php:174
+#: application/src/Form/SettingForm.php:178
 msgid "Show Vocabulary"
 msgstr "Näita sõnastikku"
 
-#: application/src/Form/SettingForm.php:175
+#: application/src/Form/SettingForm.php:179
 msgid "Show Term"
 msgstr "Näita terminit"
 
-#: application/src/Form/SettingForm.php:188
+#: application/src/Form/SettingForm.php:192
 msgid "Default site"
 msgstr "Vaikimisi sait"
 
-#: application/src/Form/SettingForm.php:189
+#: application/src/Form/SettingForm.php:193
 msgid ""
 "Select which site should appear when users go to the front page of the "
 "installation."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:194
+#: application/src/Form/SettingForm.php:198
 msgid "No default (show index of sites)"
-msgstr ""
+msgstr "Vaikeväärtust pole (näitab saitide indeksit)"
 
-#: application/src/Form/SettingForm.php:219
+#: application/src/Form/SettingForm.php:223
 msgid "Enable version notifications"
 msgstr "Luba versioonide teavitusi"
 
-#: application/src/Form/SettingForm.php:220
+#: application/src/Form/SettingForm.php:224
 msgid ""
 "Enable notifications when a new version of Omeka S, modules, or themes are "
 "available."
 msgstr ""
+"Luba teavitusi, kui Omeka S-i, moodulite või teemade uus versioon on "
+"saadaval."
 
-#: application/src/Form/SettingForm.php:247
+#: application/src/Form/SettingForm.php:249
+msgid "Default content visibility to Private"
+msgstr ""
+
+#: application/src/Form/SettingForm.php:250
+msgid ""
+"If checked, all items, item sets and sites newly created will have their "
+"visibility set to private by default."
+msgstr ""
+
+#: application/src/Form/SettingForm.php:262
+msgid "Index full-text search"
+msgstr ""
+
+#: application/src/Form/SettingForm.php:276
 msgid "Security"
 msgstr "Turvalisus"
 
-#: application/src/Form/SettingForm.php:256
+#: application/src/Form/SettingForm.php:285
 msgid "Use HTMLPurifier"
 msgstr "Kasuta HTML-i puhastajat"
 
-#: application/src/Form/SettingForm.php:257
+#: application/src/Form/SettingForm.php:286
 msgid "Clean up user-entered HTML."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:269
+#: application/src/Form/SettingForm.php:298
 msgid "Disable file validation"
 msgstr "Keela failide kontrollimine"
 
-#: application/src/Form/SettingForm.php:270
+#: application/src/Form/SettingForm.php:299
 msgid "Check this to disable file media type and extension validation."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:279
+#: application/src/Form/SettingForm.php:308
 msgid "Allowed media types"
 msgstr "Lubatud meedia liigid"
 
-#: application/src/Form/SettingForm.php:280
+#: application/src/Form/SettingForm.php:309
 msgid "A comma-separated list of allowed media types for file uploads."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:292
+#: application/src/Form/SettingForm.php:321
 msgid "Allowed file extensions"
 msgstr "Lubatud faililaiendid"
 
-#: application/src/Form/SettingForm.php:293
+#: application/src/Form/SettingForm.php:322
 msgid "A comma-separated list of allowed file extensions for file uploads."
 msgstr ""
 
-#: application/src/Form/SettingForm.php:307
+#: application/src/Form/SettingForm.php:336
 msgid "reCAPTCHA site key"
 msgstr "reCAPTCHA saidi võti"
 
-#: application/src/Form/SettingForm.php:318
+#: application/src/Form/SettingForm.php:347
 msgid "reCAPTCHA secret key"
 msgstr "reCAPTCHA salavõti"
 
 #: application/src/Form/Element/PasswordConfirm.php:20
 #, php-format
 msgid "be a minimum of %s characters in length."
-msgstr ""
+msgstr "olema vähemalt %s tähemärgi pikkune."
 
 #: application/src/Form/Element/PasswordConfirm.php:24
 #, php-format
 msgid "contain at least %s lowercase characters."
-msgstr ""
+msgstr "sisaldama vähemalt %s väiketähte."
 
 #: application/src/Form/Element/PasswordConfirm.php:28
 #, php-format
 msgid "contain at least %s uppercase characters."
-msgstr ""
+msgstr "sisaldama vähemalt %s suurtähte."
 
 #: application/src/Form/Element/PasswordConfirm.php:32
 #, php-format
 msgid "contain at least %s numbers."
-msgstr ""
+msgstr "sisaldama vähemalt %s numbrit."
 
 #: application/src/Form/Element/PasswordConfirm.php:39
 #, php-format
-msgid "contain at least %s symbols: %s"
-msgstr ""
+msgid "contain at least %1$s symbols: %2$s"
+msgstr "sisaldama vähemalt %1$s sümbolit: %2$s"
 
 #: application/src/Form/Element/PasswordConfirm.php:43
 msgid "Password must:"
-msgstr ""
+msgstr "Parool peab:"
 
 #: application/src/Form/Element/PasswordConfirm.php:66
 msgid "Confirm password"
@@ -3309,65 +3491,15 @@ msgstr ""
 msgid "Invalid color format"
 msgstr "Vigane värvi vorming"
 
-#: application/src/Form/Element/VocabularyFetch.php:15
-msgid "Vocabulary file"
-msgstr "Sõnastiku fail"
-
-#: application/src/Form/Element/VocabularyFetch.php:16
-msgid "Choose a RDF vocabulary file. You must choose a file or enter a URL."
-msgstr ""
-
-#: application/src/Form/Element/VocabularyFetch.php:26
-msgid "Vocabulary URL"
-msgstr "Sõnastiku URL"
-
-#: application/src/Form/Element/VocabularyFetch.php:27
-msgid "Enter a RDF vocabulary URL. You must enter a URL or choose a file."
-msgstr ""
-
-#: application/src/Form/Element/VocabularyFetch.php:37
-msgid "File format"
-msgstr "Failivorming"
-
-#: application/src/Form/Element/VocabularyFetch.php:39
-msgid "[Autodetect]"
-msgstr "[Automaatne tuvastamine]"
-
-#: application/src/Form/Element/VocabularyFetch.php:40
-msgid "JSON-LD (.jsonld)"
-msgstr "JSON-LD (.jsonld)"
-
-#: application/src/Form/Element/VocabularyFetch.php:41
-msgid "N-Triples (.nt)"
-msgstr "N-Triples (.nt)"
-
-#: application/src/Form/Element/VocabularyFetch.php:42
-msgid "Notation3 (.n3)"
-msgstr "Notation3 (.n3)"
-
-#: application/src/Form/Element/VocabularyFetch.php:43
-msgid "RDF/XML (.rdf)"
-msgstr "RDF/XML (.rdf)"
-
-#: application/src/Form/Element/VocabularyFetch.php:44
-msgid "Turtle (.ttl)"
-msgstr "Turtle (.ttl)"
-
-#: application/src/Form/Element/VocabularyFetch.php:57
-msgid ""
-"Enter the preferred language of the labels and comments using an IETF "
-"language tag. Defaults to the first available."
-msgstr ""
-
 #: application/src/Form/Element/Recaptcha.php:99
 msgid "You must verify that you are human by completing the CAPTCHA."
-msgstr "Sa pead näitama, et sa oled inimene sisestades selle CAPTCHA."
+msgstr "Pead tõestama, et oled inimene, sisestades selle CAPTCHA."
 
 #: application/src/Form/Element/Recaptcha.php:108
 msgid "Could not verify that you are a human."
-msgstr "Me pole veendunud selles, et sa oled inimene."
+msgstr "Ei saanud tõestada, et oled inimene."
 
-#: application/src/Controller/MigrateController.php:33
+#: application/src/Controller/MigrateController.php:40
 msgid "Migration successful"
 msgstr "Kolimine oli edukas"
 
@@ -3389,16 +3521,16 @@ msgstr "Sait on uuendatud"
 
 #: application/src/Controller/SiteAdmin/IndexController.php:115
 msgid "User does not have permission to edit site settings"
-msgstr ""
+msgstr "Kasutajal pole luba saidi seadete muutmiseks."
 
 #: application/src/Controller/SiteAdmin/IndexController.php:136
-#: application/src/Controller/Admin/SettingController.php:31
+#: application/src/Controller/Admin/SettingController.php:35
 msgid "Settings successfully updated"
 msgstr "Seaded on uuendatud"
 
 #: application/src/Controller/SiteAdmin/IndexController.php:172
 msgid "Page successfully created"
-msgstr "Leheküllg on loodud"
+msgstr "Lehekülg on loodud"
 
 #: application/src/Controller/SiteAdmin/IndexController.php:201
 msgid "Homepage"
@@ -3424,15 +3556,15 @@ msgstr "Kasutaja õiguseid on uuendatud"
 msgid "Site theme successfully updated"
 msgstr "Saidi kujundus on uuendatud"
 
-#: application/src/Controller/SiteAdmin/IndexController.php:401
+#: application/src/Controller/SiteAdmin/IndexController.php:403
 msgid "Theme settings successfully updated"
 msgstr "Kujunduse seaded on uuendatud"
 
-#: application/src/Controller/SiteAdmin/IndexController.php:418
+#: application/src/Controller/SiteAdmin/IndexController.php:420
 msgid "Site successfully deleted"
 msgstr "Sait on kustutatud"
 
-#: application/src/Controller/SiteAdmin/IndexController.php:441
+#: application/src/Controller/SiteAdmin/IndexController.php:443
 msgid "site"
 msgstr "sait"
 
@@ -3478,7 +3610,7 @@ msgstr "Parooli loomine ebaõnnestus"
 
 #: application/src/Controller/LoginController.php:168
 msgid "Check your email for instructions on how to reset your password"
-msgstr ""
+msgstr "Vaata oma e-posti parooli taastamise juhisteks"
 
 #: application/src/Controller/LoginController.php:171
 msgid "Activation unsuccessful"
@@ -3497,19 +3629,19 @@ msgstr "Ressursi mall on kustutatud"
 msgid "Resource template could not be deleted"
 msgstr "Ressursi malli kustutamine ebaõnnestus"
 
-#: application/src/Controller/Admin/ResourceTemplateController.php:402
+#: application/src/Controller/Admin/ResourceTemplateController.php:408
 msgid "Resource template successfully updated"
 msgstr "Ressursi mall on uuendatud"
 
-#: application/src/Controller/Admin/ResourceTemplateController.php:405
+#: application/src/Controller/Admin/ResourceTemplateController.php:411
 #, php-format
 msgid "Resource template successfully created. %s"
 msgstr "Ressursi mall on loodud. %s"
 
 #: application/src/Controller/Admin/UserController.php:44
 #: application/src/Controller/Admin/UserController.php:49
-#: application/src/Controller/Admin/ItemSetController.php:85
-#: application/src/Controller/Admin/ItemSetController.php:90
+#: application/src/Controller/Admin/ItemSetController.php:87
+#: application/src/Controller/Admin/ItemSetController.php:92
 #: application/src/Controller/Admin/MediaController.php:27
 #: application/src/Controller/Admin/MediaController.php:32
 #: application/src/Controller/Admin/ItemController.php:42
@@ -3544,7 +3676,7 @@ msgid ""
 "API key successfully created.<br><br>Here is your key ID and credential for "
 "access to the API. WARNING: \"key_credential\" will be unretrievable after "
 "you navigate away from this page.<br><br>key_identity: "
-"<code>%s</code><br>key_credential: <code>%s</code>"
+"<code>%1$s</code><br>key_credential: <code>%2$s</code>"
 msgstr ""
 
 #: application/src/Controller/Admin/UserController.php:268
@@ -3579,7 +3711,7 @@ msgstr "Hulgimuutmiseks pead valima vähemalt ühe kasutaja."
 msgid "For security reasons, you can’t batch edit yourself."
 msgstr "Turvakaalutlustel ei saa sa enda kontot hulgitöötluse käigus muuta."
 
-#: application/src/Controller/Admin/UserController.php:396
+#: application/src/Controller/Admin/UserController.php:391
 msgid "Users successfully edited"
 msgstr "Kasutajaid on muudetud"
 
@@ -3587,48 +3719,48 @@ msgstr "Kasutajaid on muudetud"
 msgid "Editing users. This may take a while."
 msgstr "Kasutajate muutmine. See võib veidi aega võtta."
 
-#: application/src/Controller/Admin/ItemSetController.php:31
+#: application/src/Controller/Admin/ItemSetController.php:32
 #, php-format
 msgid "Item set successfully created. %s"
 msgstr "Ühikute kogum on loodud. %s"
 
-#: application/src/Controller/Admin/ItemSetController.php:67
+#: application/src/Controller/Admin/ItemSetController.php:69
 msgid "Item set successfully updated"
 msgstr "Ühikute kogumit on uuendatud"
 
-#: application/src/Controller/Admin/ItemSetController.php:153
+#: application/src/Controller/Admin/ItemSetController.php:155
 msgid "item set"
 msgstr "ühikute kogum"
 
-#: application/src/Controller/Admin/ItemSetController.php:168
+#: application/src/Controller/Admin/ItemSetController.php:170
 msgid "Item set successfully deleted"
 msgstr "Ühikute kogum on kustutatud"
 
-#: application/src/Controller/Admin/ItemSetController.php:189
+#: application/src/Controller/Admin/ItemSetController.php:191
 msgid "You must select at least one item set to batch delete."
 msgstr "Hulgikustutamiseks pead valima vähemalt ühe ühikute kogumi."
 
-#: application/src/Controller/Admin/ItemSetController.php:198
+#: application/src/Controller/Admin/ItemSetController.php:200
 msgid "Item sets successfully deleted"
 msgstr "Ühikute kogum on kustutatud"
 
-#: application/src/Controller/Admin/ItemSetController.php:224
+#: application/src/Controller/Admin/ItemSetController.php:226
 msgid "Deleting item sets. This may take a while."
 msgstr "Ühikute kogumite kustutamine. See võib veidi aega võtta."
 
-#: application/src/Controller/Admin/ItemSetController.php:242
+#: application/src/Controller/Admin/ItemSetController.php:244
 msgid "You must select at least one item set to batch edit."
 msgstr "Hulgi muutmiseks pead valima vähemalt ühie ühikute kogumi."
 
-#: application/src/Controller/Admin/ItemSetController.php:267
+#: application/src/Controller/Admin/ItemSetController.php:264
 msgid "Item sets successfully edited"
 msgstr "Ühikute kogumeid on muudetud"
 
-#: application/src/Controller/Admin/ItemSetController.php:314
+#: application/src/Controller/Admin/ItemSetController.php:316
 msgid "Editing item sets. This may take a while."
 msgstr "Ühikute kogumite muutmine. See võib veidi aega võtta."
 
-#: application/src/Controller/Admin/VocabularyController.php:60
+#: application/src/Controller/Admin/VocabularyController.php:59
 msgid "vocabulary"
 msgstr "sõnastik"
 
@@ -3637,51 +3769,51 @@ msgstr "sõnastik"
 msgid "Vocabulary successfully imported. %s"
 msgstr "Sõnastik on imporditud. %s"
 
-#: application/src/Controller/Admin/VocabularyController.php:170
+#: application/src/Controller/Admin/VocabularyController.php:176
 msgid "Please review these changes before you accept them."
 msgstr ""
 
-#: application/src/Controller/Admin/VocabularyController.php:178
+#: application/src/Controller/Admin/VocabularyController.php:184
 msgid "Vocabulary successfully updated"
 msgstr "Sõnastikku on uuendatud"
 
-#: application/src/Controller/Admin/VocabularyController.php:198
+#: application/src/Controller/Admin/VocabularyController.php:204
 msgid "Changes to the vocabulary successfully made"
 msgstr "Sõnastikku on muudetud"
 
-#: application/src/Controller/Admin/VocabularyController.php:214
+#: application/src/Controller/Admin/VocabularyController.php:220
 msgid "Vocabulary successfully deleted"
 msgstr "Sõnastik on kustutatud"
 
-#: application/src/Controller/Admin/MediaController.php:57
+#: application/src/Controller/Admin/MediaController.php:59
 msgid "Media successfully updated"
 msgstr "Meedia on uuendatud"
 
-#: application/src/Controller/Admin/MediaController.php:123
+#: application/src/Controller/Admin/MediaController.php:125
 msgid "Media successfully deleted"
 msgstr "Meedia on kustutatud"
 
-#: application/src/Controller/Admin/MediaController.php:157
+#: application/src/Controller/Admin/MediaController.php:159
 msgid "You must select at least one media to batch delete."
 msgstr ""
 
-#: application/src/Controller/Admin/MediaController.php:166
+#: application/src/Controller/Admin/MediaController.php:168
 msgid "Medias successfully deleted"
 msgstr "Meediafailid on kustutatud"
 
-#: application/src/Controller/Admin/MediaController.php:192
+#: application/src/Controller/Admin/MediaController.php:194
 msgid "Deleting medias. This may take a while."
 msgstr "Meediafailide kustutamine. See võib veidi aega võtta."
 
-#: application/src/Controller/Admin/MediaController.php:210
+#: application/src/Controller/Admin/MediaController.php:212
 msgid "You must select at least one media to batch edit."
 msgstr ""
 
-#: application/src/Controller/Admin/MediaController.php:235
+#: application/src/Controller/Admin/MediaController.php:232
 msgid "Medias successfully edited"
 msgstr "Meediafailid on kustutatud"
 
-#: application/src/Controller/Admin/MediaController.php:282
+#: application/src/Controller/Admin/MediaController.php:284
 msgid "Editing medias. This may take a while."
 msgstr "Meediafailide muutmine. See võib veidi aega võtta"
 
@@ -3705,24 +3837,24 @@ msgstr "Ühikud on kustutatud"
 msgid "Deleting items. This may take a while."
 msgstr "Ühikute kustutamine. See võib veidi aega võtta."
 
-#: application/src/Controller/Admin/ItemController.php:207
+#: application/src/Controller/Admin/ItemController.php:208
 #, php-format
 msgid "Item successfully created. %s"
 msgstr "Ühik on loodud. %s"
 
-#: application/src/Controller/Admin/ItemController.php:243
+#: application/src/Controller/Admin/ItemController.php:245
 msgid "Item successfully updated"
 msgstr "Ühikut on uuendatud"
 
-#: application/src/Controller/Admin/ItemController.php:270
+#: application/src/Controller/Admin/ItemController.php:272
 msgid "You must select at least one item to batch edit."
 msgstr "Hulgimuutmiseks pead valima vähemalt ühe ühiku."
 
-#: application/src/Controller/Admin/ItemController.php:295
+#: application/src/Controller/Admin/ItemController.php:292
 msgid "Items successfully edited"
 msgstr "Ühikuid on muudetud"
 
-#: application/src/Controller/Admin/ItemController.php:342
+#: application/src/Controller/Admin/ItemController.php:344
 msgid "Editing items. This may take a while."
 msgstr "Ühikute muutmine. See võib veidi aega võtta."
 
@@ -3828,7 +3960,7 @@ msgstr "Algus"
 msgid ""
 "Begin playing the video at the given number of seconds from the start of the"
 " video."
-msgstr ""
+msgstr "Alusta video mängimist etteantud sekundil alates video algusest."
 
 #: application/src/Media/Ingester/Youtube.php:104
 msgid "End"
@@ -3838,11 +3970,44 @@ msgstr "Lõpp"
 msgid ""
 "End playing the video at the given number of seconds from the start of the "
 "video."
-msgstr ""
+msgstr "Lõpeta video mängimine etteantud sekundil alates video algusest."
 
 #: application/src/Media/Ingester/Upload.php:69
 msgid "Upload file"
 msgstr "Laadi fail üles"
+
+#: application/src/Stdlib/Environment.php:47
+#, php-format
+msgid ""
+"You must upgrade Omeka S to at least version 1.0.0 before upgrading to "
+"version %1$s. You are currently on version %2$s."
+msgstr ""
+
+#: application/src/Stdlib/Environment.php:54
+#, php-format
+msgid ""
+"The installed PHP version (%1$s) is too low. Omeka requires at least version"
+" %2$s."
+msgstr ""
+
+#: application/src/Stdlib/Environment.php:62
+#, php-format
+msgid "Omeka requires the PHP extension %s, but it is not loaded."
+msgstr ""
+
+#: application/src/Stdlib/Environment.php:81
+#, php-format
+msgid ""
+"The installed MySQL version (%1$s) is too low. Omeka requires at least "
+"version %2$s."
+msgstr ""
+
+#: application/src/Stdlib/Environment.php:89
+#, php-format
+msgid ""
+"The installed MariaDB version (%1$s) is too low. Omeka requires at least "
+"version %2$s."
+msgstr ""
 
 #: application/src/Permissions/Acl.php:21
 msgid "Global Administrator"
@@ -3890,60 +4055,68 @@ msgstr "Läbipaistmatu"
 
 #: application/src/Site/BlockLayout/ItemShowcase.php:13
 msgid "Item showcase"
-msgstr ""
+msgstr "Ühiku aken"
 
 #: application/src/Site/BlockLayout/ItemWithMetadata.php:13
 msgid "Item with metadata"
-msgstr "Ühikud metaandmetega"
+msgstr "Ühik metaandmetega"
 
-#: application/src/Site/BlockLayout/Media.php:60
-msgid "Thumbnail alignment"
-msgstr "Pisipildi joondus"
+#: application/src/Site/BlockLayout/Media.php:14
+msgid "Media Embed"
+msgstr ""
+
+#: application/src/Site/BlockLayout/Media.php:61
+msgid "Alignment"
+msgstr ""
 
 #: application/src/Site/BlockLayout/Fallback.php:28
 #, php-format
 msgid "Unknown [%s]"
 msgstr "Tundmatu [%s]"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:22
+#: application/src/Site/BlockLayout/ListOfSites.php:23
 msgid "List of sites"
 msgstr "Saitide nimekiri"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:37
+#: application/src/Site/BlockLayout/ListOfSites.php:38
 msgid "Alphabetical"
 msgstr "Tähestiku järjekorras"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:38
+#: application/src/Site/BlockLayout/ListOfSites.php:39
 msgid "Oldest first"
 msgstr "Vanemad eespool"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:39
+#: application/src/Site/BlockLayout/ListOfSites.php:40
 msgid "Newest first"
 msgstr "Uuemad eespool"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:50
+#: application/src/Site/BlockLayout/ListOfSites.php:51
 msgid "Max number of sites"
 msgstr "Maksimaalne saitide arv"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:51
+#: application/src/Site/BlockLayout/ListOfSites.php:52
 msgid "An empty value means no limit."
 msgstr "Tühi väärtus tähendab, et limiiti pole."
 
-#: application/src/Site/BlockLayout/ListOfSites.php:55
+#: application/src/Site/BlockLayout/ListOfSites.php:56
 msgid "Unlimited"
 msgstr "Piiramatult"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:63
+#: application/src/Site/BlockLayout/ListOfSites.php:64
 msgid "Pagination"
 msgstr "Lehekülgedeks jagamine"
 
-#: application/src/Site/BlockLayout/ListOfSites.php:64
+#: application/src/Site/BlockLayout/ListOfSites.php:65
 msgid "Show pagination (only if a limit is set)"
 msgstr ""
 
-#: application/src/Site/BlockLayout/ListOfSites.php:74
+#: application/src/Site/BlockLayout/ListOfSites.php:75
 msgid "Show summaries"
 msgstr "Näita kokkuvõtteid"
+
+#: application/src/Site/BlockLayout/ListOfSites.php:85
+msgid "Exclude current site"
+msgstr ""
 
 #: application/src/Site/BlockLayout/BrowsePreview.php:15
 msgid "Browse preview"
@@ -3955,7 +4128,7 @@ msgstr "Sirvi kõiki"
 
 #: application/src/Site/BlockLayout/BrowsePreview.php:49
 msgid "Display resources using this search query"
-msgstr ""
+msgstr "Kuva ressursid, mis kasutavad seda otsingupäringut"
 
 #: application/src/Site/BlockLayout/BrowsePreview.php:57
 msgid "Limit"
@@ -3963,7 +4136,7 @@ msgstr "Piira"
 
 #: application/src/Site/BlockLayout/BrowsePreview.php:58
 msgid "Maximum number of resources to display in the preview."
-msgstr ""
+msgstr "Ressursside maksimaalne arv, mida kuvatakse eelvaates."
 
 #: application/src/Site/BlockLayout/BrowsePreview.php:65
 msgid "Preview title"
@@ -3986,19 +4159,19 @@ msgid "Page title"
 msgstr "Lehekülje pealkiri"
 
 #: application/src/Api/Adapter/ResourceClassAdapter.php:137
-#: application/src/Api/Adapter/PropertyAdapter.php:148
+#: application/src/Api/Adapter/PropertyAdapter.php:147
 msgid "The local name cannot be empty."
 msgstr "Kohalik nimi ei saa olla tühi."
 
 #: application/src/Api/Adapter/ResourceClassAdapter.php:142
-#: application/src/Api/Adapter/PropertyAdapter.php:153
+#: application/src/Api/Adapter/PropertyAdapter.php:152
 #: application/src/Api/Adapter/ResourceTemplateAdapter.php:89
 #: application/src/Api/Adapter/VocabularyAdapter.php:214
 msgid "The label cannot be empty."
 msgstr "Silt ei saa olla tühi."
 
 #: application/src/Api/Adapter/ResourceClassAdapter.php:155
-#: application/src/Api/Adapter/PropertyAdapter.php:166
+#: application/src/Api/Adapter/PropertyAdapter.php:165
 #: application/src/Api/Adapter/VocabularyAdapter.php:222
 #: application/src/Api/Adapter/VocabularyAdapter.php:235
 #, php-format
@@ -4006,58 +4179,58 @@ msgid "The local name \"%s\" is already taken."
 msgstr "Kohalik nimi \"%s\" on juba kasutuses."
 
 #: application/src/Api/Adapter/ResourceClassAdapter.php:161
-#: application/src/Api/Adapter/PropertyAdapter.php:172
+#: application/src/Api/Adapter/PropertyAdapter.php:171
 msgid "A vocabulary must be set."
 msgstr "Sõnastiku nimi peab olema määratud."
 
-#: application/src/Api/Adapter/SitePageAdapter.php:84
+#: application/src/Api/Adapter/SitePageAdapter.php:101
 msgid "A page must belong to a site."
 msgstr "Pehekülg peab kuuluma saidile."
 
-#: application/src/Api/Adapter/SitePageAdapter.php:89
+#: application/src/Api/Adapter/SitePageAdapter.php:106
 msgid "A page must have a title."
 msgstr "Leheküljel peab olema pealkiri."
 
-#: application/src/Api/Adapter/SitePageAdapter.php:94
+#: application/src/Api/Adapter/SitePageAdapter.php:111
 #: application/src/Api/Adapter/SiteAdapter.php:234
 msgid "The slug cannot be empty."
 msgstr ""
 
-#: application/src/Api/Adapter/SitePageAdapter.php:97
+#: application/src/Api/Adapter/SitePageAdapter.php:114
 #: application/src/Api/Adapter/SiteAdapter.php:237
 msgid "A slug can only contain letters, numbers, underscores, and hyphens."
 msgstr ""
 
-#: application/src/Api/Adapter/SitePageAdapter.php:105
+#: application/src/Api/Adapter/SitePageAdapter.php:122
 #: application/src/Api/Adapter/SiteAdapter.php:241
 #, php-format
 msgid "The slug \"%s\" is already taken."
 msgstr ""
 
-#: application/src/Api/Adapter/SitePageAdapter.php:149
+#: application/src/Api/Adapter/SitePageAdapter.php:166
 msgid "All blocks must have a layout."
 msgstr "Kõikidel plokkidel peab olema paigutus."
 
-#: application/src/Api/Adapter/SitePageAdapter.php:153
+#: application/src/Api/Adapter/SitePageAdapter.php:170
 msgid "Block data must not be a scalar value."
 msgstr ""
 
-#: application/src/Api/Adapter/ItemAdapter.php:106
+#: application/src/Api/Adapter/ItemAdapter.php:107
 msgid "Item sets must be an array"
 msgstr "Ühikute kogum peab olema massiiv"
 
-#: application/src/Api/Adapter/ItemAdapter.php:112
+#: application/src/Api/Adapter/ItemAdapter.php:113
 msgid "Media must be an array"
 msgstr ""
 
-#: application/src/Api/Adapter/AbstractResourceEntityAdapter.php:165
+#: application/src/Api/Adapter/AbstractResourceEntityAdapter.php:168
 #, php-format
-msgid "The \"%s\" resource template requires a \"%s\" value"
+msgid "The \"%1$s\" resource template requires a \"%2$s\" value"
 msgstr ""
 
 #: application/src/Api/Adapter/SiteAdapter.php:230
 msgid "A site must have a title."
-msgstr "Saidil peab olema nimi."
+msgstr "Saidil peab olema pealkiri."
 
 #: application/src/Api/Adapter/SiteAdapter.php:247
 msgid "A site must have a theme."
@@ -4071,39 +4244,39 @@ msgstr "Saidil peavad olema ühikute andmed."
 msgid "A homepage must belong to its parent site."
 msgstr ""
 
-#: application/src/Api/Adapter/SiteAdapter.php:297
+#: application/src/Api/Adapter/SiteAdapter.php:304
 msgid "Invalid navigation: navigation must be an array"
 msgstr ""
 
-#: application/src/Api/Adapter/SiteAdapter.php:306
+#: application/src/Api/Adapter/SiteAdapter.php:313
 msgid "Invalid navigation: link missing type"
 msgstr "Vigane menüü: lingi liik puudub"
 
-#: application/src/Api/Adapter/SiteAdapter.php:310
+#: application/src/Api/Adapter/SiteAdapter.php:317
 msgid "Invalid navigation: link missing data"
 msgstr "Vigane menüü: lingi andmed puuduvad"
 
-#: application/src/Api/Adapter/SiteAdapter.php:314
+#: application/src/Api/Adapter/SiteAdapter.php:321
 msgid "Invalid navigation: invalid link data"
 msgstr "Vigane menüü: vigased lingi andmed"
 
-#: application/src/Api/Adapter/SiteAdapter.php:319
+#: application/src/Api/Adapter/SiteAdapter.php:326
 msgid "Invalid navigation: page links must be unique"
 msgstr "Vigane menüü: lehekülje lingid peavad olema kordumatud"
 
-#: application/src/Api/Adapter/SiteAdapter.php:326
+#: application/src/Api/Adapter/SiteAdapter.php:333
 msgid "Invalid navigation: links must be an array"
 msgstr ""
 
-#: application/src/Api/Adapter/MediaAdapter.php:88
+#: application/src/Api/Adapter/MediaAdapter.php:97
 msgid "Media must set an ingester."
 msgstr ""
 
-#: application/src/Api/Adapter/MediaAdapter.php:110
+#: application/src/Api/Adapter/MediaAdapter.php:119
 msgid "Media must set a valid ingester."
 msgstr ""
 
-#: application/src/Api/Adapter/MediaAdapter.php:146
+#: application/src/Api/Adapter/MediaAdapter.php:155
 msgid "Media must belong to an item."
 msgstr "Meedia peab kuuluma ühiku juurde."
 
@@ -4209,13 +4382,18 @@ msgstr "peatatud"
 msgid "error"
 msgstr "viga"
 
+#: application/src/Mvc/MvcListeners.php:325
+#, php-format
+msgid "The current theme is not active. Its current state is \"%s\"."
+msgstr ""
+
 #: application/src/DataType/Resource/AbstractResource.php:16
 msgid "Resource"
 msgstr "Ressurss"
 
 #: application/src/DataType/Resource/AbstractResource.php:59
 msgid "A value resource cannot be Media."
-msgstr ""
+msgstr "Väärtusse ressurss ei saa olla meedia."
 
 #: application/src/DataType/Resource/ItemSet.php:13
 msgid "Item Set"
@@ -4356,7 +4534,7 @@ msgstr ""
 
 #. Class comment for Dublin Core:MethodOfAccrual
 msgid "A method by which resources are added to a collection."
-msgstr ""
+msgstr "Meetod, mille alusel ressursid on lisatud kogusse."
 
 #. Class label for Dublin Core:PeriodOfTime
 msgid "Period of Time"
@@ -4436,15 +4614,15 @@ msgstr ""
 
 #. Property comment for Dublin Core:title
 msgid "A name given to the resource."
-msgstr "Ressursi nimi."
+msgstr "Ressursile antud nimetus."
 
 #. Property label for Dublin Core:creator
 msgid "Creator"
-msgstr "Looja"
+msgstr "Autor"
 
 #. Property comment for Dublin Core:creator
 msgid "An entity primarily responsible for making the resource."
-msgstr "Ressursi peamine koostaja."
+msgstr "Ressursi sisu peamine looja."
 
 #. Property label for Dublin Core:subject
 msgid "Subject"
@@ -4452,45 +4630,41 @@ msgstr "Teema"
 
 #. Property comment for Dublin Core:subject
 msgid "The topic of the resource."
-msgstr "Ressursi teema."
-
-#. Property label for Dublin Core:description
-msgid "Description"
-msgstr "Kirjeldus"
+msgstr "Ressursi käsitlusala."
 
 #. Property comment for Dublin Core:description
 msgid "An account of the resource."
-msgstr "Ressursi konto."
+msgstr "Ressursi sisu kokkuvõte."
 
 #. Property label for Dublin Core:publisher
 msgid "Publisher"
-msgstr "Avaldaja"
+msgstr "Väljaandja"
 
 #. Property comment for Dublin Core:publisher
 msgid "An entity responsible for making the resource available."
-msgstr "Ressursi peamine avaldaja."
+msgstr "Ressursi avaldamise eest vastutav subjekt."
 
 #. Property label for Dublin Core:contributor
 msgid "Contributor"
-msgstr ""
+msgstr "Kaasautor"
 
 #. Property comment for Dublin Core:contributor
 msgid "An entity responsible for making contributions to the resource."
-msgstr ""
+msgstr "Ressursi sisu loomisel kaastööd teinud subjekt."
 
 #. Property label for Dublin Core:date
 msgid "Date"
-msgstr "Kuupäev"
+msgstr "Daatum"
 
 #. Property comment for Dublin Core:date
 msgid ""
 "A point or period of time associated with an event in the lifecycle of the "
 "resource."
-msgstr ""
+msgstr "Ressursi elukäiguga seotud sündmuse ajahetk või periood."
 
 #. Property comment for Dublin Core:type
 msgid "The nature or genre of the resource."
-msgstr ""
+msgstr "Ressursi olemus või laad."
 
 #. Property label for Dublin Core:format
 msgid "Format"
@@ -4498,7 +4672,7 @@ msgstr "Vorming"
 
 #. Property comment for Dublin Core:format
 msgid "The file format, physical medium, or dimensions of the resource."
-msgstr ""
+msgstr "Ressursi failivorming, füüsiline andmekandja või mõõtmed."
 
 #. Property comment for Dublin Core:identifier
 msgid "An unambiguous reference to the resource within a given context."
@@ -4506,15 +4680,15 @@ msgstr ""
 
 #. Property comment for Dublin Core:source
 msgid "A related resource from which the described resource is derived."
-msgstr ""
+msgstr "Viide ressursile, millest kirjeldatav ressurss pärineb."
 
 #. Property comment for Dublin Core:language
 msgid "A language of the resource."
-msgstr "Ressursi keel."
+msgstr "Ressursi sisu keel."
 
 #. Property label for Dublin Core:relation
 msgid "Relation"
-msgstr "Suhe"
+msgstr "Seos"
 
 #. Property comment for Dublin Core:relation
 msgid "A related resource."
@@ -4522,13 +4696,15 @@ msgstr "Seotud ressurss."
 
 #. Property label for Dublin Core:coverage
 msgid "Coverage"
-msgstr ""
+msgstr "Hõlme"
 
 #. Property comment for Dublin Core:coverage
 msgid ""
 "The spatial or temporal topic of the resource, the spatial applicability of "
 "the resource, or the jurisdiction under which the resource is relevant."
 msgstr ""
+"Ressursi ruumiline või ajaline käsitlusala, ressursi ruumiline kohaldatavus "
+"või jurisdiktsioon, milles ressurss omab tähendust."
 
 #. Property label for Dublin Core:rights
 msgid "Rights"
@@ -4536,11 +4712,11 @@ msgstr "Õigused"
 
 #. Property comment for Dublin Core:rights
 msgid "Information about rights held in and over the resource."
-msgstr ""
+msgstr "Teave ressursiga seotud õigustest."
 
 #. Property label for Dublin Core:audience
 msgid "Audience"
-msgstr "Sihtgrupp"
+msgstr "Sihtrühm"
 
 #. Property comment for Dublin Core:audience
 msgid "A class of entity for whom the resource is intended or useful."
@@ -4548,7 +4724,7 @@ msgstr ""
 
 #. Property label for Dublin Core:alternative
 msgid "Alternative Title"
-msgstr "alkiri"
+msgstr "Teisendpealkiri"
 
 #. Property comment for Dublin Core:alternative
 msgid "An alternative name for the resource."
@@ -4564,7 +4740,7 @@ msgstr ""
 
 #. Property label for Dublin Core:abstract
 msgid "Abstract"
-msgstr "Abstraktne"
+msgstr "Kokkuvõte"
 
 #. Property comment for Dublin Core:abstract
 #. Property comment for Bibliographic Ontology:abstract
@@ -4614,11 +4790,11 @@ msgstr "Ressursi muutmise kuupäev."
 
 #. Property label for Dublin Core:extent
 msgid "Extent"
-msgstr "Ulatus"
+msgstr "Suurus"
 
 #. Property comment for Dublin Core:extent
 msgid "The size or duration of the resource."
-msgstr ""
+msgstr "Ressursi suurus või kestus."
 
 #. Property label for Dublin Core:medium
 msgid "Medium"
@@ -4758,7 +4934,7 @@ msgstr ""
 
 #. Property label for Dublin Core:spatial
 msgid "Spatial Coverage"
-msgstr ""
+msgstr "Ruumiline hõlme"
 
 #. Property comment for Dublin Core:spatial
 msgid "Spatial characteristics of the resource."
@@ -4766,7 +4942,7 @@ msgstr ""
 
 #. Property label for Dublin Core:temporal
 msgid "Temporal Coverage"
-msgstr ""
+msgstr "Ajaline hõlme"
 
 #. Property comment for Dublin Core:temporal
 msgid "Temporal characteristics of the resource."
@@ -4804,11 +4980,11 @@ msgstr "Lisamise kuupäev"
 
 #. Property comment for Dublin Core:dateSubmitted
 msgid "Date of submission of the resource."
-msgstr "Selle ressursi lisamise kuupäev."
+msgstr "Ressursi lisamise kuupäev."
 
 #. Property label for Dublin Core:educationLevel
 msgid "Audience Education Level"
-msgstr ""
+msgstr "Sihtrühma haridustase"
 
 #. Property comment for Dublin Core:educationLevel
 msgid ""
@@ -4828,7 +5004,7 @@ msgstr ""
 
 #. Property label for Dublin Core:bibliographicCitation
 msgid "Bibliographic Citation"
-msgstr ""
+msgstr "Bibliograafiline viide"
 
 #. Property comment for Dublin Core:bibliographicCitation
 msgid "A bibliographic reference for the resource."
@@ -4854,7 +5030,7 @@ msgstr ""
 
 #. Property label for Dublin Core:provenance
 msgid "Provenance"
-msgstr ""
+msgstr "Provenients"
 
 #. Property comment for Dublin Core:provenance
 msgid ""
@@ -4865,7 +5041,7 @@ msgstr ""
 
 #. Property label for Dublin Core:instructionalMethod
 msgid "Instructional Method"
-msgstr ""
+msgstr "Õppemeetod"
 
 #. Property comment for Dublin Core:instructionalMethod
 msgid ""
@@ -4875,7 +5051,7 @@ msgstr ""
 
 #. Property label for Dublin Core:accrualMethod
 msgid "Accrual Method"
-msgstr ""
+msgstr "Kogumismeetod"
 
 #. Property comment for Dublin Core:accrualMethod
 msgid "The method by which items are added to a collection."
@@ -4883,7 +5059,7 @@ msgstr ""
 
 #. Property label for Dublin Core:accrualPeriodicity
 msgid "Accrual Periodicity"
-msgstr ""
+msgstr "Kogumissagedus"
 
 #. Property comment for Dublin Core:accrualPeriodicity
 msgid "The frequency with which items are added to a collection."
@@ -4891,7 +5067,7 @@ msgstr ""
 
 #. Property label for Dublin Core:accrualPolicy
 msgid "Accrual Policy"
-msgstr ""
+msgstr "Kogumispoliitika"
 
 #. Property comment for Dublin Core:accrualPolicy
 msgid "The policy governing the addition of items to a collection."
@@ -4916,7 +5092,7 @@ msgstr ""
 
 #. Class label for Dublin Core Type:Dataset
 msgid "Dataset"
-msgstr ""
+msgstr "Andmekogu"
 
 #. Class comment for Dublin Core Type:Dataset
 msgid "Data encoded in a defined structure."
@@ -4935,7 +5111,7 @@ msgstr ""
 #. Class label for Bibliographic Ontology:Image
 #. Class label for Friend of a Friend:Image
 msgid "Image"
-msgstr "ilt"
+msgstr "Pilt"
 
 #. Class comment for Dublin Core Type:Image
 msgid "A visual representation other than text."
@@ -4943,7 +5119,7 @@ msgstr ""
 
 #. Class label for Dublin Core Type:InteractiveResource
 msgid "Interactive Resource"
-msgstr ""
+msgstr "Interaktiivne ressurss"
 
 #. Class comment for Dublin Core Type:InteractiveResource
 msgid ""
@@ -5011,11 +5187,11 @@ msgstr ""
 
 #. Vocabulary comment for Bibliographic Ontology
 msgid "Bibliographic metadata (BIBO)"
-msgstr ""
+msgstr "Bibliograafilised metaandmed (BIBO)"
 
 #. Class label for Bibliographic Ontology:AcademicArticle
 msgid "Academic Article"
-msgstr ""
+msgstr "Akadeemiline artikkel"
 
 #. Class comment for Bibliographic Ontology:AcademicArticle
 msgid "A scholarly academic article, typically published in a journal."
@@ -5092,7 +5268,7 @@ msgstr "Raamatu peatükk."
 
 #. Class label for Bibliographic Ontology:Code
 msgid "Code"
-msgstr ""
+msgstr "Kood"
 
 #. Class comment for Bibliographic Ontology:Code
 msgid "A collection of statutes."
@@ -5120,7 +5296,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:CourtReporter
 msgid "Court Reporter"
-msgstr ""
+msgstr "Kohtuajakirjanik"
 
 #. Class comment for Bibliographic Ontology:CourtReporter
 msgid "A collection of legal cases."
@@ -5223,7 +5399,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:Journal
 msgid "Journal"
-msgstr "Päevik"
+msgstr "Teadusajakiri"
 
 #. Class comment for Bibliographic Ontology:Journal
 msgid "A periodical of scholarly journal Articles."
@@ -5235,7 +5411,7 @@ msgstr ""
 
 #. Class comment for Bibliographic Ontology:LegalCaseDocument
 msgid "A document accompanying a legal case."
-msgstr ""
+msgstr "Juriidilise asja dokument."
 
 #. Class label for Bibliographic Ontology:LegalDecision
 msgid "Decision"
@@ -5258,7 +5434,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:Legislation
 msgid "Legislation"
-msgstr ""
+msgstr "Seadusandlus"
 
 #. Class comment for Bibliographic Ontology:Legislation
 msgid "A legal document proposing or enacting a law or a group of laws."
@@ -5385,7 +5561,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:Proceedings
 msgid "Proceedings"
-msgstr ""
+msgstr "Ettekanded"
 
 #. Class comment for Bibliographic Ontology:Proceedings
 msgid ""
@@ -5445,7 +5621,7 @@ msgstr ""
 
 #. Class comment for Bibliographic Ontology:Standard
 msgid "A document describing a standard"
-msgstr ""
+msgstr "Standardit kirjeldav dokument"
 
 #. Class label for Bibliographic Ontology:Statute
 msgid "Statute"
@@ -5457,7 +5633,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:Thesis
 msgid "Thesis"
-msgstr "Tees"
+msgstr "Väitekiri"
 
 #. Class comment for Bibliographic Ontology:Thesis
 msgid ""
@@ -5496,7 +5672,7 @@ msgstr ""
 
 #. Class label for Bibliographic Ontology:Workshop
 msgid "Workshop"
-msgstr ""
+msgstr "Töötuba"
 
 #. Class comment for Bibliographic Ontology:Workshop
 msgid ""
@@ -5542,7 +5718,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:cites
 msgid "cites"
-msgstr ""
+msgstr "tsiteerib"
 
 #. Property comment for Bibliographic Ontology:cites
 msgid ""
@@ -5553,7 +5729,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:contributorList
 msgid "list of contributors"
-msgstr ""
+msgstr "kaasautorite nimekiri"
 
 #. Property comment for Bibliographic Ontology:contributorList
 msgid ""
@@ -5573,7 +5749,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:degree
 msgid "degree"
-msgstr ""
+msgstr "kraad"
 
 #. Property comment for Bibliographic Ontology:degree
 msgid "The thesis degree."
@@ -5585,11 +5761,11 @@ msgstr ""
 
 #. Property comment for Bibliographic Ontology:director
 msgid "A Film director."
-msgstr ""
+msgstr "Filmirežissöör."
 
 #. Property label for Bibliographic Ontology:distributor
 msgid "distributor"
-msgstr ""
+msgstr "levitaja"
 
 #. Property comment for Bibliographic Ontology:distributor
 msgid "Distributor of a document or a collection of documents."
@@ -5597,7 +5773,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:editor
 msgid "editor"
-msgstr ""
+msgstr "toimetaja"
 
 #. Property comment for Bibliographic Ontology:editor
 msgid ""
@@ -5634,7 +5810,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:issuer
 msgid "issuer"
-msgstr "Väljaandja"
+msgstr "väljaandja"
 
 #. Property comment for Bibliographic Ontology:issuer
 msgid ""
@@ -5663,7 +5839,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:performer
 msgid "performer"
-msgstr ""
+msgstr "esitaja"
 
 #. Property label for Bibliographic Ontology:presentedAt
 msgid "presented at"
@@ -5734,7 +5910,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:subsequentLegalDecision
 msgid "subsequentLegalDecision"
-msgstr ""
+msgstr "subsequentLegalDecision"
 
 #. Property comment for Bibliographic Ontology:subsequentLegalDecision
 msgid ""
@@ -5768,7 +5944,7 @@ msgstr ""
 
 #. Property label for Bibliographic Ontology:abstract
 msgid "abstract"
-msgstr ""
+msgstr "kokkuvõte"
 
 #. Property label for Bibliographic Ontology:argued
 msgid "date argued"
@@ -5863,7 +6039,7 @@ msgstr "number"
 
 #. Property comment for Bibliographic Ontology:issue
 msgid "An issue number"
-msgstr "Väljande number"
+msgstr "Väljaande number"
 
 #. Property label for Bibliographic Ontology:lccn
 msgid "lccn"
@@ -5963,7 +6139,7 @@ msgstr "lühikeKirjeldus"
 
 #. Property label for Bibliographic Ontology:shortTitle
 msgid "short title"
-msgstr "lühike pealkiri"
+msgstr "lühipealkiri"
 
 #. Property comment for Bibliographic Ontology:shortTitle
 msgid "The abbreviation of a title."
@@ -6007,7 +6183,7 @@ msgstr "Sõbra sõber"
 
 #. Vocabulary comment for Friend of a Friend
 msgid "Relationships between people and organizations (FOAF)"
-msgstr ""
+msgstr "Suhted inimeste ja organisatsioonide vahel (FOAF)"
 
 #. Class label for Friend of a Friend:LabelProperty
 msgid "Label Property"
@@ -6027,17 +6203,13 @@ msgstr "Isik"
 msgid "A person."
 msgstr "Isik"
 
-#. Class comment for Friend of a Friend:Agent
-msgid "An agent (eg. person, group, software or physical artifact)."
-msgstr ""
-
 #. Class comment for Friend of a Friend:Document
 msgid "A document."
 msgstr "Dokument"
 
 #. Class label for Friend of a Friend:Organization
 msgid "Organization"
-msgstr "Organisatsion"
+msgstr "Organisatsioon"
 
 #. Class comment for Friend of a Friend:Organization
 msgid "An organization."
@@ -6050,6 +6222,10 @@ msgstr "Grupp"
 #. Class comment for Friend of a Friend:Group
 msgid "A class of Agents."
 msgstr "Agentide klass."
+
+#. Class comment for Friend of a Friend:Agent
+msgid "An agent (eg. person, group, software or physical artifact)."
+msgstr ""
 
 #. Class label for Friend of a Friend:Project
 msgid "Project"
@@ -6081,11 +6257,11 @@ msgstr ""
 
 #. Class label for Friend of a Friend:OnlineGamingAccount
 msgid "Online Gaming Account"
-msgstr ""
+msgstr "Veebipõhise mängu konto"
 
 #. Class comment for Friend of a Friend:OnlineGamingAccount
 msgid "An online gaming account."
-msgstr ""
+msgstr "Veebipõhise mängu konto."
 
 #. Class label for Friend of a Friend:OnlineEcommerceAccount
 msgid "Online E-commerce Account"
@@ -6093,11 +6269,11 @@ msgstr ""
 
 #. Class comment for Friend of a Friend:OnlineEcommerceAccount
 msgid "An online e-commerce account."
-msgstr ""
+msgstr "Veebipoe konto."
 
 #. Class label for Friend of a Friend:OnlineChatAccount
 msgid "Online Chat Account"
-msgstr ""
+msgstr "Veebipõhise vestluse konto"
 
 #. Class comment for Friend of a Friend:OnlineChatAccount
 msgid "An online chat account."
@@ -6145,7 +6321,7 @@ msgstr ""
 
 #. Property label for Friend of a Friend:dnaChecksum
 msgid "DNA checksum"
-msgstr ""
+msgstr "DNA kontrollsumma"
 
 #. Property comment for Friend of a Friend:dnaChecksum
 msgid "A checksum for the DNA of some thing. Joke."
@@ -6171,7 +6347,7 @@ msgstr ""
 
 #. Property label for Friend of a Friend:title
 msgid "title"
-msgstr "tiitel"
+msgstr "pealkiri"
 
 #. Property comment for Friend of a Friend:title
 msgid "Title (Mr, Mrs, Ms, Dr. etc)"
@@ -6249,7 +6425,7 @@ msgstr "eesNimi"
 
 #. Property comment for Friend of a Friend:firstName
 msgid "The first name of a person."
-msgstr "Inimese eesnimi."
+msgstr "Isiku eesnimi."
 
 #. Property label for Friend of a Friend:lastName
 msgid "lastName"
@@ -6257,7 +6433,7 @@ msgstr "perekonnaNimi"
 
 #. Property comment for Friend of a Friend:lastName
 msgid "The last name of a person."
-msgstr "Inimese perekonnanimi."
+msgstr "Isiku perekonnanimi."
 
 #. Property label for Friend of a Friend:givenName
 #. Property label for Friend of a Friend:givenname
@@ -6267,7 +6443,7 @@ msgstr "Eesnimi"
 #. Property comment for Friend of a Friend:givenName
 #. Property comment for Friend of a Friend:givenname
 msgid "The given name of some person."
-msgstr "Inimese eesnimi."
+msgstr "Isiku eesnimi."
 
 #. Property label for Friend of a Friend:surname
 msgid "Surname"
@@ -6302,7 +6478,7 @@ msgstr ""
 
 #. Property label for Friend of a Friend:homepage
 msgid "homepage"
-msgstr "veebileht"
+msgstr "koduleht"
 
 #. Property comment for Friend of a Friend:homepage
 msgid "A homepage for some thing."
@@ -6370,15 +6546,15 @@ msgstr ""
 
 #. Property label for Friend of a Friend:depiction
 msgid "depiction"
-msgstr ""
+msgstr "kujutis"
 
 #. Property comment for Friend of a Friend:depiction
 msgid "A depiction of some thing."
-msgstr ""
+msgstr "Millegi kujutis."
 
 #. Property label for Friend of a Friend:depicts
 msgid "depicts"
-msgstr ""
+msgstr "kujutab"
 
 #. Property comment for Friend of a Friend:depicts
 msgid "A thing depicted in this representation."
@@ -6390,7 +6566,7 @@ msgstr "pisipilt"
 
 #. Property comment for Friend of a Friend:thumbnail
 msgid "A derived thumbnail image."
-msgstr ""
+msgstr "Tuletatud pisipilt."
 
 #. Property label for Friend of a Friend:myersBriggs
 msgid "myersBriggs"
@@ -6402,7 +6578,7 @@ msgstr ""
 
 #. Property label for Friend of a Friend:workplaceHomepage
 msgid "workplace homepage"
-msgstr ""
+msgstr "töökoha koduleht"
 
 #. Property comment for Friend of a Friend:workplaceHomepage
 msgid ""
@@ -6456,11 +6632,11 @@ msgstr ""
 
 #. Property label for Friend of a Friend:publications
 msgid "publications"
-msgstr "väljaanded"
+msgstr "publikatsioonid"
 
 #. Property comment for Friend of a Friend:publications
 msgid "A link to the publications of this person."
-msgstr "Link selle inimese väljaannetele."
+msgstr "Link selle isiku publikatsioonidele."
 
 #. Property label for Friend of a Friend:currentProject
 msgid "current project"
@@ -6504,11 +6680,11 @@ msgstr "Lehekülje või dokumendi teema."
 
 #. Property label for Friend of a Friend:primaryTopic
 msgid "primary topic"
-msgstr "eamine teema"
+msgstr "peamine teema"
 
 #. Property comment for Friend of a Friend:primaryTopic
 msgid "The primary topic of some page or document."
-msgstr "Mõne lehekülje või dokumendi teema."
+msgstr "Mõne lehekülje või dokumendi peamine teema."
 
 #. Property label for Friend of a Friend:focus
 msgid "focus"

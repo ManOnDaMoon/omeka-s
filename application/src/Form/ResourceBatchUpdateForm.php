@@ -5,11 +5,11 @@ use Omeka\Form\Element\ItemSetSelect;
 use Omeka\Form\Element\PropertySelect;
 use Omeka\Form\Element\ResourceClassSelect;
 use Omeka\Form\Element\ResourceSelect;
-use Zend\EventManager\Event;
-use Zend\EventManager\EventManagerAwareTrait;
-use Zend\Form\Element;
-use Zend\Form\Form;
-use Zend\View\Helper\Url;
+use Laminas\EventManager\Event;
+use Laminas\EventManager\EventManagerAwareTrait;
+use Laminas\Form\Element;
+use Laminas\Form\Form;
+use Laminas\View\Helper\Url;
 
 class ResourceBatchUpdateForm extends Form
 {
@@ -165,6 +165,15 @@ class ResourceBatchUpdateForm extends Form
             ],
         ]);
 
+        // This hidden element manages the "set_value_visibility" elements added in the view.
+        $this->add([
+            'name' => 'set_value_visibility',
+            'type' => Element\Hidden::class,
+            'attributes' => [
+                'value' => '',
+            ],
+        ]);
+
         // This hidden element manages the elements "value" added in the view.
         $this->add([
             'name' => 'value',
@@ -276,6 +285,9 @@ class ResourceBatchUpdateForm extends Form
         if (isset($data['clear_property_values'])) {
             $preData['remove']['clear_property_values'] = $data['clear_property_values'];
         }
+        if (isset($data['set_value_visibility'])) {
+            $preData['remove']['set_value_visibility'] = $data['set_value_visibility'];
+        }
         if (!empty($data['clear_language'])) {
             $preData['remove']['o:lang'] = null;
         }
@@ -289,6 +301,7 @@ class ResourceBatchUpdateForm extends Form
                 $valueObj = [
                     'property_id' => $value['property_id'],
                     'type' => $value['type'],
+                    'is_public' => $value['is_public'],
                 ];
                 switch ($value['type']) {
                     case 'uri':

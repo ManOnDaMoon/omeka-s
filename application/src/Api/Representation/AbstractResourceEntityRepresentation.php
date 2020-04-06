@@ -112,6 +112,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
                 'o:resource_class' => $resourceClass,
                 'o:resource_template' => $resourceTemplate,
                 'o:thumbnail' => $thumbnail,
+                'o:title' => $this->title(),
             ],
             $dateTime,
             $this->getResourceJsonLd(),
@@ -160,6 +161,22 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
     {
         return $this->getAdapter('assets')
             ->getRepresentation($this->resource->getThumbnail());
+    }
+
+    /**
+     * Get the title of this resource.
+     *
+     * @return string
+     */
+    public function title()
+    {
+        $title = $this->resource->getTitle();
+
+        $eventManager = $this->getEventManager();
+        $args = $eventManager->prepareArgs(['title' => $title]);
+        $eventManager->trigger('rep.resource.title', $this, $args);
+
+        return $args['title'];
     }
 
     /**
@@ -251,7 +268,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         $values = [];
         foreach ($this->resource->getValues() as $valueEntity) {
             $value = new ValueRepresentation($valueEntity, $this->getServiceLocator());
-            if ('resource' === $value->type() && null === $value->valueResource()) {
+            if ($value->isHidden()) {
                 // Skip this resource value if the resource is not available
                 // (most likely because it is private).
                 continue;
@@ -265,7 +282,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
             $values[$term]['values'][] = $value;
         }
 
-        // Order this resource's values according to the template order.
+        // Order this resource's properties according to the template order.
         $sortedValues = [];
         foreach ($values as $term => $valueInfo) {
             foreach ($templateInfo as $templateTerm => $templateAlternates) {
@@ -276,7 +293,13 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
             }
         }
 
-        $this->values = $sortedValues + $values;
+        $values = $sortedValues + $values;
+
+        $eventManager = $this->getEventManager();
+        $args = $eventManager->prepareArgs(['values' => $values]);
+        $eventManager->trigger('rep.resource.values', $this, $args);
+
+        $this->values = $args['values'];
         return $this->values;
     }
 
@@ -290,7 +313,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
      * - all: (false) If true, returns all values that match criteria. If false,
      *   returns the first matching value.
      * - default: (null) Default value if no values match criteria. Returns null
-     *   by default.
+     *   by default for single result, empty array for all results.
      * - lang: (null) Get values of this language only. Returns values of all
      *   languages by default.
      * @return ValueRepresentation|ValueRepresentation[]|mixed
@@ -305,7 +328,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
             $options['all'] = false;
         }
         if (!isset($options['default'])) {
-            $options['default'] = null;
+            $options['default'] = $options['all'] ? [] : null;
         }
         if (!isset($options['lang'])) {
             $options['lang'] = null;
@@ -471,12 +494,9 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
      */
     public function displayTitle($default = null)
     {
-        $title = $this->value('dcterms:title', [
-            'default' => null,
-        ]);
-
-        if ($title !== null) {
-            return (string) $title;
+        $title = $this->title();
+        if (null !== $title) {
+            return $title;
         }
 
         if ($default === null) {
@@ -495,6 +515,13 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
      */
     public function displayDescription($default = null)
     {
+        $template = $this->resourceTemplate();
+        if ($template && $template->descriptionProperty()) {
+            $description = $this->value($template->descriptionProperty()->term());
+            if (null !== $description) {
+                return $description;
+            }
+        }
         return (string) $this->value('dcterms:description', [
             'default' => $default,
         ]);
