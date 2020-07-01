@@ -36,7 +36,7 @@ return [
         'use_externals' => true,
         'externals' => [
             'Omeka' => [
-                'vendor/jquery/jquery.min.js' => '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
+                'vendor/jquery/jquery.min.js' => '//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
             ],
         ],
     ],
@@ -304,12 +304,14 @@ return [
     'controllers' => [
         'invokables' => [
             'Omeka\Controller\Index' => Controller\IndexController::class,
+            'Omeka\Controller\Search' => Controller\SearchController::class,
             'Omeka\Controller\Maintenance' => Controller\MaintenanceController::class,
             'Omeka\Controller\Site\Index' => Controller\Site\IndexController::class,
             'Omeka\Controller\Site\Item' => Controller\Site\ItemController::class,
             'Omeka\Controller\Site\ItemSet' => Controller\Site\ItemSetController::class,
             'Omeka\Controller\Site\Media' => Controller\Site\MediaController::class,
             'Omeka\Controller\Site\Page' => Controller\Site\PageController::class,
+            'Omeka\Controller\Site\CrossSiteSearch' => Controller\Site\CrossSiteSearchController::class,
             'Omeka\Controller\Admin\Asset' => Controller\Admin\AssetController::class,
             'Omeka\Controller\Admin\Index' => Controller\Admin\IndexController::class,
             'Omeka\Controller\Admin\ItemSet' => Controller\Admin\ItemSetController::class,
@@ -387,6 +389,7 @@ return [
             'filterSelector' => View\Helper\FilterSelector::class,
             'propertySelector' => View\Helper\PropertySelector::class,
             'itemSetSelector' => View\Helper\ItemSetSelector::class,
+            'siteSelector' => View\Helper\SiteSelector::class,
             'userSelector' => View\Helper\UserSelector::class,
             'searchFilters' => View\Helper\SearchFilters::class,
             'blockAttachmentsForm' => View\Helper\BlockAttachmentsForm::class,

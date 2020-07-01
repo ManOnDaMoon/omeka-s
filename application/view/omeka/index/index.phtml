@@ -10,6 +10,12 @@ $this->headTitle($subtitle);
 <h2 class="site-list-heading"><?php echo $subtitle; ?></h2>
 
 <?php if ($sites): ?>
+
+<?php echo $this->partial(
+    'common/cross-site-search/fulltext-form.phtml',
+    ['action' => $this->url('search', ['action' => 'results'], true)]
+); ?>
+
 <div class="site-list">
 <?php
 foreach ($sites as $site):

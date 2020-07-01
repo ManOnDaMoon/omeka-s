@@ -23,9 +23,14 @@ class ItemRepresentation extends AbstractResourceEntityRepresentation
         foreach ($this->itemSets() as $itemSetRepresentation) {
             $itemSets[] = $itemSetRepresentation->getReference();
         }
+        $sites = [];
+        foreach ($this->sites() as $siteRepresentation) {
+            $sites[] = $siteRepresentation->getReference();
+        }
         return [
             'o:media' => $media,
             'o:item_set' => $itemSets,
+            'o:site' => $sites,
         ];
     }
 
@@ -60,6 +65,17 @@ class ItemRepresentation extends AbstractResourceEntityRepresentation
         return $itemSets;
     }
 
+    public function sites()
+    {
+        $sites = [];
+        $siteAdapter = $this->getAdapter('sites');
+        foreach ($this->resource->getSites() as $siteEntity) {
+            $sites[$siteEntity->getId()] =
+                $siteAdapter->getRepresentation($siteEntity);
+        }
+        return $sites;
+    }
+
     public function primaryMedia()
     {
         // Return the first media if one exists.
@@ -83,5 +99,13 @@ class ItemRepresentation extends AbstractResourceEntityRepresentation
             ],
             ['force_canonical' => $canonical]
         );
+    }
+
+    public function sitePages($siteId)
+    {
+        return $this->getServiceLocator()
+            ->get('Omeka\ApiManager')
+            ->search('site_pages', ['site_id' => $siteId, 'item_id' => $this->id()])
+            ->getContent();
     }
 }

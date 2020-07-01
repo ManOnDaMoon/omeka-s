@@ -105,6 +105,10 @@ class SiteAdapter extends AbstractEntityAdapter
             $entity->setIsPublic($request->getValue('o:is_public', true));
         }
 
+        if ($this->shouldHydrate($request, 'o:assign_new_items')) {
+            $entity->setAssignNewItems($request->getValue('o:assign_new_items'));
+        }
+
         if ($this->shouldHydrate($request, 'o:page')) {
             $pagesData = $request->getValue('o:page', []);
             $adapter = $this->getAdapter('site_pages');
@@ -260,6 +264,14 @@ class SiteAdapter extends AbstractEntityAdapter
 
     public function buildQuery(QueryBuilder $qb, array $query)
     {
+        if (isset($query['item_id']) && is_numeric($query['item_id'])) {
+            $itemAlias = $this->createAlias();
+            $qb->leftJoin(
+                'omeka_root.items', $itemAlias, 'WITH',
+                $qb->expr()->eq("$itemAlias.id", $this->createNamedParameter($qb, $query['item_id']))
+            );
+        }
+
         if (isset($query['owner_id']) && is_numeric($query['owner_id'])) {
             $userAlias = $this->createAlias();
             $qb->innerJoin(
@@ -284,6 +296,24 @@ class SiteAdapter extends AbstractEntityAdapter
                 'omeka_root.id',
                 $this->createNamedParameter($qb, $query['exclude_id'])
             ));
+        }
+
+        if (isset($query['assign_new_items'])) {
+            $qb->andWhere($qb->expr()->eq(
+                'omeka_root.assignNewItems',
+                $this->createNamedParameter($qb, (bool) $query['assign_new_items'])
+            ));
+        }
+    }
+
+    public function sortQuery(QueryBuilder $qb, array $query)
+    {
+        if ('owner_name' == $query['sort_by']) {
+            $ownerAlias = $this->createAlias();
+            $qb->leftJoin("omeka_root.owner", $ownerAlias)
+                ->addOrderBy("$ownerAlias.name", $query['sort_order']);
+        } else {
+            parent::sortQuery($qb, $query);
         }
     }
 

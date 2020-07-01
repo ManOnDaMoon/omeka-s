@@ -152,6 +152,7 @@ class AclFactory implements FactoryInterface
                 'Omeka\Controller\Site\ItemSet',
                 'Omeka\Controller\Site\Media',
                 'Omeka\Controller\Site\Page',
+                'Omeka\Controller\Site\CrossSiteSearch',
             ]
         );
         $acl->allow(
@@ -220,6 +221,18 @@ class AclFactory implements FactoryInterface
             'read',
             $viewerAssertion
         );
+
+        $canAssignItemsAssertion = $this->aggregate([
+            new OwnsEntityAssertion,
+            new HasSitePermissionAssertion('admin'),
+            new HasSitePermissionAssertion('editor'),
+        ], AssertionAggregate::MODE_AT_LEAST_ONE);
+        $acl->allow(
+            null,
+            'Omeka\Entity\Site',
+            'can-assign-items',
+            $canAssignItemsAssertion
+        );
     }
 
     /**
@@ -237,6 +250,7 @@ class AclFactory implements FactoryInterface
                 'Omeka\Controller\Login',
                 'Omeka\Controller\Maintenance',
                 'Omeka\Controller\Migrate',
+                'Omeka\Controller\Search',
             ]
         );
         $acl->allow(

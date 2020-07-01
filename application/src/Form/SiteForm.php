@@ -46,7 +46,6 @@ class SiteForm extends Form
                 'required' => false,
             ],
         ]);
-
         $event = new Event('form.add_elements', $this);
         $triggerResult = $this->getEventManager()->triggerEvent($event);
 
