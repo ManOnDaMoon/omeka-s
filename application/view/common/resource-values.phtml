@@ -37,14 +37,12 @@ $lang = $this->lang();
                 $class[] = 'private';
             }
             ?>
-            <?php if ((!$filterLocale) || ($valueLang == '') || (strcasecmp($valueLang, $lang) == 0)): ?>
             <div class="<?php echo implode(' ', $class); ?>" lang="<?php echo $escape($valueLang); ?>">
                 <?php if ($showLocale && $valueLang): ?>
                 <span class="language"><?php echo $valueLang; ?></span>
                 <?php endif; ?>
                 <?php echo($filterLocale ? $value->asHtml($lang) : $value->asHtml()); ?>
             </div>
-            <?php endif; ?>
         <?php endforeach; ?>
         </div>
     </div>
