@@ -332,12 +332,12 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         $values = $this->values();
 
         // Set defaults.
-        if (empty($filters['terms'])) {
+        if (empty($filters['term'])) {
             $terms = array_keys($values);
-        } elseif (is_array($filters['terms'])) {
-            $terms = $filters['terms'];
+        } elseif (is_array($filters['term'])) {
+            $terms = $filters['term'];
         } else {
-            $terms = [$filters['terms']]; // Fix me: Are terms case sensitive?
+            $terms = [$filters['term']]; // Fix me: Are terms case sensitive?
         }
 
         if (empty($filters['type'])) {
@@ -357,12 +357,16 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         }
 
         // Term by term, match only the representations that fit all the criteria.
+        $filteredValues = [];
         foreach ($terms as $term) {
-            $matchingValues = [];
+
             if (!isset($values[$term])) {
                 continue;
             }
-            foreach ($values[$term]['values'] as $value) {
+            $filteredValues[$term] = $values[$term];
+
+            $matchingValues = [];
+            foreach ($filteredValues[$term]['values'] as $value) {
                 if ($types && empty($types[strtolower($value->type())])) {
                     continue;
                 }
@@ -371,14 +375,15 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
                 }
                 $matchingValues[] = $value;
             }
+
             if (!count($matchingValues)) {
-                unset($values[$term]);
+                unset($filteredValues[$term]);
             } else {
-                $values[$term]['values'] = $matchingValues;
+                $filteredValues[$term]['values'] = $matchingValues;
             }
         }
 
-        return $values;
+        return $filteredValues;
     }
 
     /**
