@@ -20,7 +20,11 @@ $lang = $this->lang();
     ?>
     </div>
 <?php endif; ?>
-<?php echo $item->displayValues(); ?>
+<?php if ($filterLocale):?>
+	<?php echo $item->displayValues(['filters' => ['lang' => ['', $lang]]]); ?>
+<?php else:?>
+	<?php echo $item->displayValues();?>
+<?php endif;?>
 <div class="property">
     <?php $itemSets = $item->itemSets(); ?>
     <?php if (count($itemSets) > 0): ?>

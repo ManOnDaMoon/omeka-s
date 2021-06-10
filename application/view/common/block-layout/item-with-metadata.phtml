@@ -1,13 +1,20 @@
 <?php
 $translate = $this->plugin('translate');
+
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
 ?>
 <div class="item-with-metadata">
 <?php foreach($attachments as $attachment): ?>
     <?php $item = $attachment->item(); ?>
     <?php if (empty($item)) continue; ?>
     <div class="resource show">
-    <?php echo $item->displayValues(); ?>
-    <?php if($item->itemSets()): ?>
+    <?php if ($filterLocale):?>
+		<?php echo $item->displayValues(['filters' => ['lang' => ['', $lang]]]); ?>
+    <?php else:?>
+		<?php echo $item->displayValues();?>
+    <?php endif;?>
+    <?php if ($item->itemSets()): ?>
         <div class="property">
             <h4><?php echo $translate('Item sets'); ?></h4>
             <?php foreach ($item->itemSets() as $itemSet): ?>

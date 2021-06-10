@@ -308,6 +308,80 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
     }
 
     /**
+     * Among all values for this resource, filter according to given parameters.
+     *
+     * <code>
+     * array(
+     *   {term} => array(
+     *     'property' => {PropertyRepresentation},
+     *     'alternate_label' => {label},
+     *     'alternate_comment' => {comment},
+     *     'values' => array(
+     *       {ValueRepresentation},
+     *       {ValueRepresentation},
+     *       {…},
+     *     ),
+     *   ),
+     * )
+     * </code>
+     *
+     * @return array
+     */
+    public function valuesFiltered(array $filters = [])
+    {
+        $values = $this->values();
+
+        // Set defaults.
+        if (empty($filters['terms'])) {
+            $terms = array_keys($values);
+        } elseif (is_array($filters['terms'])) {
+            $terms = $filters['terms'];
+        } else {
+            $terms = [$filters['terms']]; // Fix me: Are terms case sensitive?
+        }
+
+        if (empty($filters['type'])) {
+            $types = false;
+        } elseif (is_array($filters['type'])) {
+            $types = array_fill_keys(array_map('strtolower', $filters['type']), true);
+        } else {
+            $types = [strtolower($filters['type']) => true];
+        }
+
+        if (empty($filters['lang'])) {
+            $langs = false;
+        } elseif (is_array($filters['lang'])) {
+            $langs = array_fill_keys(array_map('strtolower', $filters['lang']), true);
+        } else {
+            $langs = [strtolower($filters['lang']) => true];
+        }
+
+        // Term by term, match only the representations that fit all the criteria.
+        foreach ($terms as $term) {
+            $matchingValues = [];
+            if (!isset($values[$term])) {
+                continue;
+            }
+            foreach ($values[$term]['values'] as $value) {
+                if ($types && empty($types[strtolower($value->type())])) {
+                    continue;
+                }
+                if ($langs && empty($langs[strtolower($value->lang())])) {
+                    continue;
+                }
+                $matchingValues[] = $value;
+            }
+            if (!count($matchingValues)) {
+                unset($values[$term]);
+            } else {
+                $values[$term]['values'] = $matchingValues;
+            }
+        }
+
+        return $values;
+    }
+
+    /**
      * Get value representations.
      *
      * @param string $term The prefix:local_part
@@ -459,7 +533,11 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         $partial = $this->getViewHelper('partial');
 
         $eventManager = $this->getEventManager();
-        $args = $eventManager->prepareArgs(['values' => $this->values()]);
+        if (empty($options['filters'])) {
+            $args = $eventManager->prepareArgs(['values' => $this->values()]);
+        } else {
+            $args = $eventManager->prepareArgs(['values' => $this->valuesFiltered($options['filters'])]);
+        }
         $eventManager->trigger('rep.resource.display_values', $this, $args);
         $options['values'] = $args['values'];
 

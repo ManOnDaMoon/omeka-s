@@ -1,7 +1,8 @@
 <?php
 $translate = $this->plugin('translate');
 $item = $media->item();
-
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
 $this->htmlElement('body')->appendAttribute('class', 'media resource show'); ?>
 
 <?php echo $this->pageTitle($media->displayTitle(), 2); ?>
@@ -11,5 +12,9 @@ $this->htmlElement('body')->appendAttribute('class', 'media resource show'); ?>
     <?php echo sprintf($translate('Part of %s'), $item->link($item->displayTitle())); ?>
 </p>
 <?php echo $media->render(); ?>
-<?php echo $media->displayValues(); ?>
+<?php if ($filterLocale):?>
+	<?php echo $media->displayValues(['filters' => ['lang' => ['', $lang]]]); ?>
+<?php else:?>
+	<?php echo $media->displayValues();?>
+<?php endif;?>
 <?php $this->trigger('view.show.after'); ?>
