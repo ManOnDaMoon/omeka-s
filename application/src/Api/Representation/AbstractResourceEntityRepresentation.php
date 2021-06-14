@@ -359,7 +359,6 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         // Term by term, match only the representations that fit all the criteria.
         $filteredValues = [];
         foreach ($terms as $term) {
-
             if (!isset($values[$term])) {
                 continue;
             }
@@ -417,7 +416,7 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         if (!isset($options['lang'])) {
             $options['lang'] = null;
         }
-        
+
         if (!$this->getAdapter()->isTerm($term)) {
             return $options['default'];
         }
@@ -427,7 +426,6 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
             'lang' => $options['lang'],
             'type' => $options['type'],
         ])) {
-
             return $options['all'] ? $termValues[$term]['values'] : $termValues[$term]['values'][0];
         } else {
             return $options['default'];
