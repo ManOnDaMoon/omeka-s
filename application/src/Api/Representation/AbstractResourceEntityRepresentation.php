@@ -411,48 +411,66 @@ abstract class AbstractResourceEntityRepresentation extends AbstractEntityRepres
         if (!isset($options['default'])) {
             $options['default'] = $options['all'] ? [] : null;
         }
-
+        if (!isset($options['type'])) {
+            $options['type'] = null;
+        }
+        if (!isset($options['lang'])) {
+            $options['lang'] = null;
+        }
+        
         if (!$this->getAdapter()->isTerm($term)) {
             return $options['default'];
         }
 
-        if (!isset($this->values()[$term])) {
+        if ($termValues = $this->valuesFiltered([
+            'term' => $term,
+            'lang' => $options['lang'],
+            'type' => $options['type'],
+        ])) {
+            return $options['all'] ? $termValues[$term]['values'] : $termValues[$term]['values'][0];
+        } else {
             return $options['default'];
         }
+        
+//         if (!isset($this->values()[$term])) {
+//             return $options['default'];
+//         }
 
-        if (empty($options['type'])) {
-            $types = false;
-        } elseif (is_array($options['type'])) {
-            $types = array_fill_keys(array_map('strtolower', $options['type']), true);
-        } else {
-            $types = [strtolower($options['type']) => true];
-        }
+//         if (empty($options['type'])) {
+//             $types = false;
+//         } elseif (is_array($options['type'])) {
+//             $types = array_fill_keys(array_map('strtolower', $options['type']), true);
+//         } else {
+//             $types = [strtolower($options['type']) => true];
+//         }
 
-        if (empty($options['lang'])) {
-            $langs = false;
-        } elseif (is_array($options['lang'])) {
-            $langs = array_fill_keys(array_map('strtolower', $options['lang']), true);
-        } else {
-            $langs = [strtolower($options['lang']) => true];
-        }
+//         if (empty($options['lang'])) {
+//             $langs = false;
+//         } elseif (is_array($options['lang'])) {
+//             $langs = array_fill_keys(array_map('strtolower', $options['lang']), true);
+//         } else {
+//             $langs = [strtolower($options['lang']) => true];
+//         }
 
         // Match only the representations that fit all the criteria.
-        $matchingValues = [];
-        foreach ($this->values()[$term]['values'] as $value) {
-            if ($types && empty($types[strtolower($value->type())])) {
-                continue;
-            }
-            if ($langs && empty($langs[strtolower($value->lang())])) {
-                continue;
-            }
-            $matchingValues[] = $value;
-        }
+//         $matchingValues = [];
+//         foreach ($this->values()[$term]['values'] as $value) {
+//             if ($types && empty($types[strtolower($value->type())])) {
+//                 continue;
+//             }
+//             if ($langs && empty($langs[strtolower($value->lang())])) {
+//                 continue;
+//             }
+//             $matchingValues[] = $value;
+//         }
 
-        if (!count($matchingValues)) {
-            return $options['default'];
-        }
+        
+        
+//         if (!count($matchingValues)) {
+//             return $options['default'];
+//         }
 
-        return $options['all'] ? $matchingValues : $matchingValues[0];
+//         return $options['all'] ? $matchingValues : $matchingValues[0];
     }
 
     /**
